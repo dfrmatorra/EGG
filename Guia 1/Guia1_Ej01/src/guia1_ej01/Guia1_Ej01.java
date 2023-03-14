@@ -27,7 +27,7 @@ public class Guia1_Ej01 {
         System.out.println("Ingresar el segundo numero");
         num2 = leer.nextInt();
         suma = num1 + num2;
-        System.out.println("La suma de " + num1 + " + " + num2 + " = " + suma);
+        System.out.println("La suma de los números " + num1 + " + " + num2 + " = " + suma);
     }
     
 }
