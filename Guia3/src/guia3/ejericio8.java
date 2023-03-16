@@ -26,19 +26,20 @@ public class ejericio8 {
         cantidad = leer.nextInt();
         
         for (int i = 0; i < cantidad; i++) {
-                 if (i==0 || i==cantidad){
+                 if (i==0 || i==cantidad-1){
                      for (int j = 0; j < cantidad; j++)
                      System.out.print(" * ");
                  }    
                  else
                  {
-                     for (int j = 0; j < cantidad; j++)
+                     for (int k = 0; k < cantidad; k++)
                      {
-                        if (j==0 || j==cantidad){
+                        if (k==0 || k==cantidad-1){
                         System.out.print(" * ");
+                        
                         }
                         else{
-                                System.out.print(" ");
+                                System.out.print("   ");
                                 }
                      }
                         
