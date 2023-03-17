@@ -1,2 +1,0 @@
-actualizar un poco mas
-vamos a probar git fetch
