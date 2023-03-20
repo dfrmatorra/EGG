@@ -19,12 +19,14 @@ public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner ingrese = new Scanner(System.in);
         String respuesta = "";
+        String nombre = "";
+        int edad = 0;
         do {
             respuesta = datos(nombre, edad);
             
             
             
-        } while (!respuesta.equals("no") );
+        } while (respuesta.equalsIgnoreCase("s") );
         
     }
     
@@ -35,6 +37,14 @@ public class Ejercicio2 {
         nombre = ingrese.next();
         System.out.println("Ingrese edad");
         edad = ingrese.nextInt();
+        if (edad < 18) {
+            System.out.println(nombre + " es menor de edad.");
+        } else {
+            System.out.println(nombre + " es mayor de edad.");
+        }
+        
+        System.out.println("Desea continuar? [s/n]");
+        retorno = ingrese.next();
         
         return retorno;
         
