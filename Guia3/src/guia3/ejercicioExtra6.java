@@ -5,6 +5,9 @@ general.
  */
 package guia3;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -15,24 +18,36 @@ public class ejercicioExtra6 {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
-        int contador = 0;
-        float altura, total = 0;
-        String respuesta = ""; 
-        
+        DecimalFormat formato1 = new DecimalFormat("#.00");
+
+        int contadorPeti = 0;
+        int contadorTotal = 0;
+        float altura, totalPeti, total, resultadoPeti, resultadoFinal;
+        String respuesta = "";
+        totalPeti = 0;
+        total = 0;
         do {
-            System.out.println("Ingrese la altura");
+            System.out.println("Ingrese la altura con coma y dos decimales");
             altura = leer.nextFloat();
-            if (altura < 1.60){
-                contador++;
-                total = total + altura;
-               }
-            System.out.println("Quiere seguir ingresando alturas (si/no");
+
+
+            if (altura < 1.60) {
+                contadorPeti++;
+                totalPeti = totalPeti + altura;
+
+            }
+            total = total + altura;
+            contadorTotal++;
+            System.out.println("Quiere seguir ingresando alturas (si/no)");
             respuesta = leer.next();
-        }while (respuesta.equalsIgnoreCase("si"));
-        
-        System.out.println("El promedio de latura menor a 1.60 es:" + (total / contador));
-        
-        
+        } while (!respuesta.equalsIgnoreCase("no") && !respuesta.equalsIgnoreCase("n"));
+
+        resultadoPeti = (totalPeti / contadorPeti);
+        resultadoFinal = (total / contadorTotal);
+
+        System.out.println("El promedio de altura menor a 1.60 es:" + formato1.format(resultadoPeti));
+        System.out.println("El promedio de altura total es:" + formato1.format(resultadoFinal));
+
     }
-    
+
 }
