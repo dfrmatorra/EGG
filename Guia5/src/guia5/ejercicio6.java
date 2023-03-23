@@ -78,7 +78,7 @@ public class ejercicio6 {
                 i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (i == j) {
-                    diagonal1 = diagonal1 + matriz[i][j];
+                    diagonal1 += matriz[i][j];
                 }
             }
 
@@ -90,7 +90,7 @@ public class ejercicio6 {
                 i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if ((i == 0 && j == 2) || ((i == 1) && (j == 1)) || (i == 2 && j == 0)) {
-                    diagonal2 = diagonal2 + matriz[i][j];
+                    diagonal2 += matriz[i][j];
                 }
 
             }
