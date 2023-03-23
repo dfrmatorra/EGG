@@ -39,14 +39,19 @@ public class ejercicioExtra6 {
 
             System.out.println("Ingrese palabras de 3 a 5 caracteres:");
             String palabra = leer.nextLine();
+            int aux = 1;
             for (int i = 0; i < 20; i++) {
                 int aleatorio = random.nextInt(15);
                 for (int j = 0; j < 20; j++) {
+                    aux=1;
                     if (i == vectorAleat1[0] || i == vectorAleat1[1] || i == vectorAleat1[2] || i == vectorAleat1[3] || i == vectorAleat1[4]) {
 
-                        
-                        if (j >= aleatorio ){
-                            sopa[i][j] = palabra.substring(j-aleatorio, j-aleatorio);
+                        if (j >= aleatorio && j < (aleatorio + palabra.length())) {
+                            sopa[i][j] = palabra.substring(j - aleatorio, ((j - aleatorio) + aux));
+                            aux++;
+
+                        } else {
+                            sopa[i][j] = String.valueOf(random.nextInt(9));
                         }
                     } else {
                         sopa[i][j] = String.valueOf(random.nextInt(9));
@@ -56,7 +61,7 @@ public class ejercicioExtra6 {
             }
             cont++;
 
-        } while (cont < 6);
+        } while (cont < 5);
 
         for (int i = 0; i < sopa.length; i++) {
             for (int j = 0; j < sopa.length; j++) {
