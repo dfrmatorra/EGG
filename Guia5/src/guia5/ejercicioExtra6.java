@@ -14,7 +14,7 @@ package guia5;
 import java.util.Random;
 import java.util.Scanner;
 /*
- @author Dario
+ @author DarioF
  */
 public class ejercicioExtra6 {
 
