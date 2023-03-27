@@ -28,7 +28,13 @@ package guia5;
 public class ejercicioExtra7 {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        //dos formas para aleatorio del 0 al 100
+//        Random aleatorio = new Random();
+//        int num1 = aleatorio.nextInt(100);
+//        int num2 = (int)(Math.random()*100);
+//        System.out.println("Random:" + num1);
+//        System.out.println("Math.ramdom: " + num2);
     }
-    
+
 }
