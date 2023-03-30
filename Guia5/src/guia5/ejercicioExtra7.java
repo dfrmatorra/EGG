@@ -21,6 +21,8 @@ link: https://quantdare.com/numeros-de-fibonacci/
  */
 package guia5;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Dario
@@ -28,13 +30,30 @@ package guia5;
 public class ejercicioExtra7 {
 
     public static void main(String[] args) {
-        
-        //dos formas para aleatorio del 0 al 100
+
+        Scanner leer = new Scanner(System.in);
+
+        System.out.println("Ingrese la cantidad de numeros Fibonacci:");
+        int num = leer.nextInt();
+
+        System.out.println("------------------------------");
+        int a = 0;
+        int b = 1;
+        int c = 0;
+
+        System.out.println(b);
+
+        for (int i = 0; i < num; i++) {
+            c = a + b;
+            System.out.println(c);
+            a = b;
+            b = c;
+        }
+    }
+}
+//dos formas para aleatorio del 0 al 100
 //        Random aleatorio = new Random();
 //        int num1 = aleatorio.nextInt(100);
 //        int num2 = (int)(Math.random()*100);
 //        System.out.println("Random:" + num1);
 //        System.out.println("Math.ramdom: " + num2);
-    }
-
-}
