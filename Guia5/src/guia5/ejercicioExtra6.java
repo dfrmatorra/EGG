@@ -22,8 +22,8 @@ public class ejercicioExtra6 {
 
         Scanner leer = new Scanner(System.in);
         Random random = new Random();
-        int dimension = 30;//dimension de la sopa de letras
-        int cantidadPalabras = 5; //cantidad de palabras para incorporar
+        int dimension = 50;//dimension de la sopa de letras
+        int cantidadPalabras = 10; //cantidad de palabras para incorporar
         
 //crear e inicializar matriz sopa
         String[][] sopa = new String[dimension][dimension];
