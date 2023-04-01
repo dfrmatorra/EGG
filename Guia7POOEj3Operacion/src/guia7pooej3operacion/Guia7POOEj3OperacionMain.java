@@ -35,44 +35,43 @@ public class Guia7POOEj3OperacionMain {
         Scanner leer = new Scanner(System.in);
 
         Operacion operacion1 = new Operacion();
+
+        operacion1.crearOperacion();
+
         int opc;
-        
+
         do {
             System.out.println("MENU");
             System.out.println("");
 
-            System.out.println("1.- Ingresar datos");
-            System.out.println("2.- Sumar");
-            System.out.println("3.- Restar");
-            System.out.println("4.- Multiplicar");
-            System.out.println("5.- Dividir");
-            System.out.println("6.- Ver numeros");
-            System.out.println("7.- Salir");
+            System.out.println("1.- Sumar");
+            System.out.println("2.- Restar");
+            System.out.println("3.- Multiplicar");
+            System.out.println("4.- Dividir");
+            System.out.println("5.- Ver numeros");
+            System.out.println("6.- Salir");
 
             opc = leer.nextInt();
+            System.out.println("----------------------");
 
             switch (opc) {
                 case 1:
-                    operacion1.crearOperacion();
-
+                    System.out.println("Resultado: " + operacion1.sumar());
                     break;
                 case 2:
-                    System.out.println(operacion1.sumar());
+                    System.out.println("Resultado: " + operacion1.restar());
                     break;
                 case 3:
-                    System.out.println(operacion1.restar());
+                    System.out.println("Resultado: " + operacion1.multiplicar());
                     break;
                 case 4:
-                    System.out.println(operacion1.multiplicar());                     
-                        break;
+                    System.out.println("Resultado: " + String.format("%.2f", operacion1.dividir()));
+                    break;
                 case 5:
-                    System.out.println(String.format("%.2f", operacion1.dividir()));
+                    System.out.println("Resultado: " + operacion1.toString());
+
                     break;
                 case 6:
-                    System.out.println(operacion1.toString());
-                    
-                    break;
-                case 7:
                     break;
 
             }
