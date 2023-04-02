@@ -10,17 +10,58 @@ número de veces que cada jugador ha ganado.
  */
 package guia7pooejextra3;
 
+import Clases.Juego;
+import java.util.Scanner;
+
 /**
  *
  * @author CASA
  */
 public class Guia7POOEjExtra3 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        Juego primerJuego = new Juego();
+
+        System.out.println("JUEGO DE ADIVINAR NUMERO");
+        System.out.println("Ingresar cantidad de oportunidades en el modo de juego");
+        Scanner leer = new Scanner(System.in);
+        int intentos = leer.nextInt();
+        System.out.println("El juego con " + intentos + " oportunidades empieza");
+        System.out.println("--------------");
+
+        int cond = 0;
+        int trofeos1 = 0;
+        int trofeos2 = 0;
+
+        do {
+            System.out.println("---JUGADOR 1---");
+            System.out.println("Elige un numero:");
+            int elegido = leer.nextInt();
+            System.out.println("---JUGADOR 2---");
+            cond = primerJuego.iniciar_juego(elegido, intentos);
+              if (cond ==1){
+                trofeos2++;
+            }
+        } while (cond == 1);
+
+        System.out.println("-----------------");
+        System.out.println("CAMBIO DE JUGADOR");
+        System.out.println("-----------------");
+
+        do {
+            System.out.println("---JUGADOR 2---");
+            System.out.println("Elige un numero:");
+            int elegido = leer.nextInt();
+            System.out.println("---JUGADOR 1---");
+            cond = primerJuego.iniciar_juego(elegido, intentos);
+            if (cond ==1){
+                trofeos1++;
+            }
+        } while (cond == 1);
+
+        System.out.println("El jugador 1 gano " + trofeos1 + " veces");
+        System.out.println("El jugador 2 gano " + trofeos2 + " veces");
+
     }
-    
 }

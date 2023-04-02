@@ -10,10 +10,45 @@ número de veces que cada jugador ha ganado.
  */
 package Clases;
 
+import java.util.Scanner;
+
 /**
  *
  * @author CASA
  */
 public class Juego {
-    
+
+    String jugador1;
+    String jugador2;
+
+    public Juego() {
+    }
+
+    public int iniciar_juego(int elegido, int intentos) {
+        int num;
+
+        do {
+            System.out.println("Adivina el numero:");
+            Scanner leer = new Scanner(System.in);
+            num = leer.nextInt();
+            if (num > elegido) {
+                System.out.println("Mas bajo");
+                intentos--;
+                System.out.println("Te quedan " + intentos + " intentos");
+            } else if (num < elegido) {
+                System.out.println("Mas alto");
+                intentos--;
+                System.out.println("Te quedan " + intentos + " intentos");
+            }
+        } while (num != elegido && intentos != 0);
+
+        if (elegido == num) {
+            System.out.println("Acertaste el numero, era el " + elegido);
+            return 1;
+        } else {
+            System.out.println("No acertaste el numero");
+            return 0;
+        }
+    }
+
 }
