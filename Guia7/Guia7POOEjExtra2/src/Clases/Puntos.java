@@ -8,6 +8,7 @@ existe entre los dos puntos que existen en la clase Puntos.
  */
 package Clases;
 
+import static java.lang.Math.sqrt;
 import java.util.Scanner;
 
 /**
@@ -23,9 +24,21 @@ public class Puntos {
 
     public Puntos() {
     }
-  
+
+    public Puntos(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
     
-    public void cergarPuntos(){
+
+    public int getX1() {
+        return x1;
+    }
+
+    
+    public void crearPuntos(){
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese x1:");
         x1 = leer.nextInt();
@@ -39,7 +52,8 @@ public class Puntos {
     
     public double calcularDistancia(){
         double dist;
-        dist = sqrt(Math.pow(x1,2))
+        dist = sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
+        return dist;
     }
     
 }

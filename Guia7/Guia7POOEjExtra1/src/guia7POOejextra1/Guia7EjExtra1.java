@@ -5,7 +5,7 @@ título y el autor a cadenas vacías y otro que reciba como parámetros el
 título y el autor de la canción. Se deberán además definir los métodos
 getters y setters correspondientes.
  */
-package guia7ejextra1;
+package guia7POOejextra1;
 
 import Entidad.Cancion;
 
