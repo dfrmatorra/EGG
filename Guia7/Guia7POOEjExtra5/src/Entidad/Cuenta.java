@@ -1,7 +1,7 @@
 /*
-Crea una clase "Cuenta" que tenga atributos como "saldo" y "titular".
+Crea una clase "Cuenta" que tenga atributos como "saldoCuenta" y "titular".
 Luego, crea un método "retirar_dinero" que permita retirar una cantidad
-de dinero del saldo de la cuenta. Asegúrate de que el saldo nunca sea
+de dinero del saldoCuenta de la cuenta. Asegúrate de que el saldoCuenta nunca sea
 negativo después de realizar una transacción de retiro.
  */
 package Entidad;
@@ -20,19 +20,19 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public double retirar_dinero(double saldo) {
+    public double retirar_dinero(double saldoCuenta) {
         double extraccion = 0;
         System.out.println("Cuanto desea retirar?");
         Scanner leer = new Scanner(System.in);
         extraccion = leer.nextDouble();
-        saldo -= extraccion;
-        if (saldo < 0) {
-            System.out.println("No cuenta con suficiente saldo en la cuenta");
-            return saldo += extraccion;
+        saldoCuenta -= extraccion;
+        if (saldoCuenta < 0) {
+            System.out.println("No cuenta con suficiente saldoCuenta en la cuenta");
+            return saldoCuenta += extraccion;
         } else {
             System.out.println("La transaccion fue exitosa");
-            System.out.println("Su nuevo saldo es: " + saldo);
-            return saldo;
+            System.out.println("Su nuevo saldoCuenta es: " + saldoCuenta);
+            return saldoCuenta;
         }
     }
 }
