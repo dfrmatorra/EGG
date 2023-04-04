@@ -18,18 +18,27 @@ public class SalarioEmpleado {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
+
         Empleado empleado1 = new Empleado();
-        
+
+        System.out.println("---EMPLEADO 1---");
         System.out.println("Ingrese el sueldo base");
-        
+        empleado1.setSalario(leer.nextDouble());
         System.out.println("Ingrese la edad del empleado");
-               int edad = leer.nextInt();
+        empleado1.setEdad(leer.nextInt());
+        empleado1.calcular_aumento();
+
+//        Empleado empleado2 = new Empleado();
+//
+//        System.out.println("---EMPLEADO 2---");
+//        System.out.println("Ingrese el sueldo base");
+//        empleado2.setSalario(leer.nextDouble());
+//        System.out.println("Ingrese la edad del empleado");
+//        empleado2.setEdad(leer.nextInt());
+//        empleado2.calcular_aumento();
         
-        
-        
-        double sueldoEmpleado = empleado1.calcular_aumento(edad);
-        
-        System.out.println("El empleado cobra" + sueldoEmpleado);
+//        System.out.println("La diferencia entra los dos es: " + (empleado1.getSalario()-empleado2.getSalario()));
+
     }
-    
+
 }
