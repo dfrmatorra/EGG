@@ -7,6 +7,7 @@ package mascotaapp;
 
 import java.util.Scanner;
 import mascotaapp.Entidad.Mascota;
+import mascotaapp.servicios.ServicioMascota;
 
 /**
  *
@@ -14,20 +15,12 @@ import mascotaapp.Entidad.Mascota;
  */
 public class MascotaApp {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
-        Scanner leer = new Scanner(System.in);
+        ServicioMascota sm = new ServicioMascota();
 
-        Mascota m1 = new Mascota("Fernando Chiquito", "Chiquito", "Perro");
-
-        m1.setNombre("Pepe Chiquito");
-        
-        m1.pasear(100,4);
-
-        System.out.println(m1.toString());
+   
+        System.out.println(sm.);
     
     }
 
