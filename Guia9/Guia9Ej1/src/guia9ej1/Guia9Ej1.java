@@ -25,54 +25,73 @@ g) Método reemplazar(String letra), deberá reemplazar todas las letras
 “a” que se encuentren en la frase, por algún otro carácter
 seleccionado por el usuario y mostrar la frase resultante.
 h) Método contiene(String letra), deberá comprobar si la frase contiene
-una letra que ingresa el usuario y devuelve verdadero si la contiene y
-falso si no.
+una letra que ingresa
  */
 package guia9ej1;
 
 import Entidades.Cadena;
-import Servicios.CadenaServicio;
+import Servicios.CadenaService;
 import java.util.Scanner;
 
 /**
  *
- * @author DarioF
+ * @author CASA
  */
 public class Guia9Ej1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-        CadenaServicio cs = new CadenaServicio();
+        CadenaService cs = new CadenaService();
 
-        Cadena c1 = cs.crearCadena();
-        
-        System.out.println("La cantidad de vocales que tiene la frase son " + cs.mostrarVocales(c1));
-        
-        cs.invertirFrase(c1);
-        
-        System.out.println("Ingrese la letra para contar");
-        String letra = leer.next();
-        
-        cs.vecesRepetido(c1, letra);
+        Cadena c1 = cs.crearFrase();
 
-        System.out.println("Ingrese una segunda frase para comparar:");
-        String frase2 = leer.next();
-        cs.compararLongitud(c1, frase2);
+        int opc = 0;
+        do {
+            System.out.println("-------------------------");
+            System.out.println("Opción 1 Mostrar Vocales");
+            System.out.println("Opcion 2 Invertir Frase");
+            System.out.println("Opcion 3 Veces Repetido");
+            System.out.println("Opcion 4 Compara Longitud");
+            System.out.println("Opcion 5 Unir Fraces");
+            System.out.println("Opcion 6 Reemplazar Letra");
+            System.out.println("Opcion 7 Contiene Letra");
+            System.out.println("Opcion 8 Salir");
+            System.out.println("-------------------------");
+            System.out.println("");
+            System.out.println("Ingrese la Opcion deseada:");
+            opc = leer.nextInt();
+            System.out.println("");
+            switch (opc) {
+                case 1:
+                    cs.mostrarVocales(c1);
+                    break;
+                case 2:
+                    cs.invertirFrase(c1);
+                    break;
+                case 3:
+                    cs.vecesRepetido(c1);
+                    break;
+                case 4:
+                    cs.compararLongitud(c1);
+                    break;
+                case 5:
+                    cs.unirFrases(c1);
+                    break;
+                case 6:
+                    cs.reemplazar(c1);
+                    break;
+                case 7:
+                    cs.contiene(c1);
+                    break;
+                case 8:
 
-        System.out.println("Ingrese una letra para remplazar la letra 'a'");
-        char caracter = leer.next().charAt(0);
-        cs.remplazarLetra(c1, caracter);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
 
-        if (cs.contiene(c1)) {
-            System.out.println("Contiene");
-        } else {
-            System.out.println("No contiene");
-        }
+        } while (opc != 8);
 
     }
-
 }
