@@ -50,8 +50,9 @@ public class ParDeNumerosService {
             System.out.println("El numero mayor elevado al menor es = " + potencia);
         } else if (ns.getNum2() > ns.getNum1()) {
             potencia = Math.pow(ns.getNum2(), ns.getNum1());
-            potencia = Math.round(potencia);
-            System.out.println("El numero mayor elevado al menor es = " + potencia);
+            int numeroDecimales = 2;
+            double resultado = Math.round(potencia * Math.pow(10, numeroDecimales)) / Math.pow(10, numeroDecimales);
+            System.out.println("El numero mayor elevado al menor es = " + resultado);
         }
     }
 
@@ -61,10 +62,10 @@ public class ParDeNumerosService {
         int num2 = Math.abs(ns.getNum2());
         if (ns.getNum1() >= ns.getNum2()) {
             raiz = Math.sqrt(num2);
-            System.out.println("La raiz cuadrada del menor es" + raiz);
+            System.out.println("La raiz cuadrada del menor es = " + raiz);
         } else if (ns.getNum2() > ns.getNum1()) {
             raiz = Math.sqrt(num1);
-            System.out.println("La raiz cuadrada del menor es" + raiz);
+            System.out.println("La raiz cuadrada del menor es = " + raiz);
         }
 
     }

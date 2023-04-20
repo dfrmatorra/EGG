@@ -20,7 +20,7 @@ public class ParDeNumeros {
 
     public ParDeNumeros() {
         Random random = new Random();
-        int rango = 100; // Este es el rango de valores que abarca tanto los números positivos como los negativos
+        int rango = 10; // Este es el rango de valores que abarca tanto los números positivos como los negativos
         this.num1 = (int) (random.nextDouble() * rango * 2 - rango);
         this.num2 = (int) (random.nextDouble() * rango * 2 - rango);
     }
