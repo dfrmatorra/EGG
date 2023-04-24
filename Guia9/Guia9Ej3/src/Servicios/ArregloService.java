@@ -19,22 +19,31 @@ import java.util.Random;
  */
 public class ArregloService {
 
-    public void inicializar(double Array[]) {
+    public void inicializarA(double Array[]) {
         Random random = new Random();
         for (int i = 0; i < Array.length; i++) {
             double rango = 10; // Este es el rango de valores que abarca tanto los números positivos como los negativos
-            Array[i] = (random.nextDouble() * rango * 2 - rango);
+            double resultado = (random.nextDouble() * rango * 2 - rango);
+            int resultado1 = (int) resultado*100;
+            double m = resultado1 / 10;
+            Array[i]= m;
+         
         }
     }
 
-    public void mostrar(Integer Array[]) {
+    public void mostrar(double Array[]) {
         for (int i = 0; i < Array.length; i++) {
             System.out.print(" (" + Array[i] + ") ");
         }
     }
 
-    public void ordenar(Integer Array[]) {
-       Array.sort;
+    public void ordenar(double A[]) {
+        Arrays.sort(A);
+
     }
 
+    public void inicializarB(double A[], double B[]) {
+        System.arraycopy(A, 0, B, 0, 10);
+        Arrays.fill(B, 10, 20, 0.5);
+    }
 }

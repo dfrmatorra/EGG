@@ -15,6 +15,8 @@ mostrar A y B.
  */
 package guia9ej3;
 
+import Servicios.ArregloService;
+
 /**
  *
  * @author CASA
@@ -25,11 +27,20 @@ public class Guia9Ej3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Integer A [] = new Integer [50];
-        
-        Integer B [] = new Integer [20];
-        
+
+        ArregloService arrServ = new ArregloService();
+
+        double A[] = new double[50];
+
+        double B[] = new double[20];
+
+        arrServ.inicializarA(A);
+        arrServ.ordenar(A);
+        arrServ.inicializarB(A, B);
+        arrServ.mostrar(A);
+        System.out.println("");
+        arrServ.mostrar(B);
+
     }
-    
+
 }
