@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author CASA
+ * @author DarioF
  */
 public class AhorcadoService {
 
@@ -45,39 +45,63 @@ public class AhorcadoService {
     //-Método buscar(letra):  este método recibe una letra dada por el usuario y busca si la letra ingresada es 
     //parte de la palabra o no. También informará si la letra estaba o no.
     public void buscar(Ahorcado aho1, char[] letras, int cont) {
+        boolean respuesta = false;
         System.out.println("Ingrese una letra:");
         letras[cont] = leer.next().charAt(0);
         int encontrada = 0;
-        if (letras[cont] == letras[cont - 1]) {
-            encontrada = 1;
-        } else {
-            for (int i = 0; i < aho1.getLongitud(); i++) {
-                char letra1 = aho1.getPalabra()[i];
-                if (letras[cont] == letra1) {
-                    encontrada = 2;
-                    aho1.getPalabra()[i] = ' ';
-                    aho1.setLetrasEncontradas(aho1.getLetrasEncontradas() + 1);
-                }
+        for (int i = 0; i < cont; i++) {
+            if (letras[cont] == letras[i]) {
+                encontrada = 1;
+            }
+        }
+
+        for (int i = 0; i < aho1.getLongitud(); i++) {
+            char letra1 = aho1.getPalabra()[i];
+            if (letras[cont] == letra1) {
+                encontrada = 2;
+                letras[99 - i] = aho1.getPalabra()[i];
+                aho1.getPalabra()[i] = ' ';
+                aho1.setLetrasEncontradas(aho1.getLetrasEncontradas() + 1);
             }
         }
         if (encontrada == 1) {
-            System.out.println("La letra " + letras[cont] + " ya fue ingresada");
+            System.out.println("La letra '" + letras[cont] + "' ya fue ingresada");
             aho1.setJugasdasMax(aho1.getJugasdasMax() - 1);
-        }else if (encontrada == 2) {
-            System.out.println("La letra " + letras[cont] + " pertenece a la palabra");
-        }else if (encontrada == 0) {
-                System.out.println("La letra " + letras[cont] + " no pertenece a la palabra");
-                aho1.setJugasdasMax(aho1.getJugasdasMax() - 1);
-            }
+        } else if (encontrada == 2) {
+            System.out.println("La letra '" + letras[cont] + "' pertenece a la palabra");
+            respuesta = true;
+        } else if (encontrada == 0) {
+            System.out.println("La letra '" + letras[cont] + "' no pertenece a la palabra");
+            aho1.setJugasdasMax(aho1.getJugasdasMax() - 1);
+            respuesta = false;
+        }
     }
 
+//-Método encontradas(letra):  Este método además **deberá devolver true si la letra estaba y false 
+//si la letra no estaba**, ya que, cada vez que se busque una letra que no esté, se le restará uno a sus oportunidades.
     public void encontradas(Ahorcado aho1) {
         System.out.println("Letras encontradas: " + aho1.getLetrasEncontradas());
         System.out.println("Letras faltantes: " + (aho1.getLongitud() - aho1.getLetrasEncontradas()));
     }
+//Método intentos(): para mostrar cuántas oportunidades le queda al jugador.
 
     public void intentos(Ahorcado aho1) {
         System.out.println("Intentos remanentes: " + aho1.getJugasdasMax());
+    }
+//Método juego(): el método juego se encargará de llamar todos los métodos previamente mencionados e informará 
+//cuando el usuario descubra toda la palabra o se quede sin intentos. Este método se llamará en el main.
+
+    public void extra(Ahorcado aho1, char[] letras) {
+        System.out.println("--------------");
+        for (int i = 0; i < aho1.getLongitud(); i++) {
+            if (aho1.getPalabra()[i] != ' ') {
+                System.out.print("*");
+            } else if (aho1.getPalabra()[i] == ' ') {
+                System.out.print(letras[99 - i]);
+            }
+        }
+        System.out.println("");
+        System.out.println("--------------");
     }
 
     public void juego() {
@@ -91,7 +115,7 @@ public class AhorcadoService {
             buscar(aho1, letras, cont);
             encontradas(aho1);
             intentos(aho1);
-
+            extra(aho1, letras);
         } while (aho1.getLetrasEncontradas() != aho1.getLongitud() && aho1.getJugasdasMax() != 0);
 
         if (aho1.getLetrasEncontradas() == aho1.getLongitud()) {

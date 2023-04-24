@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author dudum
+ * @author DarioF
  */
 public class PersonaService {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -52,7 +52,7 @@ public class PersonaService {
         
        int edad = (new Date().getYear())  -(p.getNacimiento().getYear());
         
-        System.out.println("La edad es " + edad);
+        System.out.println("La edad de " + p.getNombre() + " es " + edad);
     }
     public boolean menorQue(Persona p, int anio){
         

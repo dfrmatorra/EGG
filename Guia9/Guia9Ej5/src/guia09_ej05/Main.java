@@ -25,23 +25,17 @@ public class Main {
         PersonaService ps = new PersonaService();
 
         Persona p1 = ps.crearPersona();
-        Persona p2 = ps.crearPersona();
-        Persona p3 = ps.crearPersona();
 
         System.out.println(p1.toString());
-        System.out.println(p2.toString());
-        System.out.println(p3.toString());
 
-    ps.calcularEdad(p1);
-    
         System.out.println("Ingrese una edad a comparar");
-        int edad= leer.nextInt();
-        
-        if (ps.menorQue(p1, edad)){
+        int edad = leer.nextInt();
+
+        if (ps.menorQue(p1, edad)) {
             System.out.println("Es menor que el año " + edad);
         } else {
             System.out.println("Es mayor a " + edad);
         }
+        ps.calcularEdad(p1);
     }
-
 }
