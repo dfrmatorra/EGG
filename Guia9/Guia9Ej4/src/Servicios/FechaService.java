@@ -20,8 +20,10 @@ import java.util.Scanner;
  * @author DarioF
  */
 public class FechaService {
+
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    public Date fechaNacimiento (){
+
+    public Date fechaNacimiento() {
         System.out.println("FECHA DE NACIMIENTO");
         System.out.println("Ingrese dia:");
         int dia = leer.nextInt();
@@ -29,19 +31,20 @@ public class FechaService {
         int mes = leer.nextInt();
         System.out.println("Ingrese anio:");
         int anio = leer.nextInt();
-        return new Date (anio, mes, dia);
+        return new Date(anio-1900, mes-1, dia);
     }
-    
-    public Date fechaActual (){
+
+    public Date fechaActual() {
         Date fechaActual = new Date();
         return fechaActual;
     }
-    
-    public void diferencia (Date fechaNac, Date fechaActual){
-        long diferenciaEnMilisegundos = fechaNac.getTime() - fechaActual.getTime();
+
+    public void diferencia(Date fechaNac, Date fechaActual) {
+        long diferenciaEnMilisegundos = fechaActual.getTime()- fechaNac.getTime();
         int dias = (int) (diferenciaEnMilisegundos / (1000 * 60 * 60 * 24));
-        int edad = 1900 -(dias / 365);
+//        System.out.println("Los dias son:" + dias);
+        int edad = dias / 365;
         System.out.println("La edad es: " + edad);
     }
-    
+
 }

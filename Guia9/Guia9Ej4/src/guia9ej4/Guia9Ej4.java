@@ -26,7 +26,7 @@ public class Guia9Ej4 {
         FechaService fs = new FechaService();
 
          fs.diferencia(fs.fechaNacimiento(), fs.fechaActual());
-
+         
     }
 
 }
