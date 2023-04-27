@@ -5,7 +5,6 @@ y la cantidad jugadas máximas que puede realizar el usuario.
  */
 package guia9ejex2;
 
-
 import Servicios.AhorcadoService;
 
 /**
@@ -16,9 +15,10 @@ public class Guia9EjEx2 {
 
     public static void main(String[] args) {
 
-        AhorcadoService ahor1 = new AhorcadoService();
-        
-       ahor1.juego();
+//        AhorcadoService ahor1 = new AhorcadoService();
+//        
+//       ahor1.juego();
+
     }
 
 }

@@ -66,8 +66,9 @@ public class EstudianteService {
     }
 
     public void mostrar(Estudiante[] estAp) {
+        System.out.println("Los estudiantes con nota mayor al promedio son:");
         for (Estudiante estAp1 : estAp) {
-            System.out.println(estAp1.getNombre());
+            System.out.println(estAp1.getNombre() + "/" + estAp1.getNota());
         }
         
     }
