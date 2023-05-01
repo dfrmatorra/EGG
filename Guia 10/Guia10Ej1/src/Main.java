@@ -12,7 +12,7 @@ public class Main {
         Scanner leer = new Scanner(System.in);
         ArrayList<String> Perros = new ArrayList<>();
 
-        String respuesta = "";
+        String respuesta;
         do {
             System.out.println("Ingrese la raza del perro:");
             String raza = leer.next();
@@ -44,8 +44,10 @@ public class Main {
         String buscar = "";
         System.out.println("Ingrese el perro que quiere buscar:");
         String perroB = leer.next();
-        for (String perro : Perros) {
-            if (perro.equals(perroB)) {
+        Iterator<String> iterator = Perros.iterator();
+        while (iterator.hasNext()){
+            String perroActual = iterator.next();
+            if (perroActual.equalsIgnoreCase(perroB)) {
                 buscar = perroB;
                 System.out.println("El perro esta en la lista");
             }
