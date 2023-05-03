@@ -2,6 +2,7 @@
 //tendremos una clase Pelicula con el título, director y duración de la película (en horas).
 
 public class Pelicula {
+
     private String titulo;
     private String director;
     private double duracion;
@@ -30,18 +31,10 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" +
-                "titulo='" + titulo + '\'' +
-                ", director='" + director + '\'' +
-                ", duracion=" + duracion +
-                '}';
+        return "Pelicula{"
+                + "titulo='" + titulo + '\''
+                + ", director='" + director + '\''
+                + ", duracion=" + duracion
+                + '}';
     }
-
-    public static void main(String[] args) {
-        Pelicula pelicula = new Pelicula("El padrino", "Francis Ford Coppola", 175);
-        System.out.println(pelicula);
-
 }
-
-
-    }

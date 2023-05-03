@@ -27,7 +27,15 @@ public class Main {
 
         ps.mostrarPeliculas(listaPeliculas);
 
+        ps.mostrarPeliMayor(listaPeliculas);
 
+        ps.ordenarPelisMayorMenor(listaPeliculas);
+
+        ps.ordenarPelisMenorMayor(listaPeliculas);
+
+        ps.ordenarAlfabetAsc(listaPeliculas);
+
+        ps.ordenarAlfabetDesc(listaPeliculas);
 
     }
 }
