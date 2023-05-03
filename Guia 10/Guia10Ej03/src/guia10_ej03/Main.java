@@ -30,7 +30,7 @@ public class Main {
 
         double prom = aSer.notaFinal(listaAlumnos, alumnoSelect);
         if (prom>0){
-            System.out.printf("El promedio final de " + alumnoSelect + " es: %.2f", prom );
+            System.out.printf("El promedio final de " + alumnoSelect + " es: %.1f", prom );
         }
     }
 }
