@@ -45,11 +45,13 @@ public class PaisService {
         System.out.println("-----------------");
     }
 
-//    public void ordenarAlfa(TreeSet<String> paises) {
+//    Si hubiese usado un HashSet no lo ordena alfabeticamente con lo cual habria que pasarlo a un arraylist
+    
+//        public void ordenarAlfa(HashSet<String> paises) {
 //
 //        ArrayList<String> paisLista = new ArrayList<>();
 //        Collections.sort(paisLista);
-//        TreeSet<String> sortedSet = new TreeSet<>(paisLista);
+//        HashSet<String> sortedSet = new HashSet<>(paisLista);
 //                
 //        System.out.println("---------------------------------");
 //        System.out.println("Paises ordenadas alfabeticamente en forma ascendente:");
@@ -70,15 +72,19 @@ public class PaisService {
                 String paisActual = iterator.next();
                 if (paisActual.equalsIgnoreCase(resp)) {
                     paises.remove(resp);
-                    System.out.println("El pais estaba en la lista y fue borrado");
-                    break;
-                } else {
                     cont++;
-                }
+                    break;
+                } 
             }
 
-            if (cont == paises.size()) {
+            if (cont == 0) {
                 System.out.println("El pais no esta en la lista");
+                System.out.println("Desea borrar otro pais?(s/n)");
+                respuesta = leer.next();
+            }else{
+                System.out.println("El pais estaba en la lista y fue borrado");
+                System.out.println("Desea borrar otro pais?(s/n)");
+                respuesta = leer.next();
             }
             
         } while (!respuesta.equalsIgnoreCase("n"));
