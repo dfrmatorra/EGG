@@ -37,10 +37,12 @@ public class PaisService {
 
     public void mostrarPaises() {
         int cont = 1;
+        System.out.println("-----------------");
         for (String pais : paises) {
             System.out.println(cont + " - " + pais);
             cont++;
         }
+        System.out.println("-----------------");
     }
 
 //    public void ordenarAlfa(TreeSet<String> paises) {
@@ -56,25 +58,31 @@ public class PaisService {
 //
 //    }
     public void buscarPais() {
-        System.out.println("Ingrese el pais a borrar");
-        String resp = leer.next();
+
         int cont = 0;
 
-        Iterator<String> iterator = paises.iterator();
-        while (iterator.hasNext()) {
-            String paisActual = iterator.next();
-            if (paisActual.equalsIgnoreCase(resp)) {
-                paises.remove(resp);
-                System.out.println("El pais estaba en la lista y fue borrado");
-                break;
-            } else {
-                cont++;
+        String respuesta = "";
+        do {
+            System.out.println("Ingrese el pais a borrar");
+            String resp = leer.next();
+            Iterator<String> iterator = paises.iterator();
+            while (iterator.hasNext()) {
+                String paisActual = iterator.next();
+                if (paisActual.equalsIgnoreCase(resp)) {
+                    paises.remove(resp);
+                    System.out.println("El pais estaba en la lista y fue borrado");
+                    break;
+                } else {
+                    cont++;
+                }
             }
-        }
 
-        if (cont == paises.size()) {
-            System.out.println("El pais no esta en la lista");
-        }
+            if (cont == paises.size()) {
+                System.out.println("El pais no esta en la lista");
+            }
+            
+        } while (!respuesta.equalsIgnoreCase("n"));
+
         mostrarPaises();
     }
 
