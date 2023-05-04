@@ -1,4 +1,3 @@
-
 //En el servicio deberemos tener un bucle que crea un objeto Pelicula pidiÃ©ndole al usuario
 //todos sus datos y guardÃ¡ndolos en el objeto Pelicula.
 //DespuÃ©s, esa Pelicula se guarda una lista de Peliculas y se le pregunta al usuario si quiere
@@ -85,6 +84,7 @@ public class PeliculaService {
                 }
             }
         };
+
         peliculas.sort(peliComparator);
 
         System.out.println("---------------------------------");
@@ -128,7 +128,7 @@ public class PeliculaService {
         peliculas.sort(peliComparator);
 
         System.out.println("---------------------------------");
-        System.out.println("Peliculas ordenadas alfabeticamente en forma ascendente:");
+        System.out.println("Peliculas ordenadas por Titulo alfabeticamente en forma ascendente:");
 
         mostrarPeliculas(peliculas);
 
@@ -145,7 +145,23 @@ public class PeliculaService {
         peliculas.sort(peliComparator);
 
         System.out.println("---------------------------------");
-        System.out.println("Peliculas ordenadas alfabeticamente en forma descendente:");
+        System.out.println("Peliculas ordenadas por Titulo alfabeticamente en forma descendente:");
+
+        mostrarPeliculas(peliculas);
+    }
+
+    public void ordenarDirAlfabetAsc(ArrayList<Pelicula> peliculas) {
+
+        Comparator<Pelicula> peliComparator = new Comparator<Pelicula>() {
+            @Override
+            public int compare(Pelicula p1, Pelicula p2) {
+                return p1.getDirector().toLowerCase().compareTo(p2.getDirector().toLowerCase());
+            }
+        };
+        peliculas.sort(peliComparator);
+
+        System.out.println("---------------------------------");
+        System.out.println("Peliculas ordenadas por Director alfabeticamente en forma ascendente:");
 
         mostrarPeliculas(peliculas);
 

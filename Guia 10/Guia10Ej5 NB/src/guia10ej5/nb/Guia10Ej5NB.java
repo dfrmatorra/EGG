@@ -18,7 +18,7 @@ al usuario.
 package guia10ej5.nb;
 
 import Servicio.PaisService;
-import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Guia10Ej5NB {
 
@@ -26,9 +26,10 @@ public class Guia10Ej5NB {
 
         PaisService ps = new PaisService();
 
-        HashSet<String> pais = ps.crearPaises();
-        ps.mostrarPaises(pais);
-        ps.ordenarAlfa(pais);
+        TreeSet<String> pais = ps.crearPaises();
+        ps.mostrarPaises();
+        ps.buscarPais();
+        
     }
 
 }

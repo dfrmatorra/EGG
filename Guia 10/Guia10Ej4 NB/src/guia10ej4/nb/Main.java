@@ -39,6 +39,8 @@ public class Main {
         ps.ordenarAlfabetAsc(listaPeliculas);
 
         ps.ordenarAlfabetDesc(listaPeliculas);
+        
+        ps.ordenarDirAlfabetAsc(listaPeliculas);
 
     }
 }
