@@ -28,6 +28,10 @@ public class Guia10Extra4 {
         cs.crearCiudades();
         cs.mostrar();
         cs.buscarCiudad();
+        cs.agregarCiudad();
+        cs.mostrar();
+        cs.eliminarCiudad();
+        cs.mostrar();
         
     }
     
