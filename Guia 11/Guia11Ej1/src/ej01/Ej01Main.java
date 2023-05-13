@@ -9,10 +9,9 @@ import java.util.Scanner;
 
 public class Ej01Main {
 
-    private static final Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    private static final PPServicios pps = new PPServicios();
-
     public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        PPServicios pps = new PPServicios();
 
         List<Persona> personas = new ArrayList();
         List<Perro> perrosadoptables = new ArrayList();
