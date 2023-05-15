@@ -24,7 +24,7 @@ public class Ej01Main {
         System.out.println("");
         System.out.println("Se procede a cargar dos perros en el sistema");
         for (int i = 0; i < 2; i++) {
-            perrosadoptables.add(pps.crearPerro());
+            perrosadoptables.add(pps.crearPerro()); 
         }
 
         System.out.println("");
