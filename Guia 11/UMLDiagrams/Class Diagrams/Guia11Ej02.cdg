@@ -2,9 +2,9 @@
 
 <ClassDiagram name="Guia11Ej02">
   <ClassDiagramComponents>
-    <Class name="Juego" package="" visibility="public" xPosition="260.0" yPosition="114.0">
+    <Class name="Juego" package="" visibility="public" xPosition="260.0" yPosition="116.0">
       <Fields>
-        <Field name="Jugador" type="HashSet" visibility="private"/>
+        <Field name="jugadores" type="HashSet&lt;jugador&gt;" visibility="private"/>
         <Field name="revolver" type="RevolverDeAgua" visibility="private"/>
       </Fields>
       <Constructors/>

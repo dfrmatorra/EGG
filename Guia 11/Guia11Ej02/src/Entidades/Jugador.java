@@ -8,13 +8,21 @@ Métodos:
 mojar() y siguienteChorro() de Revolver. El jugador se apunta, aprieta el gatillo y si el
 revolver tira el agua, el jugador se moja. El atributo mojado pasa a false y el método
 devuelve true, sino false.
-*/
+ */
 package Entidades;
 
 /**
  *
- * @author CASA
+ * @author DarioF
  */
 public class Jugador {
+
+    private int Id;
+
+    private String nombre;
+
+    private boolean mojado;
     
+    
+
 }

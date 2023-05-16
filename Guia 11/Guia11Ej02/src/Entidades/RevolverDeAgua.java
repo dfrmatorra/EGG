@@ -8,13 +8,17 @@ deben ser aleatorios.
 • mojar(): devuelve true si la posición del agua coincide con la posición actual
 • siguienteChorro(): cambia a la siguiente posición del tambor
 • toString(): muestra información del revolver (posición actual y donde está el agua)
-*/
+ */
 package Entidades;
 
 /**
  *
- * @author CASA
+ * @author DarioF
  */
 public class RevolverDeAgua {
-    
+
+    private int posicionActual;
+
+    private int posicionAgua;
+
 }
