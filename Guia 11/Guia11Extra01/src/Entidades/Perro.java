@@ -1,27 +1,31 @@
-package ej01.entidades;
+package Entidades;
+
+import Enums.Raza;
 
 public class Perro {
 
     private String nombre;
-    private String raza;
+    private Raza raza;
     private Integer edad;
     private String tamanio;
+    private boolean adoptado;
 
     public Perro() {
     }
 
-    public Perro(String nombre, String raza, Integer edad, String tamanio) {
+    public Perro(String nombre, Raza raza, Integer edad, String tamanio, boolean adoptado) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.tamanio = tamanio;
+        this.adoptado = adoptado;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getRaza() {
+    public Raza getRaza() {
         return raza;
     }
 
@@ -33,11 +37,15 @@ public class Perro {
         return tamanio;
     }
 
+    public boolean getAdoptado() {
+        return adoptado;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setRaza(String raza) {
+    public void setRaza(Raza raza) {
         this.raza = raza;
     }
 
@@ -48,6 +56,11 @@ public class Perro {
     public void setTamanio(String tamanio) {
         this.tamanio = tamanio;
     }
+
+    public void setAdoptado(boolean adoptado) {
+        this.adoptado = adoptado;
+    }
+    
 
     @Override
     public String toString() {

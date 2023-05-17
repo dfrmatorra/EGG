@@ -1,4 +1,7 @@
-package ej01.entidades;
+package Entidades;
+
+import java.util.ArrayList;
+
 
 public class Persona {
 
@@ -6,17 +9,17 @@ public class Persona {
     private String apellido;
     private Integer edad;
     private Integer dni;
-    private Perro perro;
+    private ArrayList<Perro> perro;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, Integer edad, Integer dni, Perro perro) {
+    public Persona(String nombre, String apellido, Integer edad, Integer dni, ArrayList<Perro> perro) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.dni = dni;
-        this.perro = perro;
+        this.perro = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -35,9 +38,10 @@ public class Persona {
         return dni;
     }
 
-    public Perro getPerro() {
-        return perro;
+    public ArrayList<Perro> getPerro() {
+        return this.perro;
     }
+    
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -55,7 +59,7 @@ public class Persona {
         this.dni = dni;
     }
 
-    public void setPerro(Perro perro) {
+    public void setPerro(ArrayList<Perro> perro) {
         this.perro = perro;
     }
 
