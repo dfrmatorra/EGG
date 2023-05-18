@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11">
+  <ClassDiagramComponents>
+    <Class name="Cine" package="" visibility="public" xPosition="85.0" yPosition="130.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pelicula" package="" visibility="public" xPosition="351.0" yPosition="48.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Espectador" package="" visibility="public" xPosition="601.0" yPosition="48.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Asiento" package="" visibility="public" xPosition="196.0" yPosition="307.0">
+      <Literals/>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
