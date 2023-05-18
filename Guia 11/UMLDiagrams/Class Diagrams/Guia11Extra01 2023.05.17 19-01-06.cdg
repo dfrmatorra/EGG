@@ -44,7 +44,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Persona" package="Entidades" visibility="public" xPosition="842.0" yPosition="304.0">
+    <Class name="Persona" package="Entidades" visibility="public" xPosition="745.0" yPosition="302.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
@@ -95,7 +95,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="PPServicios" package="Servicios" visibility="public" xPosition="287.0" yPosition="659.0">
+    <Class name="PPServicios" package="Servicios" visibility="public" xPosition="267.0" yPosition="687.0">
       <Fields>
         <Field name="leer" type="Scanner" visibility="private"/>
         <Field name="personas" type="List&lt;Persona&gt;" visibility="package"/>
@@ -110,7 +110,7 @@
         <Method name="mostrar" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Enum name="Raza" package="Enums" visibility="public" xPosition="636.0" yPosition="20.0">
+    <Enum name="Raza" package="Enums" visibility="public" xPosition="587.0" yPosition="20.0">
       <Literals>
         <Literal name="DOBERMAN"/>
         <Literal name="BULLDOG"/>

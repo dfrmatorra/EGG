@@ -1,6 +1,17 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+La baraja estará compuesta por un conjunto de cartas, 40 exactamente.
+Las operaciones que podrá realizar la baraja son:
+• barajar(): cambia de posición todas las cartas aleatoriamente.
+• siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o
+se haya llegado al final, se indica al usuario que no hay más cartas.
+• cartasDisponibles(): indica el número de cartas que aún se puede repartir.
+• darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de
+cartas. En caso de que haya menos cartas que las pedidas, no devolveremos nada, pero
+debemos indicárselo al usuario.
+• cartasMonton(): mostramos aquellas cartas que ya han salido, si no ha salido ninguna
+indicárselo al usuario
+• mostrarBaraja(): muestra todas las cartas hasta el final. Es decir, si se saca una carta y
+luego se llama al método, este no mostrara esa primera carta.
  */
 package Services;
 
@@ -15,7 +26,7 @@ import java.util.Scanner;
  */
 public class CartaService {
     
-    private int ultimaCartaR;
+    private int ultimaCartaR =0;
     
 
     Scanner leer = new Scanner(System.in);
@@ -65,7 +76,7 @@ public class CartaService {
 
     public void darCartas(ArrayList<Carta> maso) {
        
-        System.out.println("Cuantas cartas queire dar");
+        System.out.println("Cuantas cartas quiere dar");
         int cartasDar = leer.nextInt();
         
         if ((40-ultimaCartaR)>=cartasDar){
