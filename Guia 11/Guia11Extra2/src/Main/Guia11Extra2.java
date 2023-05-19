@@ -21,7 +21,7 @@ cada asiento o solo las X y espacios vacíos.
 /*
 */
 
-package guia11extra2;
+package Main;
 /**
  *
  * @author DarioF
@@ -29,6 +29,6 @@ package guia11extra2;
 public class Guia11Extra2 {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
 }
