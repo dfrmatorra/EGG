@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author DarioF
  */
-public class Clientes {
+public class Cliente {
     
     private String Nombre;
     private String apellido;
@@ -18,12 +18,15 @@ public class Clientes {
     private String mail;
     private String domicilio;
     private int telefono;
-    private ArrayList<Vehiculos> autos;
+    private ArrayList<Vehiculo> autos;
 
-    public Clientes(String Nombre, String apellido, int dni, String mail, String domicilio, int telefono) {
+    public Cliente() {
+    }
+        
+    public Cliente(String Nombre, String apellido, int dni, String mail, String domicilio, int telefono) {
     }
 
-    public Clientes(String nombre, String apellido, int dni, String mail, String domicilio, int telefono, ArrayList<Vehiculos> autos) {
+    public Cliente(String nombre, String apellido, int dni, String mail, String domicilio, int telefono, ArrayList<Vehiculo> autos) {
         Nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -81,11 +84,11 @@ public class Clientes {
         this.telefono = telefono;
     }
 
-    public ArrayList<Vehiculos> getAutos() {
+    public ArrayList<Vehiculo> getAutos() {
         return autos;
     }
 
-    public void setAutos(ArrayList<Vehiculos> autos) {
+    public void setAutos(ArrayList<Vehiculo> autos) {
         this.autos = autos;
     }
 

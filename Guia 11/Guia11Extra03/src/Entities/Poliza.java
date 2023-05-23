@@ -13,10 +13,10 @@ import java.util.Date;
  *
  * @author DarioF
  */
-public class Polizas {
+public class Poliza {
     
-    private Vehiculos auto;
-    private Clientes cliente;
+    private Vehiculo auto;
+    private Cliente cliente;
     private int nroPoliza;
     private Date fechaInicio;
     private Date fechaFin;
@@ -26,11 +26,12 @@ public class Polizas {
     private boolean granizo;
     private double maxGranizo;
     private TipoCobertura cobertura;
+    private int cantCuotas;
 
-    public Polizas() {
+    public Poliza() {
     }
 
-    public Polizas(Vehiculos auto, Clientes cliente, int nroPoliza, Date fechaInicio, Date fechaFin, ArrayList<Cuota> cuotas, FormaPago formaPago, double montoAsegurado, boolean granizo, double maxGranizo, TipoCobertura cobertura) {
+    public Poliza(Vehiculo auto, Cliente cliente, int nroPoliza, Date fechaInicio, Date fechaFin, ArrayList<Cuota> cuotas, FormaPago formaPago, double montoAsegurado, boolean granizo, double maxGranizo, TipoCobertura cobertura, int cantCuotas) {
         this.auto = auto;
         this.cliente = cliente;
         this.nroPoliza = nroPoliza;
@@ -42,21 +43,27 @@ public class Polizas {
         this.granizo = granizo;
         this.maxGranizo = maxGranizo;
         this.cobertura = cobertura;
+        this.cantCuotas = cantCuotas;
     }
 
-    public Vehiculos getAuto() {
+    public int getCantCuotas() {
+        return cantCuotas;
+    }
+
+
+    public Vehiculo getAuto() {
         return auto;
     }
 
-    public void setAuto(Vehiculos auto) {
+    public void setAuto(Vehiculo auto) {
         this.auto = auto;
     }
 
-    public Clientes getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Clientes cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -130,6 +137,10 @@ public class Polizas {
 
     public void setCobertura(TipoCobertura cobertura) {
         this.cobertura = cobertura;
+    }
+
+    public void setCantCuotas(int cantCuotas) {
+        this.cantCuotas = cantCuotas;
     }
 
     @Override

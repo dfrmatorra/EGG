@@ -10,7 +10,7 @@ import Enumeradores.Tipo;
  *
  * @author DarioF
  */
-public class Vehiculos {
+public class Vehiculo {
     
     private String marca;
     private String modelo;
@@ -19,12 +19,12 @@ public class Vehiculos {
     private String chasis;
     private String color;
     private Tipo tipo;
-    private Clientes dueno;
+    private Cliente dueno;
 
-    public Vehiculos() {
+    public Vehiculo() {
     }
 
-    public Vehiculos(String marca, String modelo, int ano, String motor, String chasis, String color, Tipo tipo, Clientes dueno) {
+    public Vehiculo(String marca, String modelo, int ano, String motor, String chasis, String color, Tipo tipo, Cliente dueno) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
@@ -91,11 +91,11 @@ public class Vehiculos {
         this.tipo = tipo;
     }
 
-    public Clientes getDueno() {
+    public Cliente getDueno() {
         return dueno;
     }
 
-    public void setDueno(Clientes dueno) {
+    public void setDueno(Cliente dueno) {
         this.dueno = dueno;
     }
 

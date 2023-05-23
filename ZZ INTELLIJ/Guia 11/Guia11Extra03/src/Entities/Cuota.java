@@ -13,31 +13,29 @@ import java.util.Date;
  */
 public class Cuota {
     
-    private int cantCuotas;
+    private int numCuotas;
     private double montoCuota;
     private boolean pagado;
     private Date vencimiento;
-    private Polizas poliza;
     private FormaPago formaPago;
 
     public Cuota() {
     }
 
-    public Cuota(int cantCuotas, double montoCuota, boolean pagado, Date vencimiento, Polizas poliza, FormaPago formaPago) {
-        this.cantCuotas = cantCuotas;
+    public Cuota(int numCuotas, double montoCuota, boolean pagado, Date vencimiento, FormaPago formaPago) {
+        this.numCuotas = numCuotas;
         this.montoCuota = montoCuota;
         this.pagado = pagado;
         this.vencimiento = vencimiento;
-        this.poliza = poliza;
         this.formaPago = formaPago;
     }
 
-    public int getCantCuotas() {
-        return cantCuotas;
+    public int getNumCuotas() {
+        return numCuotas;
     }
 
-    public void setCantCuotas(int cantCuotas) {
-        this.cantCuotas = cantCuotas;
+    public void setNumCuotas(int numCuotas) {
+        this.numCuotas = numCuotas;
     }
 
     public double getMontoCuota() {
@@ -64,13 +62,6 @@ public class Cuota {
         this.vencimiento = vencimiento;
     }
 
-    public Polizas getPoliza() {
-        return poliza;
-    }
-
-    public void setPoliza(Polizas poliza) {
-        this.poliza = poliza;
-    }
 
     public FormaPago getFormaPago() {
         return formaPago;
@@ -83,11 +74,10 @@ public class Cuota {
     @Override
     public String toString() {
         return "Cuota{" +
-                "cantCuotas=" + cantCuotas +
+                "cantCuotas=" + numCuotas +
                 ", montoCuota=" + montoCuota +
                 ", pagado=" + pagado +
                 ", vencimiento=" + vencimiento +
-                ", poliza=" + poliza +
                 ", formaPago=" + formaPago +
                 '}';
     }

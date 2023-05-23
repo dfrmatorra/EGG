@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Guia11Extra03">
   <ClassDiagramComponents>
-    <Class name="Clientes" package="Entities" visibility="public" xPosition="191.0" yPosition="336.0">
+    <Class name="Clientes" package="Entities" visibility="public" xPosition="126.0" yPosition="133.0">
       <Fields>
         <Field name="Nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
@@ -15,18 +15,19 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Cuota" package="Entities" visibility="public" xPosition="1015.0" yPosition="104.0">
+    <Class name="Cuota" package="Entities" visibility="public" xPosition="952.0" yPosition="292.0">
       <Fields>
         <Field name="cantCuotas" type="int" visibility="private"/>
         <Field name="montoCuota" type="double" visibility="private"/>
         <Field name="pagado" type="boolean" visibility="private"/>
         <Field name="vencimiento" type="Date" visibility="private"/>
-        <Field name="poliza" type="Polizas" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+        <Field name="formaPago" type="FormaPago" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Polizas" package="Entities" visibility="public" xPosition="559.0" yPosition="492.0">
+    <Class name="Polizas" package="Entities" visibility="public" xPosition="517.0" yPosition="364.0">
       <Fields>
         <Field name="auto" type="Vehiculos" visibility="private"/>
         <Field name="cliente" type="Clientes" visibility="private"/>
@@ -39,11 +40,12 @@
         <Field name="granizo" type="boolean" visibility="private"/>
         <Field name="maxGranizo" type="double" visibility="private"/>
         <Field name="cobertura" type="TipoCobertura" visibility="private"/>
+        <Field name="cantCuotas" type="int" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Vehiculos" package="Entities" visibility="public" xPosition="559.0" yPosition="122.0">
+    <Class name="Vehiculos" package="Entities" visibility="public" xPosition="523.0" yPosition="47.0">
       <Fields>
         <Field name="marca" type="String" visibility="private"/>
         <Field name="modelo" type="String" visibility="private"/>
@@ -66,7 +68,7 @@
         </Method>
       </Methods>
     </Class>
-    <Enum name="FormaPago" package="Enumeradores" visibility="public" xPosition="1015.0" yPosition="414.0">
+    <Enum name="FormaPago" package="Enumeradores" visibility="public" xPosition="957.0" yPosition="582.0">
       <Literals>
         <Literal name="CONTADO"/>
         <Literal name="TARJETA"/>
@@ -77,7 +79,7 @@
         <Literal name="OTRO"/>
       </Literals>
     </Enum>
-    <Enum name="Tipo" package="Enumeradores" visibility="public" xPosition="216.0" yPosition="20.0">
+    <Enum name="Tipo" package="Enumeradores" visibility="public" xPosition="904.0" yPosition="47.0">
       <Literals>
         <Literal name="AUTO"/>
         <Literal name="HACHBACK"/>
@@ -88,7 +90,7 @@
         <Literal name="OTRO"/>
       </Literals>
     </Enum>
-    <Enum name="TipoCobertura" package="Enumeradores" visibility="public" xPosition="946.0" yPosition="739.0">
+    <Enum name="TipoCobertura" package="Enumeradores" visibility="public" xPosition="499.0" yPosition="787.0">
       <Literals>
         <Literal name="RESPONSABILIDAD_CIVIL"/>
         <Literal name="TERCEROS_SIMPLE"/>
@@ -99,14 +101,14 @@
     </Enum>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="cobertura" source="Entities.Polizas" target="Enumeradores.TipoCobertura" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="tipo" source="Entities.Vehiculos" target="Enumeradores.Tipo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="dueno" source="Entities.Vehiculos" target="Entities.Clientes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="cliente" source="Entities.Polizas" target="Entities.Clientes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="cuotas" source="Entities.Polizas" target="Entities.Cuota" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Cuota&gt;"/>
     <HasRelation name="autos" source="Entities.Clientes" target="Entities.Vehiculos" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Vehiculos&gt;"/>
-    <HasRelation name="poliza" source="Entities.Cuota" target="Entities.Polizas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="formaPago" source="Entities.Polizas" target="Enumeradores.FormaPago" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pagar" source="Entities.Cuota" target="Enumeradores.FormaPago" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="auto" source="Entities.Polizas" target="Entities.Vehiculos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipo" source="Entities.Vehiculos" target="Enumeradores.Tipo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cuotas" source="Entities.Polizas" target="Entities.Cuota" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Cuota&gt;"/>
+    <HasRelation name="cobertura" source="Entities.Polizas" target="Enumeradores.TipoCobertura" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

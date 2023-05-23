@@ -4,6 +4,8 @@
  */
 package guia11_extra03;
 
+import Servicios.PolizaService;
+
 /**
  *
  * @author DarioF
@@ -14,7 +16,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        PolizaService ps = new PolizaService();
+        
+        ps.crearPoliza();
+        
     }
     
 }
