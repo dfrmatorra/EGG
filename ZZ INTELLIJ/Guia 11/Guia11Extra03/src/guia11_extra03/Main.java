@@ -19,7 +19,7 @@ public class Main {
         
         PolizaService ps = new PolizaService();
         
-        ps.crearPoliza();
+        ps.menuPoliza();
         
     }
     
