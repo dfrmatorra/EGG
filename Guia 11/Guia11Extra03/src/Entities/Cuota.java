@@ -46,11 +46,11 @@ public class Cuota {
         this.montoCuota = montoCuota;
     }
 
-    public boolean isPagado() {
+    public boolean getPagado() {
         return pagado;
     }
 
-    public void setPagado(boolean pagado) {
+    public void setPagado(boolean b) {
         this.pagado = pagado;
     }
 

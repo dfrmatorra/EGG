@@ -18,8 +18,8 @@ public class Main {
     public static void main(String[] args) {
         
         PolizaService ps = new PolizaService();
-        
-        ps.crearPoliza();
+
+            ps.menuPoliza();
         
     }
     

@@ -115,7 +115,7 @@ public class Poliza {
         this.montoAsegurado = montoAsegurado;
     }
 
-    public boolean isGranizo() {
+    public boolean getGranizo() {
         return granizo;
     }
 
