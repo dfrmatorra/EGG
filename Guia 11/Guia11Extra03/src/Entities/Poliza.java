@@ -145,18 +145,19 @@ public class Poliza {
 
     @Override
     public String toString() {
-        return "Polizas{" +
-                "auto=" + auto +
-                ", cliente=" + cliente +
-                ", nroPoliza=" + nroPoliza +
+        return "Poliza{" +
+                ", nroPoliza=" + nroPoliza + "\n" +
+                "auto=" + auto + "\n" +
+                ", cliente=" + cliente + "\n" +
                 ", fechaInicio=" + fechaInicio +
-                ", fechaFin=" + fechaFin +
-                ", cuotas=" + cuotas +
+                ", fechaFin=" + fechaFin + "\n" +
+                ", cuotas=" + cuotas + "\n" +
                 ", formaPago=" + formaPago +
                 ", montoAsegurado=" + montoAsegurado +
                 ", granizo=" + granizo +
                 ", maxGranizo=" + maxGranizo +
                 ", cobertura=" + cobertura +
+                ", cantCuotas=" + cantCuotas +
                 '}';
     }
 }

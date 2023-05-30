@@ -7,6 +7,7 @@ import Entities.Vehiculo;
 import Enumeradores.FormaPago;
 import Enumeradores.Tipo;
 import Enumeradores.TipoCobertura;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.*;
 
@@ -37,10 +38,9 @@ public class PolizaService {
         poli.setFechaFin(fechaFin);
         poli.setMontoAsegurado(2000000);
         poli.setGranizo(true);
-        poli.setNroPoliza(256355);
-        ArrayList<Cuota> cuotas = new ArrayList<>();
-        crearCuotas(poli, cuotas);
-        poli.setCuotas(cuotas);
+        poli.setCantCuotas(6);
+        poli.setNroPoliza(generarNroPoliza());
+        poli.setCuotas(crearCuotas(poli.getMontoAsegurado(), poli.getCantCuotas(), poli.getFechaInicio()));
         polizas.add(poli);
     }
 
@@ -55,15 +55,9 @@ public class PolizaService {
             System.out.println("Eliga una opcion");
             int resp = leer.nextInt();
             switch (resp) {
-                case 1:
-                    crearPoliza();
-                    break;
-                case 2:
-                    gestionCliente();
-                    break;
-                case 3:
-                    opc = false;
-                    break;
+                case 1 -> crearPoliza();
+                case 2 -> gestionCliente();
+                case 3 -> opc = false;
             }
         } while (opc);
 
@@ -72,20 +66,36 @@ public class PolizaService {
     public void crearPoliza() {
 
         Poliza poliza = new Poliza();
-        List<Cuota> cuotas = new ArrayList<>();
         poliza.setCliente(crearCliente());
         poliza.setAuto(crearVehiculo());
         System.out.println("Ingrese el monto asegurado");
         poliza.setMontoAsegurado(leer.nextDouble());
         System.out.println("Ingrese Fecha de inicio");
         poliza.setFechaInicio(crearFecha());
-        System.out.println("Ingrese Fecha de final:");
-        poliza.setFechaFin(crearFecha());
         System.out.println("Ingrese la cantidad de cuotas");
         poliza.setCantCuotas(leer.nextInt());
+        //        System.out.println("Ingrese Fecha de final:");
+        Calendar fechaAux = Calendar.getInstance();
+        fechaAux.setTime(poliza.getFechaInicio());
+        fechaAux.add(Calendar.MONTH, poliza.getCantCuotas());
+        poliza.setFechaFin(fechaAux.getTime());
         agregarGranizo(poliza);
         elegirCobertura(poliza);
+        poliza.setNroPoliza(generarNroPoliza());
+        poliza.setCuotas(crearCuotas(poliza.getMontoAsegurado(), poliza.getCantCuotas(), poliza.getFechaInicio()));
+        mostrarPoliza(poliza);
+        System.out.println("Poliza creada");
         polizas.add(poliza);
+    }
+
+    private int generarNroPoliza() {
+        int nro = 123;
+        for (Poliza poliza : polizas) {
+            if (poliza.getNroPoliza() > nro) {
+                nro = poliza.getNroPoliza();
+            }
+        }
+        return nro + 1;
     }
 
     public Cliente crearCliente() {
@@ -128,7 +138,7 @@ public class PolizaService {
         int tipoelegido = leer.nextInt();
         int cont = 0;
         do {
-            if (tipoelegido >= 0 || tipoelegido <= Tipo.values().length) {
+            if (tipoelegido >= 0 || tipoelegido <= Tipo.values().length+1) {
                 vehiculo.setTipo(Tipo.values()[tipoelegido]);
                 cont++;
             } else {
@@ -153,42 +163,44 @@ public class PolizaService {
         return fechaFinal;
     }
 
-    public void crearCuotas(Poliza poliza, List<Cuota> cuotas) {
+    public ArrayList <Cuota> crearCuotas(double montoAsegurado, int cantCuotas, Date fechaInic) {
+        ArrayList<Cuota> cuotas = new ArrayList<>();
         // Crea un objeto Calendar y asígnale la fecha de inicio de la poliza
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(poliza.getFechaInicio());
+        calendar.setTime(fechaInic);
 
-        double valorCuota = (poliza.getMontoAsegurado() * 0.05) / 12;
+        double valorCuota = (montoAsegurado * 0.05) / 12;
 
-        for (int i = 0; i < poliza.getCantCuotas(); i++) {
+        for (int i = 0; i < cantCuotas; i++) {
 
             Cuota cuota = new Cuota();
             cuota.setNumCuotas(i + 1);
             cuota.setMontoCuota(valorCuota);
-            cuota.setPagado(true);
+            cuota.setPagado(false);
             // Aumenta el mes en 1
             calendar.add(Calendar.MONTH, 1);
             // Obtiene la nueva fecha después de aumentar el mes
             Date nuevaFecha = calendar.getTime();
             cuota.setVencimiento(nuevaFecha);
             cuotas.add(cuota);
+
         }
+        return cuotas;
     }
 
     public void agregarGranizo(Poliza poliza) {
-        System.out.println("Ingrese si quiere agregar cobertura de granizo (s/n) ");
-        String resp = leer.next();
 
+        String resp;
         do {
+            System.out.println("Ingrese si quiere agregar cobertura de granizo (s/n) ");
+            resp = leer.next();
             if (resp.equalsIgnoreCase("s")) {
                 poliza.setGranizo(true);
             }
             if (resp.equalsIgnoreCase("n")) {
                 poliza.setGranizo(false);
-            } else {
-                System.out.println("Ingrese un dato valido");
             }
-        } while (!resp.equalsIgnoreCase("s") || !resp.equalsIgnoreCase("n"));
+        } while (!resp.equalsIgnoreCase("s") && !resp.equalsIgnoreCase("n"));
 
         if (poliza.getGranizo()) {
             poliza.setMaxGranizo(poliza.getMontoAsegurado() * 0.3);
@@ -200,10 +212,10 @@ public class PolizaService {
         for (TipoCobertura tipo : TipoCobertura.values()) {
             System.out.println(tipo.ordinal() + "-" + tipo);
         }
-        int tipoelegido = leer.nextInt();
+        int tipoelegido = validarEntero ();
         int cont = 0;
         do {
-            if (tipoelegido >= 0 || tipoelegido <= TipoCobertura.values().length) {
+            if (tipoelegido >= 0 || tipoelegido <= TipoCobertura.values().length+1) {
                 poliza.setCobertura(TipoCobertura.values()[tipoelegido]);
                 cont++;
             } else {
@@ -214,28 +226,31 @@ public class PolizaService {
 
     public void gestionCliente() {
         System.out.println("Ingrese DNI del cliente");
-        int dniSelect = leer.nextInt();
-        boolean opc = true;
-        do {
+        int dniSelect = validarEntero ();
         for (Poliza poliza : polizas) {
             if (dniSelect == poliza.getCliente().getDni()) {
+                System.out.println(poliza.getNroPoliza());
+            }
+        }
+        System.out.println("Ingrese el Nro de Poliza");
+        int nroPoliza = validarEntero ();
+        boolean opc = true;
+        do {
+            for (Poliza poliza : polizas) {
+                if (nroPoliza == poliza.getNroPoliza()) {
 
                     System.out.println("-----MENU CLIENTE-----");
                     System.out.println("1-Gestionar pago");
                     System.out.println("2-Mostrar datos de Polizas");
                     System.out.println("3-Salir");
                     System.out.println("Eliga una opcion");
-                    int resp = leer.nextInt();
+                    int resp = validarEntero();
                     switch (resp) {
-                        case 1:
-                            gestionarPago(poliza);
-                            break;
-                        case 2:
-                            mostrarPoliza(poliza);
-                            break;
-                        case 3:
-                            opc = false;
-                            break;
+                        case 1 -> gestionarPago(nroPoliza);
+
+                        case 2 -> mostrarPoliza(poliza);
+
+                        case 3 -> opc = false;
                     }
                 }
             }
@@ -246,36 +261,40 @@ public class PolizaService {
     public void mostrarPoliza(Poliza poliza) {
         System.out.println("Ingrese DNI del cliente");
         int dniSelect = leer.nextInt();
+        System.out.println("El cliente iene las siguientes polizas:");
             if (dniSelect == poliza.getCliente().getDni()) {
                 System.out.println(poliza.toString());
             }
 
         }
-    public void gestionarPago(Poliza poliza) {
-        for (Cuota cuota : poliza.getCuotas()) {
-            System.out.println(cuota.getNumCuotas());
-        }
+    public void gestionarPago(int nroPoliza) {
+        for (Poliza poliza : polizas) {
+            if (nroPoliza == poliza.getNroPoliza()) {
+                for (Cuota cuota : poliza.getCuotas()) {
+                    System.out.println(cuota.getNumCuotas() + "-" + cuota + "Pagado: " + cuota.getPagado() + "Vencimiento: " + "\n" +
+                            cuota.getVencimiento() + "Monto: " + cuota.getMontoCuota() + "Forma de pago: " + cuota.getFormaPago());
+                }
+                System.out.println("Elige cuota a pagar");
+                int cuotaSelect = leer.nextInt();
 
-        System.out.println("Elige cuota a pagar");
-        int cuotaSelect = leer.nextInt();
-
-        for (Cuota cuota : poliza.getCuotas()) {
-            if (cuota.getNumCuotas() == cuotaSelect - 1) {
-                if (cuota.getPagado()) {
-                    System.out.println("La cuota" + (cuota.getNumCuotas() + 1) + "ya fue pagada");
-                } else {
-                    System.out.println("Elige la forma de pago:");
-                    for (FormaPago formaPago : FormaPago.values()) {
-                        System.out.println(formaPago.ordinal() + "-" + formaPago);
+                for (Cuota cuota : poliza.getCuotas()) {
+                    if (cuota.getNumCuotas() == cuotaSelect) {
+                        if (cuota.getPagado()) {
+                            System.out.println("La cuota" + (cuota.getNumCuotas()) + "ya fue pagada");
+                        } else {
+                            System.out.println("Elige la forma de pago:");
+                            for (FormaPago formaPago : FormaPago.values()) {
+                                System.out.println(formaPago.ordinal() + "-" + formaPago);
+                            }
+                            int formaElegida = leer.nextInt();
+                            poliza.getCuotas().get(cuotaSelect-1).setFormaPago(FormaPago.values()[formaElegida]);
+                            poliza.getCuotas().get(cuotaSelect-1).setPagado(true);
+                            System.out.println("Pago realizado");
+                        }
                     }
-                    int formaElegida = leer.nextInt();
-                    poliza.setFormaPago(FormaPago.values()[formaElegida]);
-                    cuota.setPagado(true);
-                    System.out.println("Pago realizado");
                 }
             }
         }
-
     }
 
     private int validarEntero () {
@@ -288,6 +307,15 @@ public class PolizaService {
         }
     }
 
+    private String validarString () {
+        String entrada = leer.next();
+        while (entrada.isEmpty()) {
+            System.out.print("Ingrese un valor válido.\n");
+            entrada = leer.next();
+        }
+        return entrada;
+    }
+
     private double validarDouble () {
         while (true) {
             try {
@@ -296,14 +324,5 @@ public class PolizaService {
                 System.out.print("Ingrese un número válido.\n");
             }
         }
-    }
-
-    private String validarString () {
-        String entrada = leer.next();
-        while (entrada.isEmpty()) {
-            System.out.print("Ingrese un valor válido.\n");
-            entrada = leer.next();
-        }
-        return entrada;
     }
 }

@@ -20,7 +20,7 @@ public class MascotaApp {
         ServicioMascota sm = new ServicioMascota();
 
    
-        System.out.println(sm.);
+        sm.crearMascota();
     
     }
 
