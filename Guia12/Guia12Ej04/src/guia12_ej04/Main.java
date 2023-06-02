@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package guia12_ej04;
 
 import Entities.Circulo;
@@ -9,7 +6,7 @@ import Entities.Rectangulo;
 
 /**
  *
- * @author dudum
+ * @author DarioF
  */
 public class Main {
 
