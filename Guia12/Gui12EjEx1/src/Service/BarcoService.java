@@ -1,9 +1,9 @@
 package Service;
 
-import Guia12EjEx1.Barco;
-import Guia12EjEx1.BarcoAMotor;
-import Guia12EjEx1.Velero;
-import Guia12EjEx1.Yate;
+import Entities.Barco;
+import Entities.BarcoAMotor;
+import Entities.Velero;
+import Entities.Yate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

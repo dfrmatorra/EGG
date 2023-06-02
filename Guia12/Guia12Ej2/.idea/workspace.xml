@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d6ba6f8a-e131-4536-83c8-0f9369e3a495" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/.netbeans_update_resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/Entidades/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/Entidades/Caballo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/Entidades/Gato.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/Entidades/Perro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/build/classes/guia12ej1/Guia12Ej1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/src/Entidades/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/src/Entidades/Caballo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/src/Entidades/Gato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/src/Entidades/Perro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guia12Ej1/src/guia12ej1/Guia12Ej1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Electrodomestico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Lavadora.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Televisor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/JavaApplication6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servicios/ElectroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.idea/ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/.netbeans_update_resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/Hoteles.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/build/classes/hoteles/entidades/Hotel5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/Hoteles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hoteles/src/hoteles/entidades/Hotel5.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2Qe6CyrVnmAQWWSyXfEajjYi8Zt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6ba6f8a-e131-4536-83c8-0f9369e3a495" name="Changes" comment="" />
+      <created>1685701579515</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685701579515</updated>
+    </task>
+    <servers />
+  </component>
+</project>
