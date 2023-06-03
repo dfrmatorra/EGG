@@ -1,7 +1,10 @@
 package Entities;
 
 import java.time.LocalDate;
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/BarcoAMotor.java
 import java.time.temporal.ChronoUnit;
+=======
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/BarcoAMotor.java
 import java.util.Date;
 
 /**
@@ -39,6 +42,7 @@ public final class BarcoAMotor extends Barco {
     }
 
     @Override
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/BarcoAMotor.java
     public double calcularModulo(Barco barco) {
         return (super.calcularModulo(barco))+ cv ;
     }
@@ -49,4 +53,22 @@ public final class BarcoAMotor extends Barco {
 
         return (calcularModulo(barco) * numeroDeDias);
     }
+=======
+    public double calcularModulo() {
+        return (super.calcularModulo())+ cv ; 
+    }
+
+    @Override
+    public void alquilerBarco() {
+        super.alquilerBarco(); 
+    
+    }
+
+    @Override
+    public double precioFinal() {
+        return super.precioFinal(); 
+    }
+    
+    
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/BarcoAMotor.java
 }

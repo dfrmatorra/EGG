@@ -1,7 +1,16 @@
 package Entities;
 
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/Barco.java
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+=======
+import Enum.Amarre;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/Barco.java
 import java.util.Scanner;
 
 /**
@@ -19,7 +28,10 @@ public class Barco {
     protected LocalDate fechaDev;
     protected String posicionAmarre;
 
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/Barco.java
 
+=======
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/Barco.java
     public Barco() {
     }
 
@@ -27,8 +39,16 @@ public class Barco {
         this.matricula = matricula;
         this.eslora = eslora;
         this.anio = anio;
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/Barco.java
             }
     public Barco(String matricula, Double eslora, Integer anio) {
+=======
+        this.fechaAlquiler = fechaAlquiler;
+        this.fechaDev = fechaDev;
+        this.posicionAmarre = posicionAmarre;
+    }
+        public Barco(String matricula, Double eslora, Integer anio) {
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/Barco.java
         this.matricula = matricula;
         this.eslora = eslora;
         this.anio = anio;
@@ -96,6 +116,7 @@ public class Barco {
     }
 
 
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/Barco.java
     public double calcularModulo (Barco barco){
         return 10*barco.eslora;
     }
@@ -104,6 +125,31 @@ public class Barco {
         long numeroDeDias = ChronoUnit.DAYS.between(barco.fechaAlquiler, barco.fechaDev);
 
         return (calcularModulo(barco)*numeroDeDias);
+=======
+public void alquilerBarco(){
+    
+    System.out.println("Ingrese la fecha de INICIO de alquiler del barco (yyyy-MM-dd):");
+    LocalDate fechaAlq = new LocalDate.parse(leer.next());
+    this.fechaAlquiler = fechaAlq;
+    System.out.println("Ingrese la fecha de DEVOLUCION de alquiler del barco(yyyy-MM-dd):");
+    LocalDate fechaD = new LocalDate.parse(leer.next());
+    this.fechaDev = fechaD;
+    System.out.println("Eliga la posicion de amarre:");
+    for (Amarre aux : Amarre.values()) {
+            System.out.println(aux);
+        }
+    this.posicionAmarre = leer.next().toUpperCase();
+    
+}       
+
+    public double calcularModulo (){
+        return 10*eslora;
+    }
+    
+    public double precioFinal(){
+        long numeroDeDias = ChronoUnit.DAYS.between(fechaAlquiler, fechaDev);
+        return (calcularModulo()*numeroDeDias);
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/Barco.java
     }
     
 }

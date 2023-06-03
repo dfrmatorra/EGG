@@ -1,7 +1,10 @@
 package Entities;
 
 import java.time.LocalDate;
+<<<<<<< HEAD:Guia12/Guia12EjEx1/src/Entities/Yate.java
 import java.time.temporal.ChronoUnit;
+=======
+>>>>>>> 6bce9e2e489650acf13b8e3f123b2f1481a61213:Guia12/Gui12EjEx1/src/Entities/Yate.java
 import java.util.Date;
 
 /**

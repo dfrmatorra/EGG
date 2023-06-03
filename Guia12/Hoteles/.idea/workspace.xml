@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fdb1e82a-b22a-42ad-984d-5e1853df10df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Guia12EjEx1/Barco.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Guia12EjEx1/BarcoAMotor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Guia12EjEx1/Velero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Guia12EjEx1/Yate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Service/BarcoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/Service/BarcoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/gui12ejex1/Gui12EjEx1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/build/classes/gui12ejex1/Gui12EjEx1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/Guia12EjEx1/Barco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/Entities/Barco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/Guia12EjEx1/BarcoAMotor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/Entities/BarcoAMotor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/Guia12EjEx1/Velero.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/Entities/Velero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/Guia12EjEx1/Yate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/Entities/Yate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/Service/BarcoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/Service/BarcoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gui12EjEx1/src/gui12ejex1/Gui12EjEx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gui12EjEx1/src/gui12ejex1/Gui12EjEx1.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2QUCyyXE66JtsZgB7I8Rd8lP7cI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/CASA/Documents/EGG/Guia12/Hoteles&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdb1e82a-b22a-42ad-984d-5e1853df10df" name="Changes" comment="" />
+      <created>1685399031508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685399031508</updated>
+    </task>
+    <servers />
+  </component>
+</project>
