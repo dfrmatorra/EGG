@@ -1,5 +1,7 @@
-package Guia12EjEx1;
+package Entities;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
@@ -13,10 +15,11 @@ public final class Velero extends Barco {
     public Velero() {
     }
 
-    public Velero(Integer numMastiles, String matricula, Double eslora, Integer anio, Date fechaAlquiler, Date fechaDev, String posicionAmarre) {
+    public Velero(String matricula, Double eslora, Integer anio, LocalDate fechaAlquiler, LocalDate fechaDev, String posicionAmarre, Integer numMastiles) {
         super(matricula, eslora, anio, fechaAlquiler, fechaDev, posicionAmarre);
         this.numMastiles = numMastiles;
     }
+
     public Velero(Integer numMastiles, String matricula, Double eslora, Integer anio) {
         super(matricula, eslora, anio);
         this.numMastiles = numMastiles;
@@ -32,25 +35,19 @@ public final class Velero extends Barco {
 
     @Override
     public String toString() {
-        return "Velero{" + "numMastiles=" + numMastiles + '}';
+        return "Velero{" + super.toString() + "numMastiles=" + numMastiles + '}';
     }
 
     @Override
-    public double calcularModulo() {
-        return (super.calcularModulo())+numMastiles; 
+    public double calcularModulo(Barco barco) {
+        return (super.calcularModulo(barco))+numMastiles;
     }
 
-    @Override
-    public void alquilerBarco() {
-        super.alquilerBarco(); 
-        
-    }
 
     @Override
-    public double precioFinal() {
-        return super.precioFinal(); 
+    public double precioFinal(Barco barco) {
+        long numeroDeDias = ChronoUnit.DAYS.between(((Velero) barco).fechaAlquiler, barco.fechaDev);
+
+        return (calcularModulo(barco) * numeroDeDias);
     }
-    
-    
-    
 }

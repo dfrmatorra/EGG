@@ -1,5 +1,7 @@
-package Guia12EjEx1;
+package Entities;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
@@ -14,7 +16,7 @@ public final class Yate extends Barco {
     public Yate() {
     }
 
-    public Yate(Integer cv, Integer numCam, String matricula, Double eslora, Integer anio, Date fechaAlquiler, Date fechaDev, String posicionAmarre) {
+    public Yate(String matricula, Double eslora, Integer anio, LocalDate fechaAlquiler, LocalDate fechaDev, String posicionAmarre, Integer cv, Integer numCam) {
         super(matricula, eslora, anio, fechaAlquiler, fechaDev, posicionAmarre);
         this.cv = cv;
         this.numCam = numCam;
@@ -44,22 +46,18 @@ public final class Yate extends Barco {
 
     @Override
     public String toString() {
-        return "Yate{" + "cv=" + cv + ", numCam=" + numCam + '}';
+        return "Yate{" + super.toString() +"cv=" + cv + ", numCam=" + numCam + '}';
     }
 
     @Override
-    public double calcularModulo() {
-        return super.calcularModulo() + cv + numCam;
+    public double calcularModulo(Barco barco) {
+        return super.calcularModulo(barco) + cv + numCam;
     }
 
     @Override
-    public void alquilerBarco() {
-        super.alquilerBarco();
-    }
+    public double precioFinal(Barco barco) {
+        long numeroDeDias = ChronoUnit.DAYS.between(((BarcoAMotor) barco).fechaAlquiler, barco.fechaDev);
 
-    @Override
-    public double precioFinal() {
-        return super.precioFinal();
+        return (calcularModulo(barco) * numeroDeDias);
     }
-
 }
