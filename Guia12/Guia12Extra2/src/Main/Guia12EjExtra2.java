@@ -1,3 +1,4 @@
+package Main;
 /*Crear una superclase llamada Edificio con los siguientes atributos: ancho, alto y largo. La clase
 edificio tendrá como métodos:
 • Método calcularSuperficie(): calcula la superficie del edificio.
@@ -22,30 +23,38 @@ techados y cuantos abiertos. Y para la clase EdificioDeOficinas deberemos llamar
 cantPersonas() y mostrar los resultados de cada edificio de oficinas.
  */
 
-package Main;
 
 import Entities.Edificio;
 import Entities.EdificioDeOficinas;
 import Entities.Polideportivo;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
+import java.util.ArrayList;
+
+public class Guia12EjExtra2 {
     public static void main(String[] args) {
         ArrayList<Edificio> edificios = new ArrayList<>();
-        edificios.add(new Polideportivo("Polideportivo", "Techado"));
-        edificios.add(new Polideportivo("Polideportivo", "Abierto"));
-        edificios.add(new EdificioDeOficinas("Edificio De Oficinas", 5, 10, 3));
-        edificios.add(new EdificioDeOficinas("Edificio De Oficinas", 5, 10, 3));
+        edificios.add(new Polideportivo("Polideportivo", true, 15, 2, 12));
+        edificios.add(new Polideportivo("Polideportivo", false,20, 2, 15));
+        edificios.add(new EdificioDeOficinas( 1, 10, 1, 15, 2, 12 ));
+        edificios.add(new EdificioDeOficinas(1, 15, 1, 20, 2, 15));
 
         for (Edificio edificio : edificios) {
-            System.out.println(edificio.calcularSuperficie());
-            System.out.println(edificio.calcularVolumen());
+            System.out.println(edificio);
+            System.out.println("Superficie: " + edificio.calcularSuperficie());
+            System.out.println("Vlolumen: " + edificio.calcularVolumen());
             if (edificio instanceof Polideportivo) {
-                System.out.println(((Polideportivo) edificio).getTipoInstalacion());
+                System.out.println(((Polideportivo) edificio).getPolideportivo());
+                if(((Polideportivo) edificio).getTechado()){
+                    System.out.println("El polideportivo es techado");
+                }else{
+                    System.out.println("El polideportivo es abierto");
+                }
             }
             if (edificio instanceof EdificioDeOficinas) {
+                System.out.println("Cantidad de personas: " + (((EdificioDeOficinas) edificio).getCantidadDePer())*((EdificioDeOficinas) edificio).getNumPisos());
 
-
+            }
+            System.out.println("------------------------------------------");
+        }
     }
 }

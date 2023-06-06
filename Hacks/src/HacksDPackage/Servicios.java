@@ -78,6 +78,24 @@ public class Servicios {
         } while (dni<15000000);
         return dni;
     }
+    
+    public void mostrarClientesPorNumero(ArrayList<Cliente> listado) {
+
+        Comparator<Cliente> comparaDNI = new Comparator<Cliente>() {
+            @Override
+            public int compare(Cliente t, Cliente t1) {
+                if (t.getDni().getNumero() > t1.getDni().getNumero()) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        };
+        Collections.sort(listado, comparaDNI);
+        for (Cliente aux : listado) {
+            System.out.println(aux);
+        }
+    }
 }
     
     

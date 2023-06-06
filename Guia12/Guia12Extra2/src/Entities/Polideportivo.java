@@ -2,9 +2,13 @@ package Entities;
 
 public class Polideportivo extends Edificio {
     private String polideportivo;
-    private String techado;
+    private boolean techado;
 
-    public Polideportivo(String polideportivo, String techado) {
+    public Polideportivo() {
+    }
+
+    public Polideportivo(String polideportivo, boolean techado, int ancho, int alto, int largo) {
+        super(ancho, alto, largo);
         this.polideportivo = polideportivo;
         this.techado = techado;
     }
@@ -17,11 +21,11 @@ public class Polideportivo extends Edificio {
         this.polideportivo = polideportivo;
     }
 
-    public String getTechado() {
+    public boolean getTechado() {
         return techado;
     }
 
-    public void setTechado(String techado) {
+    public void setTechado(boolean techado) {
         this.techado = techado;
     }
 
