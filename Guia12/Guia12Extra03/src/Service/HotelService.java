@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Service;
 
 import Entities.Alojamiento;
@@ -13,10 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-/**
- *
- * @author dudum
- */
 public class HotelService {
 
     public void ordenarPorPrecio(ArrayList<Alojamiento> aloja) {
@@ -48,12 +41,6 @@ public class HotelService {
             System.out.println(aux);
         }
         
-        
-       
-    
-     
-    
-    
     }
 
     public void mostrarCampConResto(ArrayList<Alojamiento> alojaArray) {
@@ -79,6 +66,4 @@ public class HotelService {
         }
     
     }
-    
-    
-}
+ }

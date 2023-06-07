@@ -6,6 +6,9 @@ package HacksDPackage;
 
 import Enums.Apellidos;
 import Enums.Nombres;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -79,11 +82,11 @@ public class Servicios {
         return dni;
     }
     
-    public void mostrarClientesPorNumero(ArrayList<Cliente> listado) {
+    public void mostrarClientesPorNumero(ArrayList<Objeto> listado) {
 
-        Comparator<Cliente> comparaDNI = new Comparator<Cliente>() {
+        Comparator<Objeto> comparaDNI = new Comparator<Objeto>() {
             @Override
-            public int compare(Cliente t, Cliente t1) {
+            public int compare(Objeto t, Objeto t1) {
                 if (t.getDni().getNumero() > t1.getDni().getNumero()) {
                     return 1;
                 } else {
@@ -92,7 +95,7 @@ public class Servicios {
             }
         };
         Collections.sort(listado, comparaDNI);
-        for (Cliente aux : listado) {
+        for (Objeto aux : listado) {
             System.out.println(aux);
         }
     }

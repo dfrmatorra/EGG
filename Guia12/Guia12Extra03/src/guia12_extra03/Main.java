@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package guia12_extra03;
 
 import Entities.Alojamiento;
@@ -13,15 +9,8 @@ import Service.HotelService;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author dudum
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         ArrayList<Alojamiento> alojaArray = new ArrayList();
@@ -57,7 +46,6 @@ public class Main {
                 ((Hotel5) aux).setPrecioHab(aux.calcularPrecio(aux));
             }
         }
-
         int opc;
         do {
             System.out.println("MENU");
@@ -105,5 +93,4 @@ public class Main {
             }
         } while (opc != 9);
     }
-
 }

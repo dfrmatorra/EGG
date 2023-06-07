@@ -27,15 +27,9 @@ public abstract class Alojamiento {
 
     public abstract double calcularPrecio (Alojamiento alojaArray);
     
-    
-    @Override
+       @Override
     public String toString() {
         return "Aloj.{" + "nombre=" + nombrealoja + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente=" + gerente + '}';
     }
-    
-    
-    
-    
-    
-    
+                  
 }
