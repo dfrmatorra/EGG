@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HacksD">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/HacksD/dist/HacksD.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

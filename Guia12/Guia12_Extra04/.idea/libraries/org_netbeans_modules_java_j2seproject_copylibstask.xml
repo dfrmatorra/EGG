@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org-netbeans-modules-java-j2seproject-copylibstask">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Guia12_Extra04/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar!/" />
+      <root url="file://$PROJECT_DIR$/../HacksD" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../HacksD/HacksD/src" />
+    </SOURCES>
+  </library>
+</component>
