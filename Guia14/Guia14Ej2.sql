@@ -201,7 +201,7 @@ NOT IN).*/
 
 SELECT nombre
 FROM fabricante 
-WHERE codigo IN (select p.codigo_fabricante from producto p);
+WHERE codigo IN (select codigo_fabricante from producto);
 
 /*Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando
 IN o NOT IN).*/
@@ -214,24 +214,13 @@ WHERE codigo NOT IN (SELECT codigo_fabricante FROM producto);
 /*Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número
 de productos que el fabricante Lenovo.*/
 
-SELECT 
-    f.nombre
-FROM
-    fabricante f
-        INNER JOIN
-    producto ON f.codigo = producto.codigo_fabricante
-GROUP BY f.nombre
-HAVING COUNT(f.nombre) = (SELECT 
-        COUNT(*)
-    FROM
-        producto
-    WHERE
-        (SELECT 
-                codigo
-            FROM
-                fabricante
-            WHERE
-                nombre = 'lenovo')=codigo_fabricante);
+select f.nombre
+from fabricante f, producto p
+where p.codigo_fabricante=f.codigo
+group by f.nombre
+having count(f.nombre) = (select count(*) from producto where (SELECT codigo FROM fabricante WHERE nombre = 'lenovo') = codigo_fabricante);
+
+
                 
                 
 
