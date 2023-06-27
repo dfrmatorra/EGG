@@ -218,7 +218,9 @@ select f.nombre
 from fabricante f, producto p
 where p.codigo_fabricante=f.codigo
 group by f.nombre
-having count(f.nombre) = (select count(*) from producto where (SELECT codigo FROM fabricante WHERE nombre = 'lenovo') = codigo_fabricante);
+having count(f.nombre) = (select count(*) from producto where  codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'lenovo'));
+/*having count(f.nombre) = (select count(*) from producto where codigo_fabricante='lenovo');*/
+
 
 
                 
