@@ -3,19 +3,26 @@ package principal;
 import com.redsocial.dominio.mascota.MascotaService;
 import com.redsocial.dominio.usuario.Usuario;
 import com.redsocial.dominio.usuario.UsuarioService;
+import java.util.Scanner;
 
 public class Principal {
-
+  
     public static void main(String[] args) {
-
+        
         UsuarioService usuarioService = new UsuarioService();
         MascotaService mascotaService = new MascotaService();
 
         
         try {
             //Creamos  usuarios
-            usuarioService.crearUsuario("fiorde@hotmail.com", "fiorde14");
-            usuarioService.crearUsuario("tincho@hotmail.com", "eggprogramacion");
+            Scanner leer = new Scanner(System.in).useDelimiter("\n");
+            System.out.println("Ingresar Usuario:");
+            String usuario = leer.next();
+            System.out.println("Ingresar Clave:");
+            String clave = leer.next();
+            
+            usuarioService.crearUsuario(usuario, clave);
+            //usuarioService.crearUsuario("tincho@hotmail.com", "eggprogramacion");
             usuarioService.imprimirUsuarios();
         } catch (Exception e) {
             e.printStackTrace();
@@ -25,7 +32,7 @@ public class Principal {
         
         try {
             //Modificamos un usuario
-            usuarioService.modificarClaveUsuario("fiorde@hotmail.com", "fiorde14", "fiorde15");
+            usuarioService.modificarClaveUsuario("fiorde@hotmail.com", "fiorde15", "fiorde15");
             usuarioService.imprimirUsuarios();
         } catch (Exception e) {
             e.printStackTrace();
