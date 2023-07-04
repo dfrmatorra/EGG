@@ -7,7 +7,7 @@ package estancias.entidades;
 public class Cliente {
     
     private int idCliente;
-    private String nobre;
+    private String nombre;
     private String calle;
     private int numero;
     private String codigoPostal;
@@ -18,9 +18,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nobre, String calle, int numero, String codigoPostal, String ciudad, String pais, String email) {
+    public Cliente(int idCliente, String nombre, String calle, int numero, String codigoPostal, String ciudad, String pais, String email) {
         this.idCliente = idCliente;
-        this.nobre = nobre;
+        this.nombre = nombre;
         this.calle = calle;
         this.numero = numero;
         this.codigoPostal = codigoPostal;
@@ -37,12 +37,12 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public String getNobre() {
-        return nobre;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNobre(String nobre) {
-        this.nobre = nobre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCalle() {
@@ -95,7 +95,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nobre=" + nobre + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", pais=" + pais + ", email=" + email + '}';
+        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", pais=" + pais + ", email=" + email + '}';
     }
     
         
