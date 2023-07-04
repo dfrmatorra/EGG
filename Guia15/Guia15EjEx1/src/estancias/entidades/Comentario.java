@@ -4,7 +4,7 @@ package estancias.entidades;
  *
  * @author DarioF
  */
-public class Comentario {
+public class Comentario{
     
     private int idComentario;
     private int idCasaComentario;

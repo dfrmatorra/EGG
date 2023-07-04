@@ -135,13 +135,13 @@ public class FamiliaService {
                             System.out.println(f);
                         }
                     }
-                }/*
-                if (opc == 3) {
-                    for (Familia p : familias) {
-                        System.out.println(p.getCodigo() + " - " + "Nombre: " + p.getNombre() + " - Precio: "
-                                + p.getPrecio());
-                    }
                 }
+                if (opc == 3) {
+                  ArrayList<Familia> familiasAux = dao.buscarFamilia1("SELECT * FROM familias WHERE email LIKE '%hotmail%'");
+                    for (Familia f : familiasAux) {
+                        System.out.println(f);
+                    }
+                }/*
                 if (opc == 4) {
                     for (Familia p : familias) {
                         if (p.getNombre().toLowerCase().contains("portátil")) {

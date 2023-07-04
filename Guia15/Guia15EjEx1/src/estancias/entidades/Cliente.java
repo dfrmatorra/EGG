@@ -4,7 +4,7 @@ package estancias.entidades;
  *
  * @author DarioF
  */
-public class Cliente {
+public class Cliente{
     
     private int idCliente;
     private String nombre;

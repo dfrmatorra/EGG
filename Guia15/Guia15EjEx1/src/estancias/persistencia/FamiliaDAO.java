@@ -113,28 +113,30 @@ public class FamiliaDAO extends DAO{
         }
     }
 
-    /* public Familia buscarFamiliaMasBarato() throws Exception {
+    public ArrayList <Familia> buscarFamilia1(String sql) throws Exception {
         try {
-
-            String sql = "SELECT * FROM familia "
-                    + "WHERE precio = (SELECT MIN(precio) FROM familia)";
 
             consultarBase(sql);
 
             Familia familia = null;
+            ArrayList<Familia> familias1 = new ArrayList();
             while (resultado.next()) {
                 familia = new Familia();
-                familia.setCodigo(resultado.getInt(1));
-                familia.setNombre(resultado.getString(2));
-                familia.setPrecio(resultado.getDouble(3));
-                familia.setCodigoFabricante(resultado.getInt(4));
+                familia.setIdFamilia(resultado.getInt(1));
+                familia.setNombreFamilia(resultado.getString(2));
+                familia.setEdadMinima(resultado.getInt(3));
+                familia.setEdadMaxima(resultado.getInt(4));
+                familia.setNumHijos(resultado.getInt(5));
+                familia.setEmailFamilia(resultado.getString(6));
+                familia.setIdCasaFamilia(resultado.getInt(7));
+                familias1.add(familia);
             }
             desconectarBase();
-            return familia;
+            return familias1;
         } catch (Exception e) {
             desconectarBase();
             throw e;
         }
-    }*/
+    }
     
 }

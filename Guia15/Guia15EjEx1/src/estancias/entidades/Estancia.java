@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author DarioF
  */
-public class Estancia {
+public class Estancia{
     
     private int idEstancia;
     private int idCliente;

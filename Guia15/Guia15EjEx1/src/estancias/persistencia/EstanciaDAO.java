@@ -115,27 +115,28 @@ public class EstanciaDAO extends DAO{
         }
     }
     
-       /* public Estancia buscarEstanciaMasBarato() throws Exception {
+    public ArrayList <Estancia> buscarEstancia1(String sql) throws Exception {
         try {
-
-            String sql = "SELECT * FROM estancia "
-                    + "WHERE precio = (SELECT MIN(precio) FROM estancia)";
 
             consultarBase(sql);
 
             Estancia estancia = null;
+            ArrayList<Estancia> estancias1 = new ArrayList();
             while (resultado.next()) {
                 estancia = new Estancia();
-                estancia.setCodigo(resultado.getInt(1));
-                estancia.setNombre(resultado.getString(2));
-                estancia.setPrecio(resultado.getDouble(3));
-                estancia.setCodigoFabricante(resultado.getInt(4));
+                estancia.setIdEstancia(resultado.getInt(1));
+                estancia.setIdCliente(resultado.getInt(2));
+                estancia.setIdCasa(resultado.getInt(3));
+                estancia.setNombreHuesped(resultado.getString(4));
+                estancia.setFechaDesde(resultado.getDate(5));
+                estancia.setFechaHasta(resultado.getDate(6));
+                estancias1.add(estancia);
             }
             desconectarBase();
-            return estancia;
+            return estancias1;
         } catch (Exception e) {
             desconectarBase();
             throw e;
         }
-    }*/    
+    }   
 }

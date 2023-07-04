@@ -4,7 +4,7 @@ package estancias.entidades;
  *
  * @author DarioF
  */
-public class Familia {
+public class Familia{
     
     private int idFamilia;
     private String nombreFamilia;

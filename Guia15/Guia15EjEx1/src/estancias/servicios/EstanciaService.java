@@ -1,5 +1,6 @@
 package estancias.servicios;
 
+import estancias.entidades.Cliente;
 import estancias.entidades.Estancia;
 import estancias.persistencia.EstanciaDAO;
 import java.util.ArrayList;
@@ -128,11 +129,16 @@ public class EstanciaService {
                         System.out.println(p);
                     }
                 }
-                /*if (opc == 2) {
-                    for (Estancia p : estancias) {
-                        System.out.println(p.getCodigo() + " - " + p.getNombre().toString());
+                if (opc == 2) {
+//                    ArrayList<Estancia> estanciasAux = dao.buscarEstancia1("SELECT e.id_estancia, c.nombre, c.pais, c.ciudad, x.*\n" +
+//                    "FROM estancias e\n" +
+//                    "JOIN clientes c ON c.id_cliente = e.id_cliente\n" +
+//                    "JOIN casas x ON x.id_casa = e.id_casa;");
+                    for (Estancia e : estancias) {
+                        
+                        System.out.println();
                     }
-                }
+                }/*
                 if (opc == 3) {
                     for (Estancia p : estancias) {
                         System.out.println(p.getCodigo() + " - " + "Nombre: " + p.getNombre() + " - Precio: "

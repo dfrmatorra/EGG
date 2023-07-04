@@ -152,7 +152,7 @@ public class CasaService {
                     }
                 }
                 if (opc == 2) {
-                    ArrayList<Casa> casasAux = dao.buscarCasa1();
+                    ArrayList<Casa> casasAux = dao.buscarCasa1("SELECT * FROM casas WHERE pais = 'Reino Unido' AND fecha_desde >= '2020-08-01'  AND fecha_hasta <= '2020-08-31'");
                     for (Casa c : casasAux) {
                         System.out.println(c);
                     }

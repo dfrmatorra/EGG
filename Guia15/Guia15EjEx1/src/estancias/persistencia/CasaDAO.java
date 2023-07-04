@@ -127,10 +127,10 @@ public class CasaDAO extends DAO {
         }
     }
 
-    public ArrayList <Casa> buscarCasa1() throws Exception {
+    public ArrayList <Casa> buscarCasa1(String sql) throws Exception {
         try {
 
-            String sql = "SELECT * FROM casas WHERE pais = 'Reino Unido' AND fecha_desde >= '2020-08-01'  AND fecha_hasta <= '2020-08-31'";
+            
 
             consultarBase(sql);
 
