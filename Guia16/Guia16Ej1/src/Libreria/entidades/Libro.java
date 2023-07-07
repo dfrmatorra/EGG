@@ -3,6 +3,8 @@ package Libreria.entidades;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -10,6 +12,7 @@ import javax.persistence.ManyToOne;
 public class Libro implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long isbn;
     @Basic
     private String titulo;
@@ -23,10 +26,10 @@ public class Libro implements Serializable {
     @ManyToOne
     private Editorial editorial;
         
-    public Libro() {
+    public Libro(String titulo1, int anio1, int ejemplares1, int ejemplaresPrestados1, int ejemplaresRestantes1, boolean alta1, Autor au, Editorial edit) {
     }
 
-    public Libro(long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+    public Libro(long isbn,String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;

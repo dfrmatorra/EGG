@@ -3,12 +3,15 @@ package Libreria.entidades;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Editorial implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Basic
     private String nombre;
@@ -16,8 +19,7 @@ public class Editorial implements Serializable {
     public Editorial() {
     }
 
-    public Editorial(Integer id, String nombre, Boolean alta) {
-        this.id = id;
+    public Editorial(String nombre, Boolean alta) {
         this.nombre = nombre;
         this.alta = alta;
     }
