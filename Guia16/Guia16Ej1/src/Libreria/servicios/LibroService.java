@@ -23,7 +23,9 @@ public class LibroService {
     EditorialService eds = new EditorialService();
 
     public Libro crearLibro() {
-
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Guia16Ej1PU");
+        EntityManager em = emf.createEntityManager();
+        
         System.out.println("");
         System.out.println("INGRESO DE LIBRO");
         System.out.println("----------------");
@@ -49,9 +51,6 @@ public class LibroService {
         Autor au = aus.crearAutor();
         Editorial edit = eds.crearEditorial();
         boolean alta = true;
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Guia16Ej1PU");
-        EntityManager em = emf.createEntityManager();
 
         Libro lib = new Libro(titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, alta, au, edit);
 

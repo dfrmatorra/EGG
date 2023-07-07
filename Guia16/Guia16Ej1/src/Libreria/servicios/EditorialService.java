@@ -5,15 +5,26 @@
 package Libreria.servicios;
 
 import Libreria.entidades.Editorial;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author Dario
  */
-class EditorialService {
+public Editorial class EditorialService (){
 
     Editorial crearEditorial() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        System.out.println("");
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Guia16Ej1PU");
+        EntityManager em = emf.createEntityManager();
+        
+        System.out.println("Ingrese el ");
+
+        return ed;
     }
     
 }
