@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="JPA_Ejemplo_CON_Herencia">
+  <ClassDiagramComponents>
+    <Class name="EggJPA" package="JPA_Ejemplo_1" visibility="public" xPosition="34.0" yPosition="28.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Direccion" package="JPA_Ejemplo_1.entidades" visibility="public" xPosition="226.0" yPosition="28.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="pais" type="String" visibility="private"/>
+        <Field name="provincia" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="pais"/>
+          <Argument type="String" name="provincia"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getPais" returnType="String" visibility="public"/>
+        <Method name="setPais" returnType="void" visibility="public">
+          <Argument type="String" name="pais"/>
+        </Method>
+        <Method name="getProvincia" returnType="String" visibility="public"/>
+        <Method name="setProvincia" returnType="void" visibility="public">
+          <Argument type="String" name="provincia"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mascota" package="JPA_Ejemplo_1.entidades" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="dni"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDni" returnType="String" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="JPA_Ejemplo_1.entidades" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="mascotas" type="List&lt;Mascota&gt;" visibility="private"/>
+        <Field name="direccion" type="Direccion" visibility="private"/>
+        <Field name="nacimiento" type="Date" visibility="private"/>
+        <Field name="rol" type="Rol" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="dni"/>
+          <Argument type="List&lt;Mascota&gt;" name="mascotas"/>
+          <Argument type="Direccion" name="direccion"/>
+          <Argument type="Date" name="nacimiento"/>
+          <Argument type="Rol" name="rol"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getDni" returnType="String" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="getMascotas" returnType="List&lt;Mascota&gt;" visibility="public"/>
+        <Method name="setMascotas" returnType="void" visibility="public">
+          <Argument type="List&lt;Mascota&gt;" name="mascotas"/>
+        </Method>
+        <Method name="getDireccion" returnType="Direccion" visibility="public"/>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="Direccion" name="direccion"/>
+        </Method>
+        <Method name="getNacimiento" returnType="Date" visibility="public"/>
+        <Method name="setNacimiento" returnType="void" visibility="public">
+          <Argument type="Date" name="nacimiento"/>
+        </Method>
+        <Method name="getRol" returnType="Rol" visibility="public"/>
+        <Method name="setRol" returnType="void" visibility="public">
+          <Argument type="Rol" name="rol"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="JPA_Ejemplo_1" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="mascotaServicio" type="MascotaServicio" visibility="private" isFinal="true"/>
+        <Field name="direccionServicio" type="DireccionServicio" visibility="private" isFinal="true"/>
+        <Field name="personaServicio" type="PersonaServicio" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="ejecucion" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DAO" package="JPA_Ejemplo_1.persistencia" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="EMF" type="EntityManagerFactory" visibility="protected" isFinal="true"/>
+        <Field name="em" type="EntityManager" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="protected"/>
+        <Method name="desconectar" returnType="void" visibility="protected"/>
+        <Method name="guardar" returnType="void" visibility="protected">
+          <Argument type="T" name="objeto"/>
+        </Method>
+        <Method name="editar" returnType="void" visibility="protected">
+          <Argument type="T" name="objeto"/>
+        </Method>
+        <Method name="eliminar" returnType="void" visibility="protected">
+          <Argument type="T" name="objeto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DireccionDAO" package="JPA_Ejemplo_1.persistencia" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="guardar" returnType="void" visibility="public">
+          <Argument type="Direccion" name="direccion"/>
+        </Method>
+        <Method name="eliminar" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="buscarPorId" returnType="Direccion" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="listarTodos" returnType="List&lt;Direccion&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MascotaDAO" package="JPA_Ejemplo_1.persistencia" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="guardar" returnType="void" visibility="public">
+          <Argument type="Mascota" name="mascota"/>
+        </Method>
+        <Method name="eliminar" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="listarTodos" returnType="List&lt;Mascota&gt;" visibility="public"/>
+        <Method name="buscarPorDNI" returnType="Mascota" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersonaDAO" package="JPA_Ejemplo_1.persistencia" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="guardar" returnType="void" visibility="public">
+          <Argument type="Persona" name="persona"/>
+        </Method>
+        <Method name="eliminar" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="listarTodos" returnType="List&lt;Persona&gt;" visibility="public"/>
+        <Method name="buscarPorDNI" returnType="Persona" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="buscarPorDNIMascota" returnType="Persona" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="buscarPorPaisYProvincia" returnType="List&lt;Persona&gt;" visibility="public">
+          <Argument type="String" name="pais"/>
+          <Argument type="String" name="provincia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DireccionServicio" package="JPA_Ejemplo_1.servicios" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="mascotaServicio" type="MascotaServicio" visibility="private"/>
+        <Field name="personaServicio" type="PersonaServicio" visibility="private"/>
+        <Field name="DAO" type="DireccionDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setServicios" returnType="void" visibility="public">
+          <Argument type="MascotaServicio" name="mascotaServicio"/>
+          <Argument type="PersonaServicio" name="personaServicio"/>
+        </Method>
+        <Method name="crearDireccion" returnType="Direccion" visibility="public">
+          <Argument type="String" name="pais"/>
+          <Argument type="String" name="provincia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MascotaServicio" package="JPA_Ejemplo_1.servicios" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="direccionServicio" type="DireccionServicio" visibility="private"/>
+        <Field name="personaServicio" type="PersonaServicio" visibility="private"/>
+        <Field name="DAO" type="MascotaDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setServicios" returnType="void" visibility="public">
+          <Argument type="DireccionServicio" name="direccionServicio"/>
+          <Argument type="PersonaServicio" name="personaServicio"/>
+        </Method>
+        <Method name="crearMascota" returnType="Mascota" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="buscarPorDni" returnType="Mascota" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="eliminarPorDni" returnType="boolean" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="listarMascotas" returnType="List&lt;Mascota&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonaServicio" package="JPA_Ejemplo_1.servicios" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="direccionServicio" type="DireccionServicio" visibility="private"/>
+        <Field name="mascotaServicio" type="MascotaServicio" visibility="private"/>
+        <Field name="DAO" type="PersonaDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setServicios" returnType="void" visibility="public">
+          <Argument type="DireccionServicio" name="direccionServicio"/>
+          <Argument type="MascotaServicio" name="mascotaServicio"/>
+        </Method>
+        <Method name="crearPersona" returnType="Persona" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="dni"/>
+          <Argument type="Date" name="nacimiento"/>
+          <Argument type="Rol" name="rol"/>
+          <Argument type="Direccion" name="direccion"/>
+          <Argument type="List&lt;Mascota&gt;" name="mascotas"/>
+        </Method>
+        <Method name="buscarPorDni" returnType="Persona" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="eliminarPorDni" returnType="boolean" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="listarPersonas" returnType="List&lt;Persona&gt;" visibility="public"/>
+        <Method name="buscarPorPaisYProvincia" returnType="List&lt;Persona&gt;" visibility="public">
+          <Argument type="String" name="pais"/>
+          <Argument type="String" name="provincia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Rol" package="JPA_Ejemplo_1.enums" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Literals>
+        <Literal name="ADMIN"/>
+        <Literal name="USER"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mascotaServicio" source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.servicios.MascotaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personaServicio" source="JPA_Ejemplo_1.servicios.MascotaServicio" target="JPA_Ejemplo_1.servicios.PersonaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="JPA_Ejemplo_1.persistencia.DireccionDAO" target="JPA_Ejemplo_1.persistencia.DAO"/>
+    <HasRelation name="direccion" source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.entidades.Direccion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.DireccionServicio" target="JPA_Ejemplo_1.entidades.Direccion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.servicios.MascotaServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.MascotaServicio" target="JPA_Ejemplo_1.servicios.PersonaServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="direccionServicio" source="JPA_Ejemplo_1.Menu" target="JPA_Ejemplo_1.servicios.DireccionServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="JPA_Ejemplo_1.persistencia.MascotaDAO" target="JPA_Ejemplo_1.persistencia.DAO"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.DireccionServicio" target="JPA_Ejemplo_1.servicios.PersonaServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mascotaServicio" source="JPA_Ejemplo_1.servicios.DireccionServicio" target="JPA_Ejemplo_1.servicios.MascotaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personaServicio" source="JPA_Ejemplo_1.Menu" target="JPA_Ejemplo_1.servicios.PersonaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="DAO" source="JPA_Ejemplo_1.servicios.MascotaServicio" target="JPA_Ejemplo_1.persistencia.MascotaDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.entidades.Direccion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.persistencia.DireccionDAO" target="JPA_Ejemplo_1.entidades.Direccion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="DAO" source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.persistencia.PersonaDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personaServicio" source="JPA_Ejemplo_1.servicios.DireccionServicio" target="JPA_Ejemplo_1.servicios.PersonaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.persistencia.MascotaDAO" target="JPA_Ejemplo_1.entidades.Mascota" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.enums.Rol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="DAO" source="JPA_Ejemplo_1.servicios.DireccionServicio" target="JPA_Ejemplo_1.persistencia.DireccionDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="direccionServicio" source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.servicios.DireccionServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="direccionServicio" source="JPA_Ejemplo_1.servicios.MascotaServicio" target="JPA_Ejemplo_1.servicios.DireccionServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.MascotaServicio" target="JPA_Ejemplo_1.entidades.Mascota" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.entidades.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mascotaServicio" source="JPA_Ejemplo_1.Menu" target="JPA_Ejemplo_1.servicios.MascotaServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.persistencia.PersonaDAO" target="JPA_Ejemplo_1.entidades.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mascotas" source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.entidades.Mascota" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Mascota&gt;"/>
+    <IsRelation name="is" source="JPA_Ejemplo_1.persistencia.PersonaDAO" target="JPA_Ejemplo_1.persistencia.DAO"/>
+    <UseRelation source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.entidades.Mascota" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JPA_Ejemplo_1.servicios.PersonaServicio" target="JPA_Ejemplo_1.enums.Rol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rol" source="JPA_Ejemplo_1.entidades.Persona" target="JPA_Ejemplo_1.enums.Rol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

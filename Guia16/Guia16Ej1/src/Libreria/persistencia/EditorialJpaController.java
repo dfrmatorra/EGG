@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -25,6 +26,10 @@ public class EditorialJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+   
+        public EditorialJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("Guia16Ej1PU");
     }
 
     public void create(Editorial editorial) throws PreexistingEntityException, Exception {
