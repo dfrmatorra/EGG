@@ -8,6 +8,6 @@ package Enums;
  *
  * @author dudum
  */
-public enum Materias {
-    MATEMATICA, LENGUA, CIENCIAS_NATURALES, FISICA, QUIMICA, LITERATURA, POESIA, GEOGRAFIA, HISTORIA, INGLES, PSICOLOGIA, MITOLOGIA, ESTADISTICAS;
+public enum Editoriales {
+    SUR, LA_PLATA, NORTE, PATRIA, SALVADOR;
 }

@@ -24,14 +24,14 @@ public class EditorialService {
          Editorial edit = new Editorial();
          
          System.out.print("Nombre Editorial: ");
-         String nombre = serv.Editoriales();
+         String nombre = serv.editorial();
          System.out.println(nombre);
          serv.wait(300);
          
          edit.setAlta(true);
          edit.setNombre(nombre);
          
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
         EntityManager em = emf.createEntityManager();
         
         em.getTransaction().begin();

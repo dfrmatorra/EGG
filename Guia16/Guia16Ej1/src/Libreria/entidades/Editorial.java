@@ -12,10 +12,10 @@ public class Editorial implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    public Integer id;
     @Basic
-    private String nombre;
-    private Boolean alta;
+    public String nombre;
+    public Boolean alta;
     public Editorial() {
     }
 

@@ -5,8 +5,9 @@
 package HacksDPackage;
 
 import Enums.Apellidos;
+import Enums.Editoriales;
 import Enums.Estado_Civil;
-import Enums.Materias;
+import Enums.NombreLibros;
 import Enums.Nombres;
 import Enums.Sectores;
 import java.util.Random;
@@ -109,9 +110,9 @@ public class Servicios {
         }
     }
 
-    public String estadoCivil() {
+    public String NombreLibros() {
 
-        return Estado_Civil.values()[nom.nextInt(Estado_Civil.values().length)].name();
+        return NombreLibros.values()[nom.nextInt(NombreLibros.values().length)].name();
     }
     
     public String elegirEstadoCivil(int a){
@@ -143,9 +144,9 @@ public class Servicios {
         return nom.nextInt(a);
     }
     
-    public String materia(){
+    public String editorial(){
         
-        return Materias.values()[nom.nextInt(Materias.values().length)].name();
+        return Editoriales.values()[nom.nextInt(Editoriales.values().length)].name();
     }
     
     public String personalServicio(){

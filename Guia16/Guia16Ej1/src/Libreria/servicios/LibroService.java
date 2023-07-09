@@ -7,6 +7,7 @@ package Libreria.servicios;
 import Libreria.entidades.Autor;
 import Libreria.entidades.Editorial;
 import Libreria.entidades.Libro;
+import Libreria.persistencia.ControladoraPersistencia;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,10 +23,10 @@ public class LibroService {
     AutorService aus = new AutorService();
     EditorialService eds = new EditorialService();
 
+    ControladoraPersistencia conPer = new ControladoraPersistencia();
+
     public Libro crearLibro() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Guia16Ej1PU");
-        EntityManager em = emf.createEntityManager();
-        
+
         System.out.println("");
         System.out.println("INGRESO DE LIBRO");
         System.out.println("----------------");
@@ -53,6 +54,9 @@ public class LibroService {
         boolean alta = true;
 
         Libro lib = new Libro(titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, alta, au, edit);
+
+       
+        conPer.crearLibro(lib);
 
         return lib;
     }

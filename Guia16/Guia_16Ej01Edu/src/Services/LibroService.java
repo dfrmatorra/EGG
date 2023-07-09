@@ -8,6 +8,7 @@ import Entities.Autor;
 import Entities.Editorial;
 import Entities.Libro;
 import HacksDPackage.Servicios;
+import Persistance.LibroDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,28 +17,27 @@ import javax.persistence.Persistence;
  *
  * @author dudum
  */
-public class LibreriaService {
-    
+public class LibroService {
+
     Servicios serv = new Servicios();
     AutorService aus = new AutorService();
     EditorialService eds = new EditorialService();
-    
-    
+
     public void crearLibro() {
-        
+
         System.out.println("");
         System.out.println("INGRESO DE LIBRO");
         System.out.println("----------------");
         System.out.print("isbn: ");
-        long isbn = (long)serv.generarDni();
+        long isbn = (long) serv.generarDni();
         System.out.println(isbn);
         serv.wait(300);
         System.out.print("Titulo: ");
-        String titulo = serv.titulos();
+        String titulo = serv.NombreLibros();
         System.out.println(titulo);
         serv.wait(300);
         System.out.print("Año: ");
-        int anio = serv.anio(1600, 2020);
+        int anio = serv.ano();
         System.out.println(anio);
         serv.wait(300);
         System.out.print("Ejemplares: ");
@@ -49,31 +49,34 @@ public class LibreriaService {
         System.out.println(ejemplaresPrestados);
         serv.wait(300);
         System.out.print("Ejemplares restantes: ");
-        int ejemplaresRestantes = ejemplares-ejemplaresPrestados;
+        int ejemplaresRestantes = ejemplares - ejemplaresPrestados;
         System.out.println(ejemplaresRestantes);
         serv.wait(300);
-        Autor au= aus.crearAutor();
+        Autor au = aus.crearAutor();
         Editorial edit = eds.crearEditorial();
-        boolean alta= true;
-        
-        
+        boolean alta = true;
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
         EntityManager em = emf.createEntityManager();
-        
+
         Libro lib = new Libro(isbn, titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, alta, au, edit);
-        
-        
+
         em.getTransaction().begin();
         em.persist(lib);
         em.getTransaction().commit();
         em.close();
-        
-        
-       
+
     }
 
-   
-    
-    
-    
+    public void borrarLibro(int id) {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+        EntityManager em = emf.createEntityManager();
+        
+        
+        
+
+
+    }
+
 }

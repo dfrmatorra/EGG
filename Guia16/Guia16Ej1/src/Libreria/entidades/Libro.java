@@ -13,18 +13,18 @@ public class Libro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long isbn;
+    public long isbn;
     @Basic
-    private String titulo;
-    private Integer anio;
-    private Integer ejemplares;
-    private Integer ejemplaresPrestados;
-    private Integer ejemplaresRestantes;
-    private Boolean alta;
+    public String titulo;
+    public Integer anio;
+    public Integer ejemplares;
+    public Integer ejemplaresPrestados;
+    public Integer ejemplaresRestantes;
+    public Boolean alta;
     @ManyToOne
-    private Autor autor;
+    public Autor autor;
     @ManyToOne
-    private Editorial editorial;
+    public Editorial editorial;
         
     public Libro(String titulo1, int anio1, int ejemplares1, int ejemplaresPrestados1, int ejemplaresRestantes1, boolean alta1, Autor au, Editorial edit) {
     }

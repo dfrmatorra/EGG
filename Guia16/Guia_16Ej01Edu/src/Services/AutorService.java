@@ -27,29 +27,14 @@ public class AutorService {
 
         Autor au = new Autor();
         System.out.print("Nombre del Autor: ");
-        String nombre = serv.Autores();
+        String nombre = serv.apellidoNombre();
         System.out.println(nombre);
         serv.wait(300);
+        boolean alta = true;
 
-        buscarAutor(nombre);
+        au.setAlta(true);
+        au.setNombre(nombre);
 
-        
-        
-        
-        
-        if (id != 0) {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
-            EntityManager em = emf.createEntityManager();
-
-            em.getTransaction().begin();
-            au = em.find(Autor.class, id);
-        } else {
-
-            boolean alta = true;
-
-            au.setAlta(true);
-            au.setNombre(nombre);
-        }
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
         EntityManager em = emf.createEntityManager();
 
@@ -57,26 +42,22 @@ public class AutorService {
         em.persist(au);
         em.getTransaction().commit();
         em.close();
+        
         return au;
+
     }
 
     public Autor buscarAutor(String nombre) {
 
-       
-        
         try {
             return auD.buscarXNombre(nombre);
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             serv.wait(500);
             return null;
         }
-        
-        
-        
-        
-        
+
     }
 
 }

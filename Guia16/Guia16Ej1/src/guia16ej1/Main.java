@@ -1,5 +1,9 @@
 package guia16ej1;
 
+import Libreria.servicios.LibroService;
+
+
+
 public class Main {
 
     /**
@@ -7,7 +11,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Libro 
+        LibroService ls = new LibroService();
+        
+        ls.crearLibro();
+                
         
     }
     

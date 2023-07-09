@@ -82,23 +82,23 @@ public class Servicios {
         return dni;
     }
     
-    public void mostrarClientesPorNumero(ArrayList<Objeto> listado) {
-
-        Comparator<Objeto> comparaDNI = new Comparator<Objeto>() {
-            @Override
-            public int compare(Objeto t, Objeto t1) {
-                if (t.getDni().getNumero() > t1.getDni().getNumero()) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            }
-        };
-        Collections.sort(listado, comparaDNI);
-        for (Objeto aux : listado) {
-            System.out.println(aux);
-        }
-    }
+//    public void mostrarClientesPorNumero(ArrayList<Objeto> listado) {
+//
+//        Comparator<Objeto> comparaDNI = new Comparator<Objeto>() {
+//            @Override
+//            public int compare(Objeto t, Objeto t1) {
+//                if (t.getDni().getNumero() > t1.getDni().getNumero()) {
+//                    return 1;
+//                } else {
+//                    return -1;
+//                }
+//            }
+//        };
+//        Collections.sort(listado, comparaDNI);
+//        for (Objeto aux : listado) {
+//            System.out.println(aux);
+//        }
+//    }
 }
     
     
