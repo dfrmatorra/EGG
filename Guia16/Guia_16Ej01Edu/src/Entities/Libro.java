@@ -23,7 +23,7 @@ public class Libro implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Long isbn;
     private String titulo;
@@ -154,7 +154,9 @@ public class Libro implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.Libro[ id=" + id + " ]";
+        return "Libro{" + "id=" + id + ", isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
     }
+
+
     
 }

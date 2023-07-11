@@ -5,44 +5,57 @@
 package Persistance;
 
 import Entities.Autor;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author dudum
  */
-public class AutorDAO extends DAO<Autor>{
+public class AutorDAO extends DAO<Autor> {
 
     @Override
     public void eliminar(Autor objeto) {
-        super.eliminar(objeto); 
+        super.eliminar(objeto);
     }
 
     @Override
     public void editar(Autor objeto) {
-        super.editar(objeto); 
+        super.editar(objeto);
     }
 
-    public Autor buscarXNombre(String nombre){
-        
-        
+    public void buscarXNombre(String nombre) {
+
         conectar();
-        
-        
-        
-        
-        
-        Autor au = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre like :nombre").setParameter("nombre", nombre).getSingleResult();
-        
+
+
+        List <Autor> au = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", "%" + nombre + "%").getResultList();
+                   
+
+        if (au != null) {
+            for (Autor autor : au) {
+                System.out.println(autor.toString());
+            }
+        } else {
+            System.out.println("No se encontro autor con ese nombre");
+        }
         desconectar();
-        return au;
+        
+
     }
-    
-    
-    
+
     @Override
     public void guardar(Autor objeto) {
-        super.guardar(objeto); 
+        super.guardar(objeto);
     }
-    
-    
+
+    public Autor buscarPorId(Integer id) {
+        conectar();
+
+        Autor edit = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.id= :id")
+                .setParameter("id", id).getSingleResult();
+        desconectar();
+        return edit;
+    }
+
 }

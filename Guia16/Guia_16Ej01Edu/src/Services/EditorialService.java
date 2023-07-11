@@ -6,6 +6,8 @@ package Services;
 
 import Entities.Editorial;
 import HacksDPackage.Servicios;
+import Persistance.EditorialDAO;
+import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,7 +18,11 @@ import javax.persistence.Persistence;
  */
 public class EditorialService {
     
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    
     Servicios serv = new Servicios();
+    
+    EditorialDAO eDAO = new EditorialDAO();
     
     
      public Editorial crearEditorial() {
@@ -43,6 +49,20 @@ public class EditorialService {
          
      
      }
+     
+         public Editorial buscarPorId() {
+
+        try {
+            System.out.println("Ingrese el id a buscar");
+            Integer id = leer.nextInt();
+            return eDAO.buscarPorId(id);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            serv.wait(500);
+            return null;
+        }
+    }
     
     
 }

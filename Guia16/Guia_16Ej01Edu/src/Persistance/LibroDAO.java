@@ -24,9 +24,30 @@ public class LibroDAO extends DAO<Libro> {
 
     @Override
     public void guardar(Libro objeto) {
-        super.guardar(objeto); 
+        super.guardar(objeto);
     }
-    
-    
-    
+
+    public Libro buscarPorId(long id) {
+        conectar();
+        Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.id = :id")
+                .setParameter("id", id).getSingleResult();
+        desconectar();
+        return libro;
+    }
+
+    public void buscarPorISBN(long isbn) {
+        conectar();
+        Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.isbn = :isbn")
+                .setParameter("isbn", isbn).getSingleResult();
+        
+        if(libro!=null){
+            System.out.println(libro);
+        }else{
+            System.out.println("No se encontro el ISBN");
+        }
+        desconectar();
+        
+        
+    }
+
 }

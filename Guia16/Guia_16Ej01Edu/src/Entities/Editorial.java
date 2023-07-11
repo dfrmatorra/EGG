@@ -19,7 +19,7 @@ public class Editorial implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String nombre;
     private Boolean alta;
@@ -79,7 +79,7 @@ public class Editorial implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.Editorial[ id=" + id + " ]";
+        return "Editorial{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
     
 }

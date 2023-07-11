@@ -8,7 +8,10 @@ import Entities.Autor;
 import Entities.Editorial;
 import Entities.Libro;
 import HacksDPackage.Servicios;
+import Persistance.AutorDAO;
+import Persistance.EditorialDAO;
 import Persistance.LibroDAO;
+import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,9 +22,14 @@ import javax.persistence.Persistence;
  */
 public class LibroService {
 
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
     Servicios serv = new Servicios();
     AutorService aus = new AutorService();
     EditorialService eds = new EditorialService();
+    LibroDAO libDAO = new LibroDAO();
+    EditorialDAO editDAO = new EditorialDAO();
+    AutorDAO autDAO = new AutorDAO();
 
     public void crearLibro() {
 
@@ -68,14 +76,62 @@ public class LibroService {
 
     }
 
-    public void borrarLibro(int id) {
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
-        EntityManager em = emf.createEntityManager();
-        
-        
-        
+    public Libro buscarPorId(int id) {
 
+        Libro libBuscado = new Libro();
+        libBuscado = libDAO.buscarPorId(id);
+        return libBuscado;
+    }
+
+    public void buscarPorISBN() {
+        System.out.println("Ingrese el ISBN del libro a buscar");
+        Long isbn = leer.nextLong();
+        libDAO.buscarPorISBN(isbn);
+        
+    }
+
+    public void altaBajaLibroPorId(int id) {
+        try {
+            Libro libModificado = new Libro();
+            libModificado = libDAO.buscarPorId(id);
+            System.out.println("1-Alta");
+            System.out.println("2-Baja");
+            int opcion = leer.nextInt();
+            boolean altaBaja = true;
+
+            switch (opcion) {
+                case 1:
+                    altaBaja = true;
+
+                    break;
+                case 2:
+                    altaBaja = false;
+
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            libModificado.setAlta(altaBaja);
+
+            Editorial editMod = new Editorial();
+            editMod = libModificado.getEditorial();
+            Integer idEdit = editMod.getId();
+            editMod = editDAO.buscarPorId(idEdit);
+            editMod.setAlta(altaBaja);
+
+            Autor autMod = new Autor();
+            autMod = libModificado.getAutor();
+            Integer idAut = autMod.getId();
+            autMod = autDAO.buscarPorId(idAut);
+            autMod.setAlta(altaBaja);
+
+            libDAO.editar(libModificado);
+            editDAO.editar(editMod);
+            autDAO.editar(autMod);
+            System.out.println("Se ha editado el libro con Id " + id);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 

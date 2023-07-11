@@ -19,7 +19,7 @@ public class Autor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String nombre;
     private Boolean alta;
@@ -79,7 +79,8 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.NewEntity[ id=" + id + " ]";
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
+
     
 }

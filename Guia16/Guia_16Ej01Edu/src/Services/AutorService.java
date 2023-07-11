@@ -5,11 +5,11 @@
 package Services;
 
 import Entities.Autor;
-import static Entities.Autor_.nombre;
 import HacksDPackage.Servicios;
 import Persistance.AutorDAO;
 import Persistance.DAO;
 import java.util.List;
+import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,6 +19,8 @@ import javax.persistence.Persistence;
  * @author dudum
  */
 public class AutorService {
+
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     Servicios serv = new Servicios();
     AutorDAO auD = new AutorDAO();
@@ -42,22 +44,38 @@ public class AutorService {
         em.persist(au);
         em.getTransaction().commit();
         em.close();
-        
+
         return au;
 
     }
 
-    public Autor buscarAutor(String nombre) {
+    public void buscarAutor() {
 
         try {
-            return auD.buscarXNombre(nombre);
+            System.out.println("Ingrese el nombre del autor a buscar");
+            String nombre = leer.next();
+            auD.buscarXNombre(nombre);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            serv.wait(500);
+
+        }
+
+    }
+
+    public Autor buscarPorId() {
+
+        try {
+            System.out.println("Ingrese el id a buscar");
+            Integer id = leer.nextInt();
+            return auD.buscarPorId(id);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
             serv.wait(500);
             return null;
         }
-
     }
 
 }

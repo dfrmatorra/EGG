@@ -10,11 +10,11 @@ import Entities.Editorial;
  *
  * @author dudum
  */
-public class EditorialDAO extends DAO<Editorial>{
+public class EditorialDAO extends DAO<Editorial> {
 
     @Override
     public void eliminar(Editorial objeto) {
-        super.eliminar(objeto); 
+        super.eliminar(objeto);
     }
 
     @Override
@@ -24,11 +24,16 @@ public class EditorialDAO extends DAO<Editorial>{
 
     @Override
     public void guardar(Editorial objeto) {
-        super.guardar(objeto); 
+        super.guardar(objeto);
     }
-    
-    
-    
-    
-    
+
+    public Editorial buscarPorId(Integer id) {
+        conectar();
+
+        Editorial edit = (Editorial) em.createQuery("SELECT a FROM Editorial a WHERE a.id= :id")
+                .setParameter("id", id).getSingleResult();
+        desconectar();
+        return edit;
+    }
+
 }
