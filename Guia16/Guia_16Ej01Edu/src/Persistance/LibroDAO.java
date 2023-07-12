@@ -108,17 +108,17 @@ public class LibroDAO extends DAO<Libro> {
     public boolean verificarPorISBN(long isbn) {
         conectar();
         boolean verificar = false;
-        Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.isbn = :isbn")
-                .setParameter("isbn", isbn).getSingleResult();
-
-        if (libro != null) {
-            verificar = false;
-        } else {
+        try {
+            Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.isbn = :isbn")
+                    .setParameter("isbn", isbn).getSingleResult();
+        } catch (Exception e) {
             verificar = true;
+        }
+        if (verificar == false) {
+            System.out.println("El libro ya existe");
         }
         desconectar();
         return verificar;
-
     }
 
 }

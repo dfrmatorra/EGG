@@ -31,6 +31,66 @@ public class LibroService {
     EditorialDAO editDAO = new EditorialDAO();
     AutorDAO autDAO = new AutorDAO();
 
+    public void menu() {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        int opc;
+        do {
+            System.out.println("MENU");
+            System.out.println("--------");
+            System.out.println("1.- Cargar 3 libros en forma automatica ");
+            System.out.println("2.- Cargar un libro en forma automatica");
+            System.out.println("3.- Cargar un libro en forma manual");
+            System.out.println("4.- Editar un libro cargado");
+            System.out.println("5.- Búsqueda de un Autor por nombre");
+            System.out.println("6.- Búsqueda de un libro por ISBN.");
+            System.out.println("7.- Búsqueda de un libro por Título.");
+            System.out.println("8.- Búsqueda de un libro/s por nombre de Autor.");
+            System.out.println("9.- Búsqueda de un libro/s por nombre de Editorial.");
+            System.out.println("10.- Salir.");
+
+            opc = leer.nextInt();
+
+            switch (opc) {
+                case 1:
+                    for (int i = 0; i < 3; i++) {
+                        crearLibroAutomatico();
+                    }
+
+                    break;
+                case 2:
+                    crearLibroAutomatico();
+                    break;
+                case 3:
+                    crearLibro();
+                    break;
+                case 4:
+                    System.out.println("Indique el ID del libro que desea editar");
+                    int id = leer.nextInt();
+                    altaBajaLibroPorId(id);
+                    break;
+                case 5:
+                    aus.buscarAutor();
+                    break;
+                case 6:
+                    buscarPorISBN();
+                    break;
+                case 7:
+                    buscarPorTitulo();
+                    break;
+                case 8:
+                    buscarLibroPorAutor();
+                    break;
+                    case 9:
+                    buscarLibroPorEditorial();
+                    break;
+                case 10:
+                    opc = 10;
+                    break;
+            }
+        } while (opc != 9);
+
+    }
+
     public void crearLibro() {
         Libro libro = new Libro();
         System.out.println("");
@@ -38,21 +98,18 @@ public class LibroService {
         System.out.println("----------------");
         //controlo si existe con isbn
         boolean condicion = true;
-        do{
-        System.out.print("Ingrese isbn: ");
-        Long isbn = serv.validarLong();
-        libro.setIsbn(isbn);
-        condicion = libDAO.verificarPorISBN(isbn);
-        if(condicion==false){
-            System.out.println("El libro ya existe");
-        }
-        }while(condicion);  
+        do {
+            System.out.print("Ingrese isbn: ");
+            Long isbn = serv.validarLong();
+            condicion = libDAO.verificarPorISBN(isbn);
+            libro.setIsbn(isbn);
+        } while (condicion != true);
         //si no existe sigo cargando datos
         System.out.print("Ingrese Titulo: ");
         String titulo = serv.validarString();
         libro.setTitulo(titulo);
         System.out.print("Ingrese Año: ");
-        Integer anio = serv.validarEntero();
+        Integer anio = (Integer)serv.validarEEntero();
         libro.setAnio(anio);
         System.out.print("Ingrese Ejemplares: ");
         Integer ejemp = serv.validarEntero();

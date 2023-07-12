@@ -19,7 +19,8 @@ import java.util.Scanner;
  */
 public class Servicios {
 
-    Scanner leer = new Scanner(System.in);
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
     Random nom = new Random();
 
     public int validarEntero() {

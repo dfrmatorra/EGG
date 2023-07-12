@@ -25,6 +25,8 @@ public class Main {
         AutorService as = new AutorService();
         EditorialService es = new EditorialService();
 
+        
+        ls.menu();
 //1) Crear base de datos Librería
 //2) Crear unidad de persistencia
 //3) Crear entidades previamente mencionadas (excepto Préstamo)
@@ -61,7 +63,7 @@ public class Main {
 //13) Agregar las siguientes validaciones a todas las funcionalidades de la aplicación:
 //• Validar campos obligatorios.
 //• No ingresar datos duplicados.
-        ls.crearLibro();
+//        ls.crearLibro();
 
 
 
