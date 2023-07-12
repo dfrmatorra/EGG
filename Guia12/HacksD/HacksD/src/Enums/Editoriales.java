@@ -9,5 +9,5 @@ package Enums;
  * @author dudum
  */
 public enum Editoriales {
-    SUR, LA_PLATA, NORTE, PATRIA, SALVADOR;
+    SUR, PLATA, NORTE, PATRIA, SALVADOR;
 }

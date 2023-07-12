@@ -61,6 +61,16 @@ public class Servicios {
             }
         }
     }
+        public Long validarLong() {
+        while (true) {
+            try {
+                return Long.parseLong(leer.next());
+            } catch (NumberFormatException e) {
+                System.out.print("Ingrese un numero valido.\n");
+            }
+        }
+        
+    }
 
     public String validarString() {
         String entrada = leer.next();

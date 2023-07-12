@@ -7,6 +7,7 @@ package Persistance;
 import Entities.Autor;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -28,9 +29,7 @@ public class AutorDAO extends DAO<Autor> {
 
         conectar();
 
-
-        List <Autor> au = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", "%" + nombre + "%").getResultList();
-                   
+        List<Autor> au = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", "%" + nombre + "%").getResultList();
 
         if (au != null) {
             for (Autor autor : au) {
@@ -40,7 +39,6 @@ public class AutorDAO extends DAO<Autor> {
             System.out.println("No se encontro autor con ese nombre");
         }
         desconectar();
-        
 
     }
 
@@ -57,5 +55,57 @@ public class AutorDAO extends DAO<Autor> {
         desconectar();
         return edit;
     }
+
+    public Autor existeAutor(String nombre) {
+        conectar();
+
+        Autor au = null;
+        try {
+            List<Autor> resultados = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre", Autor.class)
+                    .setParameter("nombre", "%" + nombre + "%")
+                    .getResultList();
+
+            if (!resultados.isEmpty()) {
+                au = resultados.get(0);
+            }
+        } catch (NoResultException e) {
+            System.out.println("No se encuentra este autor en la libreria");
+            return null;
+        }
+        desconectar();
+        return au;
+    }
+//    try {
+//        au = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre", Autor.class)
+//                .setParameter("nombre", "%" + nombre + "%")
+//                .getSingleResult();
+//    } catch (NoResultException e) {
+//        System.out.println("No se encuentra este autor en la libreria");
+//    }
+//    
+//    boolean existe = (au != null);
+//    
+//    desconectar();
+//    return existe;
+//        conectar();
+//        
+//        Autor au = new Autor ();
+//        try{
+//            
+//        au = (Autor)em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre", Autor.class).setParameter("nombre", "%" + nombre + "%");
+//
+//        }catch(Exception e){
+//            System.out.println("No se encuentra autor por algun problema");
+//        }
+//        
+//        boolean existe = false;
+//        if (au != null) {
+//            existe = true;
+//        }else {
+//            existe = false;
+//    }
+//    desconectar();
+//    return existe ;
+//}
 
 }

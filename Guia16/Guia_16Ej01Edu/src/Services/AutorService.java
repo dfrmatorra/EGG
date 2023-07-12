@@ -26,6 +26,33 @@ public class AutorService {
     AutorDAO auD = new AutorDAO();
 
     public Autor crearAutor() {
+        Autor au = new Autor();
+        System.out.print("Ingrese el Nombre del Autor: ");
+        String nombre = serv.validarString();
+
+        boolean alta = true;
+        
+        if (auD.existeAutor(nombre)!=null){
+            System.out.println("Este autor ya tiene libros en la libreria");
+        }else{
+                    au.setAlta(true);
+        au.setNombre(nombre);
+        
+
+
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+//        EntityManager em = emf.createEntityManager();
+//
+//        em.getTransaction().begin();
+//        em.persist(au);
+//        em.getTransaction().commit();
+//        em.close();
+//      
+        }
+        return au;
+    }
+
+    public Autor crearAutorAutomat() {
 
         Autor au = new Autor();
         System.out.print("Nombre del Autor: ");
@@ -36,14 +63,16 @@ public class AutorService {
 
         au.setAlta(true);
         au.setNombre(nombre);
+        
+        auD.guardar(au);
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
-        EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-        em.persist(au);
-        em.getTransaction().commit();
-        em.close();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+//        EntityManager em = emf.createEntityManager();
+//
+//        em.getTransaction().begin();
+//        em.persist(au);
+//        em.getTransaction().commit();
+//        em.close();
 
         return au;
 
@@ -55,7 +84,7 @@ public class AutorService {
             System.out.println("Ingrese el nombre del autor a buscar");
             String nombre = leer.next();
             auD.buscarXNombre(nombre);
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             serv.wait(500);

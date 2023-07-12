@@ -25,20 +25,51 @@ public class Main {
         AutorService as = new AutorService();
         EditorialService es = new EditorialService();
 
-//        ls.crearLibro();
+//1) Crear base de datos Librería
+//2) Crear unidad de persistencia
+//3) Crear entidades previamente mencionadas (excepto Préstamo)
+//4) Generar las tablas con JPA
+//5) Crear servicios previamente mencionados.
+//6) Crear los métodos para persistir entidades en la base de datos librería
 
+//for (int i = 0; i < 4; i++) {
+// ls.crearLibroAutomatico();   
+//}
+//ls.crearLibroAutomatico();
+
+//7-Crear los métodos para persistir entidades en la base de datos librería
 //        System.out.println("Indique el ID del libro que desea editar");
 //        int id = leer.nextInt();
 //        ls.altaBajaLibroPorId(id);
 
-//            as.buscarAutor();
-            ls.buscarPorISBN();
-        
-        
-        
+//8) Búsqueda de un Autor por nombre.
+//        as.buscarAutor();
 
-//          System.out.println(es.buscarPorId());
-          
+//9) Búsqueda de un libro por ISBN.
+//        ls.buscarPorISBN();
+        
+   
+//10) Búsqueda de un libro por Título.
+//        ls.buscarPorTitulo();
+
+//11) Búsqueda de un libro/s por nombre de Autor.
+//        ls.buscarLibroPorAutor();
+
+//12) Búsqueda de un libro/s por nombre de Editorial.
+//        ls.buscarLibroPorEditorial();
+
+//13) Agregar las siguientes validaciones a todas las funcionalidades de la aplicación:
+//• Validar campos obligatorios.
+//• No ingresar datos duplicados.
+        ls.crearLibro();
+
+
+
+
+
+
+
+        
           
 
         

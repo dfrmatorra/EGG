@@ -5,6 +5,8 @@
 package Persistance;
 
 import Entities.Libro;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -39,15 +41,84 @@ public class LibroDAO extends DAO<Libro> {
         conectar();
         Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.isbn = :isbn")
                 .setParameter("isbn", isbn).getSingleResult();
-        
-        if(libro!=null){
+
+        if (libro != null) {
             System.out.println(libro);
-        }else{
+        } else {
             System.out.println("No se encontro el ISBN");
         }
         desconectar();
-        
-        
+
+    }
+
+    public void buscarPorTitulo(String titulo) {
+        conectar();
+
+        List<Libro> lib = em.createQuery("SELECT lib FROM Libro lib WHERE lib.titulo LIKE :titulo")
+                .setParameter("titulo", "%" + titulo + "%")
+                .getResultList();
+
+        if (lib != null) {
+            for (Libro libro : lib) {
+                System.out.println(libro);
+            }
+        } else {
+            System.out.println("No se encontró ningún libro con ese título");
+        }
+
+        desconectar();
+    }
+
+    public void buscarPorAutor(String nombre) {
+        conectar();
+
+        List<Libro> lib = em.createQuery("SELECT l FROM Libro l WHERE l.autor.nombre LIKE :nombreAutor")
+                .setParameter("nombreAutor", "%" + nombre + "%")
+                .getResultList();
+
+        if (lib != null) {
+            for (Libro libro : lib) {
+                System.out.println(libro.toString());
+            }
+        } else {
+            System.out.println("No se encontró ningún libro con ese título");
+        }
+
+        desconectar();
+    }
+
+    public void buscarPorEditorial(String nombre) {
+        conectar();
+
+        List<Libro> lib = em.createQuery("SELECT l FROM Libro l WHERE l.editorial.nombre LIKE :nombreEditorial")
+                .setParameter("nombreEditorial", "%" + nombre + "%")
+                .getResultList();
+
+        if (lib != null) {
+            for (Libro libro : lib) {
+                System.out.println(libro.toString());
+            }
+        } else {
+            System.out.println("No se encontró ningún libro con ese título");
+        }
+
+        desconectar();
+    }
+
+    public boolean verificarPorISBN(long isbn) {
+        conectar();
+        boolean verificar = false;
+        Libro libro = (Libro) em.createQuery("SELECT lib FROM Libro lib WHERE lib.isbn = :isbn")
+                .setParameter("isbn", isbn).getSingleResult();
+
+        if (libro != null) {
+            verificar = false;
+        } else {
+            verificar = true;
+        }
+        desconectar();
+        return verificar;
+
     }
 
 }

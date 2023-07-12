@@ -4,7 +4,10 @@
  */
 package Persistance;
 
+import Entities.Autor;
 import Entities.Editorial;
+import java.util.List;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -35,5 +38,44 @@ public class EditorialDAO extends DAO<Editorial> {
         desconectar();
         return edit;
     }
+
+    public Editorial existeEditorial(String nombre) {
+    conectar();
+    Editorial edi = null;
+    try {
+        List<Editorial> resultados = em.createQuery("SELECT edi FROM Editorial edi WHERE edi.nombre LIKE :nombre", Editorial.class)
+                .setParameter("nombre", "%" + nombre + "%")
+                .getResultList();
+
+        if (!resultados.isEmpty()) {
+            edi = resultados.get(0);
+        }
+    } catch (NoResultException e) {
+        System.out.println("No se encuentra esta editorial en la libreria");
+        return null;
+    }
+
+    desconectar();
+    return edi;
+}
+//        conectar();
+//        Editorial edi = new Editorial();
+//        try {
+//        edi = em.createQuery("SELECT edi FROM Editorial edi WHERE edi.nombre LIKE :nombre", Editorial.class)
+//                .setParameter("nombre", "%" + nombre + "%")
+//                .getSingleResult();
+//        } catch (NoResultException e) {
+//            System.out.println("No se encuentra este autor en la libreria");
+//        }
+//
+//        boolean existe = false;
+//        if (edi != null) {
+//            existe = true;
+//        } else {
+//            existe = false;
+//        }
+//        desconectar();
+//        return existe;
+//    }
 
 }

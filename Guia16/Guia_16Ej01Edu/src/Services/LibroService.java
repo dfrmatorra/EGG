@@ -32,6 +32,72 @@ public class LibroService {
     AutorDAO autDAO = new AutorDAO();
 
     public void crearLibro() {
+        Libro libro = new Libro();
+        System.out.println("");
+        System.out.println("INGRESO DE LIBRO");
+        System.out.println("----------------");
+        //controlo si existe con isbn
+        boolean condicion = true;
+        do{
+        System.out.print("Ingrese isbn: ");
+        Long isbn = serv.validarLong();
+        libro.setIsbn(isbn);
+        condicion = libDAO.verificarPorISBN(isbn);
+        if(condicion==false){
+            System.out.println("El libro ya existe");
+        }
+        }while(condicion);  
+        //si no existe sigo cargando datos
+        System.out.print("Ingrese Titulo: ");
+        String titulo = serv.validarString();
+        libro.setTitulo(titulo);
+        System.out.print("Ingrese Año: ");
+        Integer anio = serv.validarEntero();
+        libro.setAnio(anio);
+        System.out.print("Ingrese Ejemplares: ");
+        Integer ejemp = serv.validarEntero();
+        libro.setEjemplares(ejemp);
+        System.out.print("Ingrese Ejemplares Prestados: ");
+        Integer ejemPres = serv.validarEntero();
+        libro.setEjemplaresPrestados(ejemPres);
+        int ejemplaresRestantes = libro.getEjemplares() - libro.getEjemplaresPrestados();
+        libro.setEjemplaresRestantes(ejemplaresRestantes);
+        System.out.println("Ejemplares restantes:" + ejemplaresRestantes);
+        serv.wait(300);
+        Autor au = aus.crearAutor();
+        Editorial edit = eds.crearEditorial();
+
+        System.out.println("Desea guardar el libro en la base de datos? (1-si / 2-no)");
+        int opcion = serv.validarEntero();
+        switch (opcion) {
+            case 1:
+                boolean alta = true;
+                libro.setAlta(alta);
+                libro.setAutor(au);
+                libro.setEditorial(edit);
+                autDAO.guardar(au);
+                editDAO.guardar(edit);
+                libDAO.guardar(libro);
+                break;
+            case 2:
+                System.out.println("El libro no se guardo");
+
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+//        EntityManager em = emf.createEntityManager();
+//        
+//               
+//        em.getTransaction().begin();
+//        em.persist(libro);
+//        em.getTransaction().commit();
+//        em.close();
+    }
+
+    public void crearLibroAutomatico() {
 
         System.out.println("");
         System.out.println("INGRESO DE LIBRO");
@@ -60,20 +126,22 @@ public class LibroService {
         int ejemplaresRestantes = ejemplares - ejemplaresPrestados;
         System.out.println(ejemplaresRestantes);
         serv.wait(300);
-        Autor au = aus.crearAutor();
-        Editorial edit = eds.crearEditorial();
+        Autor au = aus.crearAutorAutomat();
+        Editorial edit = eds.crearEditorialAutomat();
         boolean alta = true;
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
-        EntityManager em = emf.createEntityManager();
-
         Libro lib = new Libro(isbn, titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, alta, au, edit);
 
-        em.getTransaction().begin();
-        em.persist(lib);
-        em.getTransaction().commit();
-        em.close();
+        libDAO.guardar(lib);
 
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("libroPU");
+//        EntityManager em = emf.createEntityManager();
+//        
+//        Libro lib = new Libro(isbn, titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, alta, au, edit);
+//        
+//        em.getTransaction().begin();
+//        em.persist(lib);
+//        em.getTransaction().commit();
+//        em.close();
     }
 
     public Libro buscarPorId(int id) {
@@ -87,7 +155,7 @@ public class LibroService {
         System.out.println("Ingrese el ISBN del libro a buscar");
         Long isbn = leer.nextLong();
         libDAO.buscarPorISBN(isbn);
-        
+
     }
 
     public void altaBajaLibroPorId(int id) {
@@ -133,6 +201,26 @@ public class LibroService {
             System.out.println("Error: " + e.getMessage());
         }
 
+    }
+
+    public void buscarPorTitulo() {
+        System.out.println("Ingrese el titulo del libro a buscar");
+        String titulo = leer.next();
+        libDAO.buscarPorTitulo(titulo);
+    }
+
+    public void buscarLibroPorAutor() {
+        System.out.println("Ingrese el nombre del autor de libro/s a buscar");
+        String nombre = leer.next();
+
+        libDAO.buscarPorAutor(nombre);
+    }
+
+    public void buscarLibroPorEditorial() {
+        System.out.println("Ingrese el nombre de la editorial de libro/s a buscar");
+        String nombre = leer.next();
+
+        libDAO.buscarPorEditorial(nombre);
     }
 
 }
