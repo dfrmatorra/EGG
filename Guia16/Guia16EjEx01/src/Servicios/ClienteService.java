@@ -38,11 +38,12 @@ public class ClienteService {
     }
     
     public Cliente buscarClientePorDNI(Long documento) {
-        
+        Cliente clientePorDNI = new Cliente();
         try {
-            return dao.buscarClientePorDNI(documento);
+            clientePorDNI = dao.buscarClientePorDNI(documento);
+            return clientePorDNI;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("No se encontro el cliente por DNI");
             return null;
         }
     }

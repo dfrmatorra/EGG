@@ -48,12 +48,14 @@ public class LibroService {
     
     
      public Libro buscarLibroPorNombre(String nombre) {
-        try {
-            return dao.buscarLibroPorNombre(nombre);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+//        try {
+            Libro libro = dao.buscarLibroPorNombre(nombre);
+            System.out.println(libro);
+            return  libro;
+//        } catch (Exception e) {
+//            System.out.println("Hay un problema al buscar un libro por nombre");
+//            return null;
+//        }
     }
      
       public Libro buscarLibroPorISBN(Long isbn) {

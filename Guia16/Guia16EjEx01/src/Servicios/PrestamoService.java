@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class PrestamoService {
 
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
     PrestamoDAO dao = new PrestamoDAO();
     LibroService ls = new LibroService();
     ClienteService cs = new ClienteService();
@@ -20,7 +20,7 @@ public class PrestamoService {
             System.out.println("Ingrese su documento para continuar:");
             Long dni = leer.nextLong();
             Cliente cliente = cs.buscarClientePorDNI(dni);
-            System.out.println(cliente.toString());           
+            System.out.println(cliente);           
             if (cliente != null) {
                 System.out.println("Usted es cliente, puede continuar");
             } else {
@@ -44,7 +44,7 @@ public class PrestamoService {
             System.out.println("Ingrese el nombre del libro que desea llevar:");
             String nombreLibro = leer.next();
             Libro libro = ls.buscarLibroPorNombre(nombreLibro);
-            if (libro.getEjemplaresRestantes() > 0 || libro == null) {
+            if (libro.getEjemplaresRestantes() > 0 && libro != null) {//TODO
                 libro.setEjemplarePrestados(libro.getEjemplarePrestados() + 1);
                 libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() - 1);
                 dao.crearPrestamo(prestamo);

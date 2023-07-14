@@ -9,11 +9,21 @@ public class LibroDAO extends DAO<Libro> {
         guardar(libro);
     }
 
-    public Libro buscarLibroPorNombre(String nombre) {
-        conectar();
-        Libro libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.nombre LIKE :nombre and l.alta=1").setParameter("nombre", nombre).getSingleResult();
-        desconectar();
-        return libro;
+//    public Libro buscarLibroPorNombre(String nombre) {
+//        conectar();
+//        Libro libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
+//        desconectar();
+//        return libro;
+//    }
+    
+    public Libro buscarLibroPorNombre(String titulo) {
+    conectar();
+      Libro libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.titulo LIKE :titulo")
+                           .setParameter("titulo", "%" + titulo + "%")
+                           .getSingleResult();
+    desconectar();
+
+    return libro;
     }
 
     public void editarAlta(Libro libro) {
