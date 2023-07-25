@@ -17,24 +17,16 @@ public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id; 
-    @Column (unique= true)
     private Long isbn;   
     private String titulo;
     @OneToOne
-    @JoinColumn(name = "autor_id")
     private Autor autor;
     @OneToOne
-    @JoinColumn(name = "editorial_id")
     private Editorial editorial;
-    @Column(name="anio")
     private Integer anio;   
-    @Column(name="ejemplares", nullable=false)
     private Integer ejemplares;  
-    @Column(name="ejemplares_prestados")
     private Integer ejemplaresPrestados;  
-    @Column(name="ejemplares_restantes")
     private Integer ejemplaresRestantes;
-    @Column(name="alta")
     private Boolean alta = true;
 
     

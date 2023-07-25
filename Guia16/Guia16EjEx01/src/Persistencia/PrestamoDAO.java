@@ -1,6 +1,8 @@
 package Persistencia;
 
+import static Entidades.Autor_.nombre;
 import Entidades.Prestamo;
+import java.util.List;
 
 public class PrestamoDAO extends DAO<Prestamo> {
 
@@ -8,9 +10,39 @@ public class PrestamoDAO extends DAO<Prestamo> {
         guardar(prestamo);
     }
 
-    public Prestamo buscarPrestamo(String nombre) {
+//    public List<Prestamo> buscarPrestamo(Integer documento) {
+//        conectar();
+//        try{
+//           List<Prestamo> prestamos = em.createQuery("SELECT e FROM Prestamo e WHERE e.cliente_id.documento LIKE :documento ")
+//             .setParameter("documento", documento)
+//             .getResultList();
+//        desconectar();
+//        return prestamos; 
+//        }catch(Exception e){
+//            e.getMessage();
+//            System.out.println("Error al buscar prestamo en el PrestamoDAO");
+//            return null;
+//        }
+//        
+//    }
+    
+    public List<Prestamo> buscarPrestamo(Integer documento) {
+    conectar();
+    try {
+        List<Prestamo> prestamos = em.createQuery("SELECT e FROM Prestamo e WHERE e.cliente.documento = :documento ")
+                .setParameter("documento", documento)
+                .getResultList();
+        desconectar();
+        return prestamos; 
+    } catch(Exception e) {
+        e.printStackTrace(); // Imprimir traza de excepción para facilitar la depuración
+        throw new RuntimeException("Error al buscar préstamo en el PrestamoDAO", e); // Lanzar excepción personalizada
+    }
+}
+
+    public Prestamo buscarPrestamoPorNombre(String nombre) {
         conectar();
-        Prestamo prestamo = (Prestamo) em.createQuery("SELECT e FROM Prestamo e WHERE e.nombre LIKE :nombre ").setParameter("nombre", nombre).getSingleResult();
+        Prestamo prestamo = (Prestamo)em.createQuery("SELECT e FROM Prestamo e WHERE e.cliente.nombre LIKE :nombre ").setParameter("nombre", nombre).getSingleResult();
         desconectar();
         return prestamo;
     }

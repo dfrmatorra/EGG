@@ -43,7 +43,7 @@ public class ClienteService {
             clientePorDNI = dao.buscarClientePorDNI(documento);
             return clientePorDNI;
         } catch (Exception e) {
-            System.out.println("No se encontro el cliente por DNI");
+            System.out.println("Error. No se encontro el cliente por DNI");
             return null;
         }
     }

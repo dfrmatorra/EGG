@@ -12,7 +12,7 @@ public class AutorDAO extends DAO <Autor>{
     
     public Autor buscarAutor(String nombre){
         conectar();
-        Autor autor  = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre ").setParameter("nombre", nombre).getSingleResult();
+        Autor autor  = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre ").setParameter("nombre", "%" +nombre + "%").getSingleResult();
         desconectar();
        return autor;
     }

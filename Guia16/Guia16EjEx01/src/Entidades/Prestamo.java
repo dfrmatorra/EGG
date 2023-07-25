@@ -17,17 +17,11 @@ public class Prestamo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    @Basic
-    @Column(name = "fecha_prestamo")
     private LocalDate fechaPrestamo;
-    @Basic
-    @Column(name = "fecha_devolución")
     private LocalDate fechaDevolucion;
     @OneToOne
-    //@JoinColumn(name = "isbn")
-    private Libro libro;
+     private Libro libro;
     @OneToOne
-    //@JoinColumn(name = "id")
     private Cliente cliente;
     private Boolean alta=true;
 

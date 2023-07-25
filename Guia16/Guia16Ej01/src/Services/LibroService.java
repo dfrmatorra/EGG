@@ -40,7 +40,7 @@ public class LibroService {
             System.out.println("1.- Cargar 3 libros en forma automatica ");
             System.out.println("2.- Cargar un libro en forma automatica");
             System.out.println("3.- Cargar un libro en forma manual");
-            System.out.println("4.- Editar un libro cargado");
+            System.out.println("4.- Editar un libro");
             System.out.println("5.- Búsqueda de un Autor por nombre");
             System.out.println("6.- Búsqueda de un libro por ISBN.");
             System.out.println("7.- Búsqueda de un libro por Título.");

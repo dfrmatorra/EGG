@@ -3,12 +3,16 @@ package guia16ejex01;
 import Entidades.Autor;
 import Entidades.Cliente;
 import Entidades.Editorial;
+import Entidades.Libro;
+import Entidades.Prestamo;
 import Persistencia.ClienteDAO;
 import Servicios.AutorService;
 import Servicios.ClienteService;
 import Servicios.EditorialService;
 import Servicios.LibroService;
 import Servicios.PrestamoService;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -20,15 +24,13 @@ public class Guia16EjEx01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         AutorService as = new AutorService();
         EditorialService es = new EditorialService();
         LibroService ls = new LibroService();
         ClienteService cs = new ClienteService();
         PrestamoService ps = new PrestamoService();
 
-        ClienteDAO cDao = new ClienteDAO();
-        
 //        Autor autor1 = as.crearAutor("J.R.R. Tolkien");
 //        Autor autor2 = as.crearAutor("J.K. Rowling");
 //        Autor autor3 = as.crearAutor("George R.R. Martin");
@@ -58,18 +60,34 @@ public class Guia16EjEx01 {
 //         ls.crearLibro(9788499895566L, "American Gods", 2001, 500, 70, 430, autor7, editorial7);
 //         ls.crearLibro(9788448034643L, "El Ciclo de la Puerta de la Muerte", 1984, 400, 80, 320, autor8, editorial8);
 //         ls.crearLibro(9788498387087L, "Animales Fantásticos y Dónde Encontrarlos", 2001, 400, 80, 320, autor2, editorial2);
+////
 //
-//
-//        System.out.println(as.buscarAutorPorNombre("C.S. Lewis").toString());
+//        System.out.println(as.buscarAutorPorNombre("Lewis").toString());
 //       
 //        for (Libro aux : ls.buscarLibrosPorNombreAutor("George R.R. Martin")) {
 //            System.out.println(aux.toString());
 //        }
-//        System.out.println(ls.buscarLibrosPorNombreAutor("George R.R. Martin"));
-//               
 //        Cliente cliente = cs.crearCliente(5184168415L, "Juan", "Aguirre", "342-15644111");
+//realizar prestamo
+//        ps.registrarPrestamo();
+//devolver un libro
+//        ps.devolverLibro();
+//Búsqueda de todos los préstamos de un Cliente.
 
-        ps.RegistrarPrestamo();
-
+//        System.out.println("Ingrese el DNI del cliente que quiere conocer los prestamos");
+//        List<Prestamo> listaPrestamos = ps.buscarPrestamoPorDocumento(leer.nextInt());
+//        System.out.println("Los libros ya devueltos son: ");
+//        for (Prestamo prestamo : listaPrestamos) {
+//            if (!prestamo.getAlta()) {
+//                System.out.println(prestamo);
+//            }
+//        }
+//        System.out.println("Los libros adeudados son: ");
+//        for (Prestamo prestamo : listaPrestamos) {
+//            if (prestamo.getAlta()) {
+//                System.out.println(prestamo);
+//            }
+//        }
+//
     }
 }

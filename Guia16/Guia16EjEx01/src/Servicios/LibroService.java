@@ -50,7 +50,6 @@ public class LibroService {
      public Libro buscarLibroPorNombre(String nombre) {
 //        try {
             Libro libro = dao.buscarLibroPorNombre(nombre);
-            System.out.println(libro);
             return  libro;
 //        } catch (Exception e) {
 //            System.out.println("Hay un problema al buscar un libro por nombre");

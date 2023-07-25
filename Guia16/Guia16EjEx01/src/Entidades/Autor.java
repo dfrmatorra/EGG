@@ -14,7 +14,6 @@ public class Autor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "autor_id")
     private Long id;
     private String nombre;
     private Boolean alta = true;

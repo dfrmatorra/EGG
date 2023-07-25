@@ -14,7 +14,6 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    @Column(unique=true)
     private Long documento;
     private String nombre;
     private String apellido;

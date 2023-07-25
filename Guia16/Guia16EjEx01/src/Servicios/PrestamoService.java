@@ -3,24 +3,31 @@ package Servicios;
 import Entidades.Cliente;
 import Entidades.Libro;
 import Entidades.Prestamo;
+import Persistencia.LibroDAO;
 import Persistencia.PrestamoDAO;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class PrestamoService {
 
     private Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    PrestamoDAO dao = new PrestamoDAO();
+    PrestamoDAO prestDAO = new PrestamoDAO();
+    LibroDAO libDAO = new LibroDAO();
     LibroService ls = new LibroService();
     ClienteService cs = new ClienteService();
 
-    public Prestamo RegistrarPrestamo() {
+    public Prestamo registrarPrestamo() {
         Prestamo prestamo = new Prestamo();
         try {
             System.out.println("Ingrese su documento para continuar:");
             Long dni = leer.nextLong();
             Cliente cliente = cs.buscarClientePorDNI(dni);
-            System.out.println(cliente);           
+            System.out.println(cliente);
             if (cliente != null) {
                 System.out.println("Usted es cliente, puede continuar");
             } else {
@@ -44,33 +51,41 @@ public class PrestamoService {
             System.out.println("Ingrese el nombre del libro que desea llevar:");
             String nombreLibro = leer.next();
             Libro libro = ls.buscarLibroPorNombre(nombreLibro);
-            if (libro.getEjemplaresRestantes() > 0 && libro != null) {//TODO
+            if (libro == null) {
+                System.out.println("No hay ejemplares con ese nombre.");
+
+            } else if (libro.getEjemplaresRestantes() > 0) {
                 libro.setEjemplarePrestados(libro.getEjemplarePrestados() + 1);
                 libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() - 1);
-                dao.crearPrestamo(prestamo);
+                libDAO.editarAlta(libro);
+                //completo todos los atributos del Prestamo
                 prestamo.setCliente(cliente);
-                System.out.println("Libro prestado con exito.");
-                LocalDate fechaInicial = prestamo.getFechaPrestamo();
+                prestamo.setLibro(libro);
+                LocalDate fechaInicial = LocalDate.now();
                 prestamo.setFechaPrestamo(fechaInicial);
-                prestamo.setFechaDevolucion(fechaInicial.plusDays(7));
-//                fechaActual.plusWeeks(1);
-                LocalDate fechaDevolucion = prestamo.getFechaDevolucion(fechaInicial);
+                LocalDate fechaDevolucion = fechaInicial.plusDays(7);
+                prestamo.setFechaDevolucion(fechaDevolucion);
+                //persisto todos los atributos de prestamo
+                prestDAO.crearPrestamo(prestamo);
                 System.out.println("Deberá devolverlo en la siguiente fecha: " + fechaDevolucion);
+                System.out.println("Libro prestado con exito.");
             } else {
-                System.out.println("No hay ejemplares con ese nombre.");
+                System.out.println("Estan todos prestados");
             }
-            return prestamo;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
+        return prestamo;
     }
 
-    public Prestamo buscarPrestamoPorNombre(String nombre) {
+    public List<Prestamo> buscarPrestamoPorDocumento(Integer documento) {
         try {
-            return dao.buscarPrestamo(nombre);
+            List<Prestamo> prestamos = prestDAO.buscarPrestamo(documento);
+            return prestamos;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println("Error al buscar prestamo por documento en el service");
             return null;
         }
     }
@@ -78,13 +93,50 @@ public class PrestamoService {
     public void darDeBaja(String nombre) {
         Prestamo prestamo = buscarPrestamoPorNombre(nombre);
         prestamo.setAlta(false);
-        dao.editarAlta(prestamo);
+        prestDAO.editarAlta(prestamo);
     }
 
     public void darDeAlta(String nombre) {
         Prestamo prestamo = buscarPrestamoPorNombre(nombre);
         prestamo.setAlta(true);
-        dao.editarAlta(prestamo);
+        prestDAO.editarAlta(prestamo);
     }
+
+    public void devolverLibro() {
+        Prestamo prestamoDevuelto = new Prestamo();
+        System.out.println("Ingrese el dni del cliente que quiere devolver el libro");
+        Integer doc = leer.nextInt();
+        List<Prestamo> prestamosCliente = buscarPrestamoPorDocumento(doc);
+        //muestro prestamos adeudados
+        System.out.println("Libros que tiene prestado: ");
+        for (Prestamo prestamo : prestamosCliente) {
+            if (prestamo.getAlta()) {
+                System.out.println(prestamo);
+            }
+        }
+        //pregunto cual quiere devolver
+        System.out.println("Indique el id del libro que quiere devolver");
+        Long idLibroPrestamo = leer.nextLong();
+
+        for (Prestamo prestamo : prestamosCliente) {
+            if (prestamo.getAlta()!= false && prestamo.getLibro().getId() == idLibroPrestamo) {
+                prestamoDevuelto = prestamo;
+            }
+            }
+        prestamoDevuelto.setAlta(false);
+        prestamoDevuelto.setFechaDevolucion(LocalDate.now());
+        prestDAO.editarAlta(prestamoDevuelto);
+        System.out.println("Se ha devuelto el libro " + prestamoDevuelto.getLibro().getTitulo() + " exitosamente" );
+
+    }
+
+    private Prestamo buscarPrestamoPorNombre(String nombre) {
+        try {
+            Prestamo prestamo = prestDAO.buscarPrestamoPorNombre(nombre);
+            return prestamo;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }}
 
 }
