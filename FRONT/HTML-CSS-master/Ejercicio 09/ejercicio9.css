@@ -1,0 +1,36 @@
+h1{
+    color:darkcyan;
+}
+.destacado{
+    color: rgb(43, 0, 255);
+}
+
+p strong{
+color: blue;
+}
+
+p em{
+    color: red;
+}
+
+p a {
+    color: red;
+}
+
+.special{
+    color: purple;
+}
+
+table{
+    border-collapse: collapse ;
+}
+
+th,td{
+    border: 2px black solid;
+    padding: 5px;
+}
+
+p.destacado{
+    color: brown;
+}
+
