@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+<!--
+Vamos a crear un formulario para registrar un usuario
+-->
+
+<body>
+    <h1>
+        Registrar un usuario
+    </h1>
+
+    <form action="ruta del método que va a manejar la información" method="POST" enctype="multipart/form-data"></form>
+    <label>Nombre del usuario</label> <br>
+    <input type="text" name="nombre" placeholder="Nombre"> <br>
+
+    <label>Contraseña del usuario</label> <br>
+    <input type="password" name="nombre" placeholder="*********"> <br>
+
+    <label>Edad del usuario</label> <br>
+    <input type="number" name="edad " placeholder="Edad"> <br>
+
+    <label>Fecha de nacimiento del usuario</label> <br>
+    <input type="date" name="fechanac"><br>
+    
+    <label>Sexo del usuario</label> <br>
+    <input type="radio" name="sexo" value="Hombre"> Hombre <br>
+    <input type="radio" name="sexo" value="Mujer"> Mujer <br>
+    <input type="radio" name="sexo" value="Otro"> Prefiero no decir <br>
+
+    <label>País nacimiento del usuario</label> <br>
+    <select name="pais">
+        <option>Argentina</option>
+        <option>Brasil</option>
+        <option>Chile</option>
+        <option>Uruguay</option>
+    </select>
+    <br>
+
+    <button type="submit">Enviar</button>
+    <button type="reset">Borrar</button>
+
+</body>
+
+</html>

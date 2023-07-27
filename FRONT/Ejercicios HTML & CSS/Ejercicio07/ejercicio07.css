@@ -1,0 +1,17 @@
+/*
+La página va a tener un color de fondo a elección, el encabezado H1 tiene que tener una fuente a elección y estar
+centrado, lo mismo para el encabezado H2, y por ultimo los párrafos deben tener una
+fuente a elección, deben tener un color a elección y deben estar centrados a la izquierda.
+*/
+
+*{
+background-color: rgb(184, 110, 86);
+}
+
+h1,h2{
+    font-family: Arial, Helvetica, sans-serif; text-align: center;
+}
+
+p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: left;
+}
