@@ -2,11 +2,11 @@ h1{
     color:darkcyan;
 }
 .destacado{
-    color: rgb(43, 0, 255);
+    color: rgb(177, 141, 23);
 }
 
 p strong{
-color: blue;
+color: rgb(255, 0, 0);
 }
 
 p em{
@@ -15,6 +15,22 @@ p em{
 
 p a {
     color: red;
+}
+
+p a {
+ color: green;
+}
+
+p .especial {
+    color: violet;
+}
+
+p .destacado{
+    color: rgb(182, 158, 20);
+}
+
+p #especial {
+    color: rgb(132, 15, 143);
 }
 
 .special{
@@ -30,7 +46,47 @@ th,td{
     padding: 5px;
 }
 
-p.destacado{
-    color: brown;
+
+/*h2 {
+    color: blue; otra forma que id
+}*/
+
+#subtitulo {
+    color: blue;
 }
 
+a em {
+    color: blue;
+}
+
+caption {
+    display: none;
+}
+
+thead .especial {
+    color: rgb(255, 115, 0);
+}
+
+tfoot {
+    color: red;
+}
+
+td {
+    color: green;
+}
+
+tbody .especial {
+    color: rgb(255, 115, 0);
+}
+
+th {
+    color : red;
+}
+
+td strong {
+    color: rgb(255, 115, 0);
+    }
+
+div#adicional {
+color: rgb(141, 168, 22);
+}

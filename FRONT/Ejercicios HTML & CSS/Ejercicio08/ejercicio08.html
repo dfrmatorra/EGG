@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="ejercicio8.css" type="text/css">
 </head>
 <!--
 Definir las reglas CSS que permiten mostrar los enlaces con los siguientes estilos:
@@ -13,6 +14,52 @@ rojo #CC0000 y la letra de color blanco #FFF.
 • Los enlaces visitados se muestran en color gris claro #CCC.
 -->
 <body>
+    <header>
+        <a href="../../Ejercicios HTML & CSS/01miPrimerPagina.html"><img src="../../imagenes/ok.png" 
+            alt="home" width="100" height="150"></a>
+        <hgroup>
+            <h1>Página Personal</h1>
+            <h2 class="tagline">
+                A lot of effort went into making this effortless.
+            </h2>
+        </hgroup>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">gallery </a></li>
+            <li><a href="#">about</a></li>
+        </ul>
+    </nav>
+    <section class="articles">
+        <article>
+            <time datetime="25-07-2022">25 de Julio de 2022</time>
+            <h2 class="tagline">
+                <a href="https://www.travelday.com.mx/" target="_blank">Travel day</a>
+            </h2>
+            <div class="content">
+                Content goes here...
+            </div>
+            <section class="comments">
+                <p><a href="#">3 comments</a></p>
+            </section>
+        </article>
+    </section>
+    <aside>
+        <h3>
+          Contenido del aside se deberia mostrar al costado del section.
+       </aside>
+      <div style="color: #072edb; font-weight: bold">
+        <h3>Estas etiquetas van en azul y negrita</h3>
+        
+        </div>
+</body>
+<footer>
+    <h2 class="tagline">
+        "Esto fue todo por ahora"
+    </h2>
+</footer>
     
 </body>
 </html>
