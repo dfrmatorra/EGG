@@ -27,9 +27,9 @@ function calcularEstadisticas() {
     let promedio = suma / numeros.length;
 
     // Mostrar los resultados
-    console.log("Máximo número ingresado: " + maximo);
-    console.log("Mínimo número ingresado: " + minimo);
-    console.log("Promedio de los números ingresados: " + promedio);
+    alert("Máximo número ingresado: " + maximo);
+    alert("Mínimo número ingresado: " + minimo);
+    alert("Promedio de los números ingresados: " + promedio);
 }
 
 // Llamamos a la función para ejecutar el programa
