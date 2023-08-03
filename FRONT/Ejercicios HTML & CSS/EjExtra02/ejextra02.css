@@ -1,0 +1,22 @@
+table{
+    border-collapse: collapse ;
+}
+
+th,td{
+    text-align: center;
+    border: 1px black solid;
+    padding: 5px;
+}
+
+.table-light {
+    background-color: rgb(197, 195, 195);
+}
+
+#primCol {
+    background-color: rgb(219, 236, 241);
+    text-align: left;
+}
+
+.colFila {
+    background-color: rgb(238, 233, 188);
+}
