@@ -21,8 +21,8 @@ function calcularEstadisticas() {
     }
 
     // Calcular el máximo, mínimo y promedio de los números ingresados
-    let maximo = Math.max(numeros);
-    let minimo = Math.min(numeros);
+    let maximo = Number(Math.max(numeros));
+    let minimo = Number(Math.min(numeros));
     let suma = numeros.reduce((a, b) => a + b, 0);
     let promedio = suma / numeros.length;
 
