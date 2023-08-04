@@ -8,7 +8,7 @@ function calcularEstadisticas() {
 
         // Validar que el número ingresado sea un entero válido
         if (Number.isInteger(numero)) {
-            numeros.push(numero);
+            numeros.push(Number(numero));
         } else {
             alert("Ingrese un número entero válido.");
         }
@@ -21,8 +21,8 @@ function calcularEstadisticas() {
     }
 
     // Calcular el máximo, mínimo y promedio de los números ingresados
-    let maximo = Number(Math.max(numeros));
-    let minimo = Number(Math.min(numeros));
+    let maximo = Math.max(...numeros); // Utilizar spread operator para pasar los elementos del array como argumentos individuales
+    let minimo = Math.min(...numeros); // Utilizar spread operator para pasar los elementos del array como argumentos individuales
     let suma = numeros.reduce((a, b) => a + b, 0);
     let promedio = suma / numeros.length;
 
@@ -30,6 +30,10 @@ function calcularEstadisticas() {
     alert("Máximo número ingresado: " + maximo);
     alert("Mínimo número ingresado: " + minimo);
     alert("Promedio de los números ingresados: " + promedio);
+
+    console.log("Máximo número ingresado: " + maximo);
+    console.log("Mínimo número ingresado: " + minimo);
+    console.log("Promedio de los números ingresados: " + promedio);
 }
 
 // Llamamos a la función para ejecutar el programa
