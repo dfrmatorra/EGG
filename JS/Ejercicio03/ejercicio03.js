@@ -2,7 +2,7 @@
 edad se debe mostrar un mensaje indicándolo.*/
 
 // Leer el numero ingresado
-    do {
+    /*do {
         numero = parseFloat(prompt("Ingrese la edad:"));
 
         // Validar que el número ingresado sea un entero válido
@@ -27,4 +27,28 @@ function verificarEdad() {
         alert('Eres menor de edad.');
     }
 }
-verificarEdad();
+verificarEdad();*/
+
+const input = document.getElementById("input");
+const guardar = document.querySelector(".btn");
+const resultado = document.getElementById("resultado");
+
+guardar.addEventListener("click", () => {
+  let edad = parseInt(input.value);
+  if (isNaN(edad)){
+    alert("Ingrese un numero entero");
+    return;
+  }
+  if (edad <= 0){
+    alert("Ingrese un numero entero positivo");
+    return;
+  }
+  console.log("El boton fue presionado");
+  input.value = "";
+  console.log(edad + " años.");
+  if (edad>= 18){
+    resultado.textContent = `Es mayor de edad`;
+  }else{
+    resultado.textContent = `No es mayor de edad`;
+  }
+});

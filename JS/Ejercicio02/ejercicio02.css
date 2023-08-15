@@ -1,0 +1,60 @@
+body {
+
+    display: grid;
+    min-height: 100vh;
+    grid-template: auto 1fr auto;
+}
+
+/* Estilos generales para las notificaciones */
+.callout.error {
+    background-color: #dc3545;
+}
+
+.callout.info {
+    background-color: #198754;
+}
+
+.callout {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.lista-valores {
+    list-style: none;
+}
+
+.resultado::before {
+    content: "\2022";
+    margin-right: 8px;
+}
+const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement("div");
+  alertPlaceholder.innerHTML = "";
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+
+  alertPlaceholder.append(wrapper);
+
+  if (type === "success") {
+    setTimeout(() => {
+      location.reload();
+    }, 5000);
+  }
+  if (type === "danger") {
+    setTimeout(() => {
+      alertPlaceholder.innerHTML = "";
+    }, 5000);
+  }
+};
+appendAlert("Operación realizada con éxito.", "success");

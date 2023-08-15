@@ -129,6 +129,18 @@ const filtrar = () => {
         }
 }
 
+/*const img = document.getElementsByTagName("img");
+img.src = "https://lenguajejs.com/assets/logo.svg";
+img.alt = "Logo Javascript";
+//document.body.appendChild(img[0]);
+
+//img[0].remove();*/
+
+function muestraMensaje() {
+    const str = getElementById("precio");
+    str.textContent ="500";
+    }
+
 botonBusqueda.addEventListener("click" , filtrar) //cada vez que apretamos en el boton
 inputBusqueda.addEventListener("keyup" , filtrar) //cada vez que apretamos una tecla se activa el evento -- importante hacerlo sobre el input
 
