@@ -1,0 +1,18 @@
+.estiloFooter{
+    color: blue;
+    font-size: larger;
+    font-weight: 800;
+}
+
+.estiloMain {
+    padding: 10%;
+    color: rgb(0, 255, 0);
+    font-size: larger;
+    font-weight: 800;
+}
+
+.imagenCarta {
+    width: 250px;
+    height: auto;
+    align-self: center;
+}

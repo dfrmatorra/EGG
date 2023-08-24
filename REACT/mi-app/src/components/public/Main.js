@@ -1,0 +1,19 @@
+import React from 'react'
+import Carta from './Carta';
+import "./componente.css";
+
+const main = 'main con variable';
+
+const Main = () => {
+  return (
+    <div className='estiloMain'>
+      <p>
+        Esto es un test del {main}
+      </p>
+      <Carta/>
+      <Carta/>
+    </div>
+  )
+}
+
+export default Main
