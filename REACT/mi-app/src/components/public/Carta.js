@@ -5,7 +5,7 @@ import "./componente.css";
 
 const personaje = 'Esto es una prueba del personaje de un API'
 
-const Carta = () => {
+const Carta = (props) => {
   return (
     <div className="col">
       <div className="card shadow-sm">
@@ -19,6 +19,9 @@ const Carta = () => {
        
         <h3 className="m-2 text-center text-dark">{personaje}</h3>
         <div className="card-body">
+          <h1>
+            Hola {props.nombre}
+          </h1>
           <p className="card-text">
             This is a wider card with supporting text below as a natural lead-in
             to additional content. This content is a little bit longer.

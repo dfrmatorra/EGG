@@ -16,3 +16,22 @@
     height: auto;
     align-self: center;
 }
+
+.app-logo {
+    pointer-events:none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .app-logo {
+      animation: App-logo-spin infinite 15s linear;
+    }
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

@@ -10,10 +10,14 @@ const Main = () => {
       <p>
         Esto es un test del {main}
       </p>
-      <Carta/>
-      <Carta/>
+      <Carta nombre = 'Chiquito'/>
+      <Carta nombre = 'Filomena'/>
+
+    
     </div>
   )
 }
+
+
 
 export default Main
