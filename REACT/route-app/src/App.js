@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Notes from "./pages/Notes";
 import PageNotFound from "./pages/PageNotFound";
+import NavBar from './components/NavBar';
 
 const inlineStyle = {
   textDecoration: "none", // Por ejemplo, puedes añadir más estilos aquí
@@ -12,26 +13,14 @@ const inlineStyle = {
 
 function App() {
   return (
-    <BrowserRouter>
-      <header classsName='inlineStyle'>
-        <Link to="/" style={inlineStyle}>
-          Home
-        </Link>
-        <Link to="/About" style={inlineStyle}>
-          About
-        </Link>
-        <Link to="/Notes" style={inlineStyle}>
-          Notes
-        </Link>
-      </header>
+<div>
+<header class="open">
+	<div id="head">
+		<a href="/" id="logo" class="show"><span>ROBO</span><span>te</span><span>c</span><span>h</span></a>
+	</div>
+</header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Notes" element={<Notes />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+</div>
   );
 }
 
