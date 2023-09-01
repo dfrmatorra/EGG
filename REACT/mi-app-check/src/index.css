@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Estilos para el encabezado y la barra de navegación */
+header {
+  background-color: #333;
+  color: #fff;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+.slides {
+  display: flex; /* Activa el modo de visualización en línea horizontal */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: transform 0.5s ease-in-out;
+}
+.slides li {
+  flex: 0 0 auto; /* Para evitar que las imágenes cambien de tamaño */
+}
+
+.image {
+  width: 100%; /* Ajusta el ancho según necesites */
+  height: auto;
+  position: fixed;
+  z-index: 1; /* Asegura que las imágenes estén superpuestas */
+  transition: transform 0.5s ease-in-out;
+}
+
