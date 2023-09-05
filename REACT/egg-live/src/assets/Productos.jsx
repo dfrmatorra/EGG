@@ -6,10 +6,17 @@ export default function Productos() {
 
   useEffect(() => {
     obtenerProductos().then(data => 
-        // setProductos(data)
-        console.log(data)
+        setProductos(data)
+        //console.log(data)
         );
-  });
+  },[]);
 
-  return <div>Productos</div>;
+  return (
+  <div>
+    {
+    productos.map(producto => <Producto producto={producto}/>)
+  
+    }
+    </div>
+  )
 }
