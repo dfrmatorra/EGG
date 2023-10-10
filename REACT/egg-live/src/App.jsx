@@ -12,6 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Productos/>} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
