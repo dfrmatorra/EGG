@@ -10,10 +10,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NoticiaRepositorio extends JpaRepository<Noticia, Long>{
     
-    @Query("SELECT l FROM Libro l WHERE l.titulo = :titulo")
-    public Noticia buscraPorTitulo(@Param("titulo") String titulo);
-            
-    @Query("SELECT l FROM Libro l WHERE l.autor.nombre = :nombre")
-    public List<Noticia> buscarPorNoticia(@Param ("nombre") String nombre);
+    @Query("SELECT n FROM Noticia n WHERE n.titulo = :titulo")
+    public Noticia buscarPorTitulo(@Param("titulo") String titulo);
+
+
+    @Query("SELECT n FROM Noticia n WHERE n.titulo LIKE %:titulo%")
+    public List<Noticia> buscarPorTituloLike(@Param("titulo") String titulo);
+
+
+     @Query("SELECT n FROM Noticia n WHERE n.autor.nombre = :nombre")
+    public List<Noticia> buscarPorAutor(@Param ("nombre") String nombre);
+
+
+    @Query("SELECT n FROM Noticia n WHERE n.seccion.nombre = :nombre")
+    public List<Noticia> buscarPorSeccion(@Param ("nombre") String nombre);
     
 }

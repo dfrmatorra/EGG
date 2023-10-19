@@ -1,21 +1,16 @@
 package com.news.entidades;
 
+import org.w3c.dom.Text;
+
 import java.time.LocalDate;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-
-import javax.persistence.TemporalType;
-
-
+import javax.persistence.*;
 
 
 @Entity
 public class Noticia {
     @Id
-    private long isbn; 
+    private long id; 
     
     private String titulo;
     private String descripcion;
@@ -32,12 +27,12 @@ public class Noticia {
     public Noticia() {
     }
 
-    public long getIsbn() {
-        return isbn;
+    public long getId() {
+        return id;
     }
 
-    public void setIsbn(long isbn) {
-        this.isbn = isbn;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -52,6 +47,7 @@ public class Noticia {
         return descripcion;
     }
 
+    @Column
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

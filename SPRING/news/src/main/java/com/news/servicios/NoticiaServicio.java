@@ -26,9 +26,9 @@ public class NoticiaServicio {
     private SeccionRepositorio seccionRepositorio;
 
    @Transactional
-    public void crearNoticia(Long isbn, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException{
+    public void crearNoticia(Long id, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException{
         
-        validar(isbn, titulo, descripcion, idAutor, idSeccion);
+        validar(id, titulo, descripcion, idAutor, idSeccion);
         
         
         Optional<Autor> respuestaAutor = autorRepositorio.findById(idAutor);
@@ -49,7 +49,7 @@ public class NoticiaServicio {
       
         Noticia noticia = new Noticia();
         
-        noticia.setIsbn(isbn);
+        noticia.setId(id);
         noticia.setTitulo(titulo);
         noticia.setDescripcion(descripcion);
         noticia.setPublicacion(new Date());
@@ -69,11 +69,11 @@ public class NoticiaServicio {
         return noticias;
     }
     @Transactional
-    public void modificarNoticia(Long isbn, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException {
+    public void modificarNoticia(Long id, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException {
 
-        validar(isbn, titulo, descripcion, idAutor, idSeccion);
+        validar(id, titulo, descripcion, idAutor, idSeccion);
 
-        Optional<Noticia> respuestaNoticia = noticiaRepositorio.findById(isbn);
+        Optional<Noticia> respuestaNoticia = noticiaRepositorio.findById(id);
         Optional<Autor> respuestaAutor = autorRepositorio.findById(idAutor);
         Optional<Seccion> respuestaSeccion = seccionRepositorio.findById(idSeccion);
 
@@ -99,20 +99,20 @@ public class NoticiaServicio {
 
     }
     @Transactional
-    public Noticia getOne(Long isbn) {///TODO averigua que hace este metodo
-        return noticiaRepositorio.getOne(isbn);
+    public Noticia getOne(Long id) {///TODO averigua que hace este metodo
+        return noticiaRepositorio.getOne(id);
     }
 
-    private void validar(Long isbn, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException {
+    private void validar(Long id, String titulo, String descripcion, String idAutor, String idSeccion) throws MiException {
 
-        if (isbn == null) {
-            throw new MiException("isbn no puede estar vacio");
+        if (id == null) {
+            throw new MiException("id no puede estar vacio");
         }
         if (titulo.isEmpty() || titulo == null) {
             throw new MiException("titulo no puede ser nulo ni estar vacio");
         }
         if (descripcion == null) {
-            throw new MiException("descripcion no puede ser nulo ni estar vacio");
+            throw new MiException("descripcion no puede ser nulo");
         }
         if (idAutor.isEmpty() || idAutor == null) {
             throw new MiException("Autor no puede ser nulo ni estar vacio");
