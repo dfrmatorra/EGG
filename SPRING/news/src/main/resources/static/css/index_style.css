@@ -42,7 +42,13 @@ body {
 
 .containerImg{
     width: 20%;
+
 }
+.containerImg1{
+    width: 20%;
+    center;
+}
+
 
 .logo{
     width: 40%;
@@ -65,7 +71,7 @@ body {
     justify-content: end;
 }
 
-.contenedorLibros{
+.contenedorNoticias{
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -73,7 +79,7 @@ body {
     align-items: center;
 }
 
-.tituloLibros{
+.tituloNoticias{
     font-size: 22px;
     font-weight: 500;
 }

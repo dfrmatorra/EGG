@@ -29,10 +29,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <li><a class="dropdown-item" sec:authorize="hasAuthority('ADMIN')" th:href="@{/libro/registrar}">Crear Libro</a></li>
+                            <li><a class="dropdown-item" sec:authorize="hasAuthority('ADMIN')" th:href="@{/noticia/registrar}">Crear Noticia</a></li>
                             <li><hr class="dropdown-divider"></li>
 
-                            <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar Libros</a></li>
+                            <li><a class="dropdown-item" th:href="@{/noticia/lista}">Listar Noticias</a></li>
                         </ul>
                     </li>
 
@@ -58,10 +58,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <li><a class="dropdown-item" sec:authorize="hasAuthority('ADMIN')" th:href="@{/editorial/registrar}">Crear Editorial</a></li>
+                            <li><a class="dropdown-item" sec:authorize="hasAuthority('ADMIN')" th:href="@{/seccion/registrar}">Crear Seccion</a></li>
                             <li><hr class="dropdown-divider"></li>
 
-                            <li><a class="dropdown-item" th:href="@{/editorial/lista}">Listar Editoriales</a></li>
+                            <li><a class="dropdown-item" th:href="@{/seccion/lista}">Listar Seccion</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -105,7 +105,7 @@
                         <th scope="row" th:text="${autor.id}"></th>
                         <td th:text="${autor.nombre}"></td>
                         <td>
-<!--                            <a sec:authorize="hasRole('ADMIN')" th:href= "@{/autor/modificar/__${autor.id}__}"><i class="fas fa-feather-alt"></i> Modificar </a>-->
+<!--                           <a sec:authorize="hasRole('ADMIN')" th:href= "@{/autor/modificar/__${autor.id}__}"><i class="fas fa-feather-alt"></i> Modificar </a>-->
                             <a th:href= "@{/autor/modificar/__${autor.id}__}"><i class="fas fa-feather-alt"></i> Modificar </a>
 
                         </td>

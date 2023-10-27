@@ -57,14 +57,14 @@ public class NoticiaServicio {
         noticia.setSeccion(seccion);
 //
 //        Imagen imagen = imagenServicio.guardar(archivo);
-//        
+//
 //        noticia.setImagen(imagen);
         
         noticiaRepositorio.save(noticia);
     }
 
     public List<Noticia> listarNoticias() {
-        List<Noticia> noticias = new ArrayList();
+        List<Noticia> noticias = new ArrayList<>();
         noticias = noticiaRepositorio.findAll();
         return noticias;
     }
@@ -121,5 +121,14 @@ public class NoticiaServicio {
             throw new MiException("Seccion no puede ser nulo ni estar vacia");
         }
 
+    }
+
+
+
+    private void validar(Long idNoticia) throws MiException {
+
+        if (idNoticia == null) {
+            throw new MiException("id no puede estar vacio");
+        }
     }
 }

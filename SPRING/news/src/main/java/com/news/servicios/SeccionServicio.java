@@ -56,5 +56,9 @@ public class SeccionServicio {
             throw new MiException("el nombre de la seccion no puede ser nulo o estar vacio");
         }
     }
+    
+    public Seccion getOne(String id){
+        return seccionRepositorio.getOne(id);
+    }
 
 }
