@@ -64,6 +64,8 @@ public class UsuarioServicio implements UserDetailsService {
         if (respuesta.isPresent()) {
 
             Usuario usuario = respuesta.get();
+
+
             usuario.setNombre(nombre);
             usuario.setEmail(email);
 
