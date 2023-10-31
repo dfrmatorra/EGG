@@ -143,4 +143,21 @@ public class Casa {
         this.tipoVivienda = tipoVivienda;
     }
 
+    @Override
+    public String toString() {
+        return "Casa{" +
+                "id='" + id + '\'' +
+                ", calle='" + calle + '\'' +
+                ", numero=" + numero +
+                ", codPostal='" + codPostal + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", pais='" + pais + '\'' +
+                ", fechaDesde=" + fechaDesde +
+                ", fechaHasta=" + fechaHasta +
+                ", minDias=" + minDias +
+                ", maxDias=" + maxDias +
+                ", precio=" + precio +
+                ", tipoVivienda='" + tipoVivienda + '\'' +
+                '}';
+    }
 }

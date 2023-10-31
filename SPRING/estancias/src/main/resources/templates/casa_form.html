@@ -8,22 +8,55 @@
 <body>
 <div class="container-fluid m-5 contenedor">
 
-    <form class="formulario" th:action="@{/casa/registro/}" method="POST">
+    <form class="formulario" th:action="@{/casa/registro}" method="POST">
         <div class="form-group my-3">
-            <label class="mb-2">Cargar Casas</label>
-            <input type="text" class="form-control" name="calle" placeholder="Calle de la casa">
-            <input type="text" class="form-control" name="numero" placeholder="Numero de la casa">
-            <input type="text" class="form-control" name="codigoPostal" placeholder="Codigo postal de la casa">
-            <input type="text" class="form-control" name="ciudad" placeholder="Pais de la casa">
-            <input type="text" class="form-control" name="fechaDesde" placeholder="Fecha desde">
-            <input type="text" class="form-control" name="fechaHasta" placeholder="Fecha hasta">
-            <input type="text" class="form-control" name="minDias" placeholder="Minimo de dias">
-            <input type="text" class="form-control" name="maxDias" placeholder="Maximo de dias">
-            <input type="text" class="form-control" name="precio" placeholder="Precio por dia">
-            <input type="text" class="form-control" name="tipoVivienda" placeholder="Tipo de vivienda">
-
+            <label class="mb-2">Carga de Casas</label>
         </div>
-
+        <div class="form-group my-3">
+            <input type="text" class="form-control" name="calle" placeholder="Calle de la casa">
+        </div>
+        <div class="form-group my-3">
+            <input type="text" class="form-control" name="numero" placeholder="Numero de la casa">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="codPostal" placeholder="Codigo postal de la casa">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="ciudad" placeholder="Ciudad de la casa">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="pais" placeholder="Pais de la casa">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="fechaDesde" placeholder="Fecha desde 'mm/dd/aaaa'">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="fechaHasta" placeholder="Fecha hasta 'mm/dd/aaaa'">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="minDias" placeholder="Minimo de dias">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="maxDias" placeholder="Maximo de dias">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="precio" placeholder="Precio por dia">
+        </div>
+        <div class="form-group my-3">
+        <input type="text" class="form-control" name="tipoVivienda" placeholder="Tipo de vivienda">
+        </div>
+        <div th:if="${error!=null}" class="card text-white bg-danger mb-3 mensajeError" >
+            <div class="card-body">
+                <h5 class="card-title">Error 👎</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+        <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
         <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
     </form>
 </div>

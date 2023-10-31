@@ -18,7 +18,7 @@ public class CasaServicio {
     private CasaRepositorio casaRepositorio;
 
     @Transactional
-    void crearCasa(String calle, int numero, String codPostal, String ciudad, String pais,
+    public void crearCasa(String calle, int numero, String codPostal, String ciudad, String pais,
                    Date fechaDesde, Date fechaHasta, int minDias, int maxDias, double precio,
                    String tipoVivienda) throws MiException {
 
