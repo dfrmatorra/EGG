@@ -3,6 +3,7 @@ package com.egg.biblioteca.servicios;
 import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.entidades.Editorial;
 //import com.egg.biblioteca.entidades.Imagen;
+import com.egg.biblioteca.entidades.Imagen;
 import com.egg.biblioteca.entidades.Libro;
 import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
@@ -26,8 +27,8 @@ public class LibroServicio {
     private AutorRepositorio autorRepositorio;
     @Autowired
     private EditorialRepositorio editorialRepositorio;
-//    @Autowired
-//    private ImagenServicio imagenServicio;
+    @Autowired
+    private ImagenServicio imagenServicio;
 
     @Transactional
     public void crearLibro(MultipartFile archivo, Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial) throws MiException{
@@ -59,10 +60,10 @@ public class LibroServicio {
         libro.setAlta(new Date());
         libro.setAutor(autor);
         libro.setEditorial(editorial);
-//
-//        Imagen imagen = imagenServicio.guardar(archivo);
-//        
-//        libro.setImagen(imagen);
+
+        Imagen imagen = imagenServicio.guardar(archivo);
+
+        libro.setImagen(imagen);
         
         libroRepositorio.save(libro);
     }
@@ -113,13 +114,13 @@ public class LibroServicio {
             
             String idImagen = null;
             
-//            if (libro.getImagen() != null) {
-//                idImagen = libro.getImagen().getId();
-//            }
-//            
-//            Imagen imagen = imagenServicio.actualizar(idImagen, archivo);
-//            libro.setImagen(imagen);
-//            
+            if (libro.getImagen() != null) {
+                idImagen = libro.getImagen().getId();
+            }
+
+            Imagen imagen = imagenServicio.actualizar(archivo, idImagen);
+            libro.setImagen(imagen);
+
             libroRepositorio.save(libro);
             
         }

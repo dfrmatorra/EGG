@@ -24,9 +24,9 @@ public class Libro {
     
     @ManyToOne
     private Editorial editorial;
-//
-//    @OneToOne
-//    private Imagen imagen;
+
+    @OneToOne
+    private Imagen imagen;
     
     public Libro() {
     }
@@ -78,14 +78,14 @@ public class Libro {
     public void setEditorial(Editorial editorial) {
         this.editorial = editorial;
     }
-//
-//    public Imagen getImagen() {
-//        return imagen;
-//    }
-//
-//    public void setImagen(Imagen imagen) {
-//        this.imagen = imagen;
-//    }
-//    
+
+    public Imagen getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Imagen imagen) {
+        this.imagen = imagen;
+    }
+
     
 }
