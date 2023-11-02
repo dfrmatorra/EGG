@@ -26,10 +26,10 @@ public class CasaControlador {
     }
 
     @PostMapping("/registro")
-    public String registro(@RequestParam(required=false) String calle, @RequestParam(required=false) int numero, @RequestParam String codPostal,
-                           @RequestParam String ciudad, @RequestParam String pais, @RequestParam Date fechaDesde,
-                           @RequestParam Date fechaHasta, @RequestParam int minDias, @RequestParam int maxDias,
-                           @RequestParam double precio, @RequestParam String tipoVivienda, ModelMap modelo) {
+    public String registro(@RequestParam(required=false) String calle, @RequestParam(value = "numero", defaultValue = "0") int numero, @RequestParam(value = "codPostal", defaultValue = "0") String codPostal,
+                           @RequestParam String ciudad, @RequestParam String pais, @RequestParam  String fechaDesde,
+                           @RequestParam String fechaHasta, @RequestParam(value = "minDias", defaultValue = "0") int minDias, @RequestParam(value = "maxDias", defaultValue = "0") int maxDias,
+                           @RequestParam(value = "precio", defaultValue = "0") double precio, @RequestParam String tipoVivienda, ModelMap modelo) {
 
         try {
             casaServicio.crearCasa(calle, numero, codPostal, ciudad, pais, fechaDesde, fechaHasta, minDias, maxDias, precio, tipoVivienda);
@@ -40,7 +40,7 @@ public class CasaControlador {
             return "casa_form.html";
         }
 
-        return "index.html";
+        return "casa_form.html";
 
     }
 }

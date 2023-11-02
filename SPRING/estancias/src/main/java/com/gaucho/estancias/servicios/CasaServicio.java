@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,11 +21,10 @@ public class CasaServicio {
 
     @Transactional
     public void crearCasa(String calle, int numero, String codPostal, String ciudad, String pais,
-                   Date fechaDesde, Date fechaHasta, int minDias, int maxDias, double precio,
-                   String tipoVivienda) throws MiException {
+                          String fechaDesde, String fechaHasta, int minDias, int maxDias, double precio,
+                          String tipoVivienda) throws MiException {
 
         validar(calle, numero, codPostal, ciudad, pais, fechaDesde, fechaHasta, minDias, maxDias, precio, tipoVivienda);
-
         Casa casa = new Casa();
 
         casa.setCalle(calle);
@@ -31,8 +32,14 @@ public class CasaServicio {
         casa.setCodPostal(codPostal);
         casa.setCiudad(ciudad);
         casa.setPais(pais);
-        casa.setFechaDesde(fechaDesde);
-        casa.setFechaHasta(fechaHasta);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+        try {
+            casa.setFechaDesde(dateFormat.parse(fechaDesde));
+            casa.setFechaHasta(dateFormat.parse(fechaHasta));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         casa.setMinDias(3); //por default minimo de 3 dias
         casa.setMaxDias(15);// por default maximo de 15 dias
         casa.setPrecio(precio);
@@ -48,37 +55,15 @@ public class CasaServicio {
         return casas;
     }
 
-    @Transactional
-    public void modificarCasa(String id, String calle, int numero, String codPostal, String ciudad, String pais,
-                              Date fechaDesde, Date fechaHasta, int minDias, int maxDias, double precio,
-                              String tipoVivienda) throws MiException {
-
-        validar(calle, numero, codPostal, ciudad, pais, fechaDesde, fechaHasta, minDias, maxDias, precio, tipoVivienda);
-
-        Optional<Casa> respuesta = casaRepositorio.findById(id);
-
-        if(respuesta.isPresent()){
-            Casa casa = respuesta.get();
-            casa.setCalle(calle);
-            casa.setNumero(numero);
-            casa.setCodPostal(codPostal);
-            casa.setCiudad(ciudad);
-            casa.setPais(pais);
-            casa.setFechaDesde(fechaDesde);
-            casa.setFechaHasta(fechaHasta);
-            casa.setPrecio(precio);
-            casa.setTipoVivienda(tipoVivienda);
-
-            casaRepositorio.save(casa);
-        }
-    }
     public void validar(String calle, int numero, String codPostal, String ciudad, String pais,
-                         Date fechaDesde, Date fechaHasta, int minDias, int maxDias, double precio,
+                        String fechaDesde, String fechaHasta, int minDias, int maxDias, double precio,
                          String tipoVivienda) throws MiException {
+
+
         if(calle == null || calle.isEmpty()){
             throw new MiException("La calle es obligatoria");
         }
-        if(numero == 0){
+        if(numero == 0 ){
             throw new MiException("El numero no puede ser 0");
         }
         if(codPostal == null || codPostal.isEmpty()){
@@ -90,10 +75,10 @@ public class CasaServicio {
         if(pais == null || pais.isEmpty()){
             throw new MiException("El pais es obligatorio");
         }
-        if(fechaDesde == null){
+        if(fechaDesde == null || fechaDesde.isEmpty()){
             throw new MiException("La fecha desde es obligatoria");
         }
-        if(fechaHasta == null){
+        if(fechaHasta == null || fechaHasta.isEmpty()){
             throw new MiException("La fecha hasta es obligatoria");
         }
         if(minDias == 0){

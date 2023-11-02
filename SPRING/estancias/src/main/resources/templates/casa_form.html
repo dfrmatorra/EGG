@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Formulario de carga de Casa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -30,10 +30,10 @@
             <input type="text" class="form-control" name="calle" placeholder="Calle de la casa">
         </div>
         <div class="form-group my-3">
-            <input type="text" class="form-control" name="numero" placeholder="Numero de la casa">
+            <input type="number" class="form-control" name="numero" placeholder="Numero de la casa">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="codPostal" placeholder="Codigo postal de la casa">
+        <input type="number" class="form-control" name="codPostal" placeholder="Codigo postal de la casa">
         </div>
         <div class="form-group my-3">
         <input type="text" class="form-control" name="ciudad" placeholder="Ciudad de la casa">
@@ -42,19 +42,19 @@
         <input type="text" class="form-control" name="pais" placeholder="Pais de la casa">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="fechaDesde" placeholder="Fecha desde 'mm/dd/aaaa'">
+        <input type="text" class="form-control" name="fechaDesde" placeholder="Fecha desde 'MM/dd/yyyy'">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="fechaHasta" placeholder="Fecha hasta 'mm/dd/aaaa'">
+        <input type="text" class="form-control" name="fechaHasta" placeholder="Fecha hasta 'MM/dd/yyyy'">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="minDias" placeholder="Minimo de dias">
+        <input type="number" class="form-control" name="minDias" placeholder="Minimo de dias">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="maxDias" placeholder="Maximo de dias">
+        <input type="number" class="form-control" name="maxDias" placeholder="Maximo de dias">
         </div>
         <div class="form-group my-3">
-        <input type="text" class="form-control" name="precio" placeholder="Precio por dia">
+        <input type="number" class="form-control" name="precio" placeholder="Precio por dia">
         </div>
         <div class="form-group my-3">
         <input type="text" class="form-control" name="tipoVivienda" placeholder="Tipo de vivienda">
