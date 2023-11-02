@@ -2,13 +2,13 @@ package com.gaucho.estancias.controladores;
 import com.gaucho.estancias.excepciones.MiException;
 import com.gaucho.estancias.servicios.CasaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,11 +25,18 @@ public class CasaControlador {
         return "casa_form.html";
     }
 
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+
     @PostMapping("/registro")
-    public String registro(@RequestParam(required=false) String calle, @RequestParam(value = "numero", defaultValue = "0") int numero, @RequestParam(value = "codPostal", defaultValue = "0") String codPostal,
-                           @RequestParam String ciudad, @RequestParam String pais, @RequestParam  String fechaDesde,
-                           @RequestParam String fechaHasta, @RequestParam(value = "minDias", defaultValue = "0") int minDias, @RequestParam(value = "maxDias", defaultValue = "0") int maxDias,
-                           @RequestParam(value = "precio", defaultValue = "0") double precio, @RequestParam String tipoVivienda, ModelMap modelo) {
+    public String registro(@RequestParam(required=false) String calle, @RequestParam(value = "numero", defaultValue = "0") int numero,
+                           @RequestParam(value = "codPostal", defaultValue = "0") String codPostal, @RequestParam String ciudad, @RequestParam String pais,
+                           @RequestParam(required=false) Date fechaDesde, @RequestParam(required=false) Date fechaHasta, @RequestParam(value = "minDias", defaultValue = "0") int minDias,
+                           @RequestParam(value = "maxDias", defaultValue = "0") int maxDias, @RequestParam(value = "precio", defaultValue = "0") double precio,
+                           @RequestParam String tipoVivienda, ModelMap modelo) {
 
         try {
             casaServicio.crearCasa(calle, numero, codPostal, ciudad, pais, fechaDesde, fechaHasta, minDias, maxDias, precio, tipoVivienda);
